@@ -1,0 +1,13 @@
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .team {
+        justify-content: center;
+    }
+}

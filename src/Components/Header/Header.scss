@@ -1,0 +1,27 @@
+.header {
+    background-color: rgb(156, 190, 151);
+    display: flex;
+}
+
+.logo {
+    width: 150px;
+}
+
+.title {
+    color :rgb(0, 37, 8);
+    padding: 30px;
+}
+
+.buttonSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    border-radius: 5px;
+    border: solid 1px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.2rem;
+    background-color: rgb(233, 255, 220);
+}
