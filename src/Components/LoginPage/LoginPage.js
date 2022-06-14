@@ -32,11 +32,15 @@ function LoginPage(){
             </Form.Field>
             <Form.Field>
             <label>Mot de passe</label>
+<<<<<<< HEAD
             <input
             value={userPassword}              
             onChange={(e) => setUserPassword(e.target.value)}
             placeholder="Mot de passe" 
             type='password' />
+=======
+            <input type="password" placeholder="Mot de passe" />
+>>>>>>> origin/06-14-Alexandra
             </Form.Field>
             <Button type='submit'>Se connecter</Button>
         </Form>
