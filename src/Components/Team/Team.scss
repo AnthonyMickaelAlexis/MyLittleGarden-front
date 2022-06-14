@@ -1,13 +1,17 @@
 .team {
     display: flex;
     flex-wrap: wrap;
-    margin: 15px;
+    margin-top: 20px;
     justify-content: center;
     text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
     .team {
         justify-content: center;
     }
+}
+
+.card {
+    margin: 15px;
 }
