@@ -1,4 +1,4 @@
-import { Header } from 'semantic-ui-react';
+import Header from '../Header/Header';
 import errorLogo from '../../assets/images/404.gif';
 import Navigation from '../Navigation/Navigation';
 import './404.scss';

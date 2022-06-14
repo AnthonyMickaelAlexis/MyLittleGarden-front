@@ -2,7 +2,7 @@ import avatar from '../../assets/images/avatar.jpg';
 import './Team.scss';
 
 import React from 'react'
-import { Card, Header, Image } from 'semantic-ui-react'
+import { Card, Header, Image } from 'semantic-ui-react';
 import Navigation from '../Navigation/Navigation';
 
 const Team = () => (

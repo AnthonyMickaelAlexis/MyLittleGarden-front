@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Form, Header } from 'semantic-ui-react'
+import { Button, Form, Header } from 'semantic-ui-react';
+
 import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
 

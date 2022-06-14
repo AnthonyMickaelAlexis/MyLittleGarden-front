@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header } from 'semantic-ui-react';
+import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import './style.css';
 
