@@ -7,28 +7,13 @@ import Header from '../Header/Header';
 import Inscription from '../Inscription/Inscription'
 import LoginPage from '../LoginPage/LoginPage';
 import Error from '../404/404';
-<<<<<<< HEAD
-import axios from 'axios';
-=======
+//import axios from 'axios';
 import ContactForm from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 
->>>>>>> origin/06-14-Alexandra
 
 function App() {
   
-  axios.get('/home', {
-    baseURL: "https://oclock-my-little-garden.herokuapp.com/home",
-  })
-    .then((response) => {
-      console.log('reponse :', response);
-    })
-    .catch((error) => {
-      console.error('error :', error);
-    });
-  
-    
-
   return (
     <div className="app">
       <Header />
