@@ -5,7 +5,6 @@ import Inscription from '../Inscription/Inscription'
 import LoginPage from '../LoginPage/LoginPage';
 import Error from '../404/404';
 import HomePage from '../HomePage/HomePage';
-import Navigation from '../Navigation/Navigation';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Route path="/inscription" element={<Inscription />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/team" element={<Team />} />
-      <Route path="/navigation" element={<Navigation />} />
       {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
       <Route path="*" element={<Error />} />
     </Routes>
