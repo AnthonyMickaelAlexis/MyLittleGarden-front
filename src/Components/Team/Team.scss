@@ -1,13 +1,21 @@
 .team {
     display: flex;
     flex-wrap: wrap;
-    margin: 15px;
+    margin-top: 20px;
     justify-content: center;
     text-align: center;
 }
 
+<<<<<<< HEAD
 @media (max-width: 390px) {
+=======
+@media (max-width: 500px) {
+>>>>>>> 06-13-Alexandra
     .team {
         justify-content: center;
     }
+}
+
+.card {
+    margin: 15px;
 }
