@@ -12,7 +12,7 @@ const LoginPage = () => (
             </Form.Field>
             <Form.Field>
             <label>Mot de passe</label>
-            <input placeholder="Mot de passe" />
+            <input type="password" placeholder="Mot de passe" />
             </Form.Field>
             <Button type='submit'>Se connecter</Button>
         </Form>
