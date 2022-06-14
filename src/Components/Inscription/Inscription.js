@@ -4,6 +4,7 @@ import './InscriptionPage.scss';
 import PropTypes from 'prop-types';
 
 
+
 export default function Inscription(){
   
   const [userNickname, setUserNickname] = useState('');
