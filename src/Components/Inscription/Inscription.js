@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './style.css';
+import { Button, Form } from 'semantic-ui-react'
+import './InscriptionPage.scss';
+import PropTypes from 'prop-types';
 
 
 export default function Inscription(){
@@ -22,22 +24,34 @@ export default function Inscription(){
 
     console.log({userNickname},{userFirstName},{userLastName}, {userEmail}, {userPassword});
 
+    // si notre input à une valeur, on envoie le submit au parent
+    if (userNickname && userFirstName && userLastName && userEmail &&userPassword ) {
+      // on envoie le userNickname, userFirstName... au composant parent, on fait remonter l'evenement du onSubmit
+      setUserNickname('');//on reset les inputs
+      setUserLastName('');
+      setUserFirstName('');
+      setUserEmail('');
+      setUserPassword('');
+    }
   }
     return(
-      <>
-      <h1>Inscription</h1>
-        <div id='container-form'>
-          <form 
+      
+      <div className='inscriptionForm'>
+        <h1 className='connectionTitle'>Inscription pour {userNickname} {userLastName}</h1>
+          <Form 
             onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
           >
+          <Form.Field>
             <label className="field-label">Nom d'utilisateur</label>
             <input 
               value={userNickname }
               onChange={(e) => setUserNickname(e.target.value)}
               className="field-input" 
               type="text" 
-              placeholder="LaFourche65"
-            />   
+              placeholder="Codeur65"
+            />
+          </Form.Field>
+          <Form.Field>   
             <label htmlFor='name' className="field-label">Nom </label>
             <input 
               value={userLastName} 
@@ -45,7 +59,9 @@ export default function Inscription(){
               onChange={(e) => setUserLastName(e.target.value)}
               type="text" 
               placeholder="Tuche" 
-            /> 
+            />
+            </Form.Field>
+            <Form.Field> 
             <label className="field-label">Prenom </label>
             <input 
               value={userFirstName}
@@ -53,13 +69,17 @@ export default function Inscription(){
               onChange={(e) => setUserFirstName(e.target.value)}
               type="text" 
               placeholder="Jeremy"/> 
+            </Form.Field>
+            <Form.Field>
             <label>Adresse mail </label>
             <input 
               className="field-input" 
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
               type="text" 
-              placeholder="LaFourche65"/> 
+              placeholder="codeur65@gmail.com"/>
+            </Form.Field>
+            <Form.Field> 
             <label className="field-label">Nouveau mot de passe </label>
             <input 
               className="field-input"
@@ -68,11 +88,14 @@ export default function Inscription(){
               name="password" 
               type="password" 
               placeholder="Password" />
+            </Form.Field>
 
-            <button className="form-submit" type="submit">Valider</button>
-            </form>
+            <Button className="form-submit" type="submit">Valider</Button>
+            </Form>
         </div>
-        </>
     )
 }
 
+Form.propTypes = {
+  className: PropTypes.string,
+};
