@@ -1,23 +1,25 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Team from '../Team/Team';
-import Header from '../Header/Header';
 import Inscription from '../Inscription/Inscription'
 import LoginPage from '../LoginPage/LoginPage';
 import Error from '../404/404';
 import HomePage from '../HomePage/HomePage';
-import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
 
 function App() {
   return (
-    <div className="app">
-      <HomePage/>
-      <Header />
-      <Team />
-      <Inscription />
-      <LoginPage />
-      <Error />
-      <Footer/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/inscription" element={<Inscription />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/navigation" element={<Navigation />} />
+      {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
+      <Route path="*" element={<Error />} />
+    </Routes>
+  </BrowserRouter>
   );
 }
 

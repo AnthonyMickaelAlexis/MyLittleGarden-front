@@ -1,9 +1,14 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Header } from 'semantic-ui-react'
+import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
 
 const LoginPage = () => (
     <div className="loginForm">
+        <div>
+        <Navigation/>
+        <Header/>
+        </div>
         <h2 className="connectionTitle">Connexion</h2>
         <Form>
             <Form.Field>
