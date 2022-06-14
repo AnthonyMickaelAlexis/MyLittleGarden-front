@@ -35,10 +35,12 @@ export default function Inscription(){
       setUserPassword('');
     }
   }
+
     return(
       
       <div className='inscriptionForm'>
-        <h1 className='connectionTitle'>Inscription pour {userNickname} {userLastName}</h1>
+        <div className='ui message success'>Success</div>
+        <h1 className='connectionTitle'>Inscription</h1>
           <Form 
             onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
           >
@@ -49,7 +51,7 @@ export default function Inscription(){
               onChange={(e) => setUserNickname(e.target.value)}
               className="field-input" 
               type="text" 
-              placeholder="Codeur65"
+              placeholder="Nom d'utilisateur"
             />
           </Form.Field>
           <Form.Field>   
@@ -59,7 +61,7 @@ export default function Inscription(){
               className="field-input" 
               onChange={(e) => setUserLastName(e.target.value)}
               type="text" 
-              placeholder="Tuche" 
+              placeholder="Nom" 
             />
             </Form.Field>
             <Form.Field> 
@@ -69,7 +71,7 @@ export default function Inscription(){
               className="field-input"
               onChange={(e) => setUserFirstName(e.target.value)}
               type="text" 
-              placeholder="Jeremy"/> 
+              placeholder="Prenom"/> 
             </Form.Field>
             <Form.Field>
             <label>Adresse mail </label>
@@ -78,7 +80,7 @@ export default function Inscription(){
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
               type="text" 
-              placeholder="codeur65@gmail.com"/>
+              placeholder="Adresse mail"/>
             </Form.Field>
             <Form.Field> 
             <label className="field-label">Nouveau mot de passe </label>
@@ -88,7 +90,7 @@ export default function Inscription(){
               onChange={(e) => setUserPassword(e.target.value)}
               name="password" 
               type="password" 
-              placeholder="Password" />
+              placeholder="Nouveau mot de passe" />
             </Form.Field>
 
             <Button className="form-submit" type="submit">Valider</Button>

@@ -1,24 +1,33 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
 
 // Components imports
+import { Routes, Route } from "react-router-dom";
 import Team from '../Team/Team';
-import Header from '../Header/Header';
 import Inscription from '../Inscription/Inscription'
 import LoginPage from '../LoginPage/LoginPage';
+//import Header from '../Header/Header';
 import Error from '../404/404';
-//import axios from 'axios';
+import axios from 'axios';
 import ContactForm from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 
+import HomePage from '../HomePage/HomePage';
 
 function App() {
+  axios.get('/home', {
+    baseURL: "https://oclock-my-little-garden.herokuapp.com/",
+  })
+    .then((response) => {
+      console.log('reponse :', response);
+    })
+    .catch((error) => {
+      console.error('error :', error);
+    });
   
   return (
     <div className="app">
-      <Header />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<HomePage />} /> 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Inscription />} />
         {/* <Route path="/reference" element={<MentionsLegales />} /> */}
@@ -28,6 +37,7 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
+   
   );
 }
 

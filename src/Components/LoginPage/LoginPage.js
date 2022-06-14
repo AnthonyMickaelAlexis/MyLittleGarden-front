@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Header } from 'semantic-ui-react';
+
+import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
 import PropTypes from 'prop-types';
 
@@ -12,17 +14,25 @@ function LoginPage(){
     function handleSubmit(e) {
         setUserNickname(e.target.userNickname);
         setUserPassword(e.target.userPassword);
-
-        if (userNickname && userPassword)
+        console.log(userNickname, userPassword)
+        if (userNickname && userPassword){
         setUserNickname('');//on reset les inputs
         setUserPassword('');
+    
+}
     }
     return(
 
     <div className="loginForm">
         <h1 className="connectionTitle">Connexion</h1>
         <Form onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
->
+/>
+        <div>
+        <Navigation/>
+        <Header/>
+        </div>
+        <h2 className="connectionTitle">Connexion</h2>
+        <Form>
             <Form.Field>
             <label>Nom d'utilisateur</label>
             <input 
@@ -37,11 +47,10 @@ function LoginPage(){
             onChange={(e) => setUserPassword(e.target.value)}
             placeholder="Mot de passe" 
             type='password' />
-            <input type="password" placeholder="Mot de passe" />
             </Form.Field>
             <Button type='submit'>Se connecter</Button>
         </Form>
-  </div>
+    </div>
     )
 };
 
