@@ -23,11 +23,11 @@ function LoginPage(){
         setUserNickname(e.target.userNickname);
         setUserPassword(e.target.userPassword);
         if(userNickname === test.pseudo && userPassword === test.mdp){
-            console.log("c'est parfait")
+            console.log("Vous pouvez vous loguer")
         }else{
-            console.log('Les infos entrées ne sont pas les bonnes')
+            console.log('Veuillez recommencer')
         }
-console.log(userNickname, userPassword)
+    console.log(userNickname, userPassword)
 
 
         if (userNickname && userPassword){
