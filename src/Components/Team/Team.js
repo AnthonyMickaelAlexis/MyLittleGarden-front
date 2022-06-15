@@ -1,14 +1,11 @@
 import avatar from '../../assets/images/avatar.jpg';
 import './Team.scss';
-
 import React from 'react'
 import { Card, Header, Image } from 'semantic-ui-react';
-import Navigation from '../Navigation/Navigation';
 
 const Team = () => (
     <div className="team">
-        <Navigation/>
-        <Header/>
+        
         <div className="card">
              <Card>
                 <Image src={avatar} wrapped ui={false} />

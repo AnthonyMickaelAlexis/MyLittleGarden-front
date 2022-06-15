@@ -1,13 +1,13 @@
 .header {
-    // background-color: rgb(156, 190, 151);
-    background-color: rgba(198, 216, 200, 0.63);
+    background-color: #e6f4e5;
     display: flex;
-    display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .logo {
-    width: fit-content;
+    width: 120px;
+
+
 }
 
 @media (max-width: 500px) {

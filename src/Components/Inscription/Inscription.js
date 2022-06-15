@@ -4,6 +4,7 @@ import Navigation from '../Navigation/Navigation';
 import './style.css';
 
 
+
 export default function Inscription(){
   
   const [userNickname, setUserNickname] = useState('');
@@ -30,8 +31,6 @@ export default function Inscription(){
       <h1>Inscription</h1>
         <div id='container-form'>
           <div>
-          <Navigation/>
-          <Header/>
           </div>
           <form 
             onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 

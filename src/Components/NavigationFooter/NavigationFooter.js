@@ -1,29 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import './Navigation.scss';
+import './NavigationFooter.scss';
 
 const Navigation = () => {
   return (
     <div className="navigation">
       <ul>
-        <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-          <li>Accueil</li>
-        </NavLink>
         <NavLink
-          to="/inscription"
+          to="/cgu"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          <li>S'inscrire</li>
+          <li>Conditions générales d'utilisation</li>
         </NavLink>
         <NavLink
-          to="/login"
+          to="/team"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          <li>Se connecter</li>
+          <li>L'équipe</li>
         </NavLink> 
-        
-        
-        
       </ul>
     </div>
   );

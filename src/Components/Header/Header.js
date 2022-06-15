@@ -1,4 +1,5 @@
 import logo from '../../assets/images/logo.png';
+import Navigation from '../Navigation/Navigation';
 import './Header.scss';
 
 function Header() {
@@ -6,10 +7,10 @@ function Header() {
         <div className="header">
             
             <img src={logo} className="logo" alt="Logo My Little Garden" />
-            <h1 className="title">My Little Garden</h1>
             <div className="buttonSection">
-                <button className="button">S'inscrire</button>
-                <button className="button">Se connecter</button>
+                {/* <button className="button">S'inscrire</button>
+                <button className="button">Se connecter</button> */}
+                <Navigation/>
             </div>
         </div>
     );
