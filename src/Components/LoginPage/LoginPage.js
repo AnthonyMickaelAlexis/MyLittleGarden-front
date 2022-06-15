@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 //import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
-import PropTypes from 'prop-types';
+
 
 
 function LoginPage(){
@@ -64,8 +64,5 @@ function LoginPage(){
     )
 };
 
-Form.propTypes = {
-    className: PropTypes.string,
-  };
-  
+
 export default LoginPage;
