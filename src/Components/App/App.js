@@ -14,7 +14,8 @@ import CGU from '../CGU/CGU';
 import HomePage from '../HomePage/HomePage';
 
 function App() {
-  axios.get('/home', {
+
+   axios.get('/', {
     baseURL: "https://oclock-my-little-garden.herokuapp.com",
   })
     .then((response) => {
@@ -37,7 +38,7 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
-   
+    
   );
 }
 
