@@ -29,3 +29,5 @@ export async function requestRegister(user_name, firstname, lastname, email, pas
     });
     return response.data;
   }
+
+  
