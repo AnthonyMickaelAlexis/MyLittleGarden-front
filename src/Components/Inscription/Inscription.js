@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import './InscriptionPage.scss';
 import PropTypes from 'prop-types';

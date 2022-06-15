@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Form, Header } from 'semantic-ui-react';
 
 import Navigation from '../Navigation/Navigation';
@@ -10,29 +10,30 @@ function LoginPage(){
 
     const [userNickname, setUserNickname] = useState('');
     const [userPassword, setUserPassword] = useState('');
+    //const [error, setError] = useState("")
 
+   
     function handleSubmit(e) {
         setUserNickname(e.target.userNickname);
         setUserPassword(e.target.userPassword);
-        console.log(userNickname, userPassword)
+console.log(userNickname, userPassword)
+
+
         if (userNickname && userPassword){
         setUserNickname('');//on reset les inputs
         setUserPassword('');
-    
-}
+    }
     }
     return(
 
     <div className="loginForm">
+        <div>
+            <Navigation />
+            <Header />
+        </div>
         <h1 className="connectionTitle">Connexion</h1>
         <Form onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
-/>
-        <div>
-        <Navigation/>
-        <Header/>
-        </div>
-        <h2 className="connectionTitle">Connexion</h2>
-        <Form>
+>
             <Form.Field>
             <label>Nom d'utilisateur</label>
             <input 
@@ -50,7 +51,7 @@ function LoginPage(){
             </Form.Field>
             <Button type='submit'>Se connecter</Button>
         </Form>
-    </div>
+  </div>
     )
 };
 
