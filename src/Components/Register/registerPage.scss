@@ -1,4 +1,4 @@
-.inscriptionForm {
+.registerForm {
   margin: auto;
   width: 40rem;
   border: solid 1px rgb(0, 37, 8);
@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 800px) {
-  .inscriptionForm {
+  .registerForm {
       width: 70%;
   }
 }

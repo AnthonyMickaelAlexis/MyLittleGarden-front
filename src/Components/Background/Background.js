@@ -1,6 +1,5 @@
 import React from 'react';
 import background from "../../assets/images/principale.png";
-import Footer from '../Footer/Footer';
 import './Background.scss';
 
 
@@ -25,9 +24,7 @@ const Background = () => {
                          obcaecati minima fugit porro quisquam assumenda harum nobis nulla numquam corporis quo repellat blanditiis ea! Quam voluptatem a voluptates?
                         debitis doloremque eos magnam consequatur nisi neque explicabo praesentium delectus reiciendis alias, aliquid omnis vitae?</p>
                 </div>
-                <div className='footer'>
-                    <Footer/>
-                </div>
+                
         </div>
         
         

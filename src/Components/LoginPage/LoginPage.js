@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Button, Form, Header } from 'semantic-ui-react';
-
-import Navigation from '../Navigation/Navigation';
+import { Button, Form } from 'semantic-ui-react';
+//import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
 import PropTypes from 'prop-types';
 
@@ -39,8 +38,7 @@ function LoginPage(){
 
     <div className="loginForm">
         <div>
-            <Navigation />
-            <Header />
+        
         </div>
         <h1 className="connectionTitle">Connexion</h1>
         <Form onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 

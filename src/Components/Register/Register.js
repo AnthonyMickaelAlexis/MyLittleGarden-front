@@ -1,28 +1,31 @@
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
-import './InscriptionPage.scss';
+import './registerPage.scss';
 import PropTypes from 'prop-types';
 
 
 
-export default function Inscription(){
+export default function Register(){
   
   const [userNickname, setUserNickname] = useState('');
   const [userFirstName, setUserFirstName] = useState('');
   const [userLastName, setUserLastName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+  // States for checking the errors
+  //const [submitted, setSubmitted] = useState(false);
+  //const [error, setError] = useState(false);
 
-
-
+  //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
     setUserNickname(e.target.userNickname);
     setUserLastName(e.target.userLastName);
     setUserFirstName(e.target.userFirstName);
     setUserEmail(e.target.UserEmail);
-    setUserPassword(e.target.userPassword)
-
+    setUserPassword(e.target.userPassword);
+  
+    
     console.log({userNickname},{userFirstName},{userLastName}, {userEmail}, {userPassword});
 
     // si notre input à une valeur, on envoie le submit au parent
@@ -35,11 +38,12 @@ export default function Inscription(){
       setUserPassword('');
     }
   }
+//         <div className='ui message success'>Success</div>
 
     return(
       
-      <div className='inscriptionForm'>
-        <div className='ui message success'>Success</div>
+      <div className='registerForm'>
+       
         <h1 className='connectionTitle'>Inscription</h1>
           <Form 
             onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 

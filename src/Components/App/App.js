@@ -3,15 +3,16 @@ import React from 'react';
 // Components imports
 import { Routes, Route } from "react-router-dom";
 import Team from '../Team/Team';
-import Inscription from '../Inscription/Inscription'
+import Register from '../Register/Register';
 import LoginPage from '../LoginPage/LoginPage';
-//import Header from '../Header/Header';
 import Error from '../404/404';
 import axios from 'axios';
-import ContactForm from '../Contact/Contact';
+//import ContactForm from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 
 import HomePage from '../HomePage/HomePage';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 function App() {
 
@@ -26,19 +27,19 @@ function App() {
     });
   
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<HomePage />} /> 
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<Inscription />} />
-        {/* <Route path="/reference" element={<MentionsLegales />} /> */}
-        <Route path="/team" element={<Team />} />
-        <Route path="/contact" element={<ContactForm />} />
-        <Route path="/conditions" element={<CGU />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </div>
-    
+   <>
+    <Header/>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/cgu" element={<CGU/>} />
+      {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
+      <Route path="*" element={<Error />} />
+    </Routes>
+    <Footer/>
+    </>
   );
 }
 
