@@ -1,68 +1,88 @@
 import { useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
-//import Navigation from '../Navigation/Navigation';
+import { Button, Form, Header } from 'semantic-ui-react';
+import Validation from '../Validation/validation';
+import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
-
-
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 function LoginPage(){
     const test ={
         pseudo:'test',
         mdp:'test'
     }
-
-    const [userNickname, setUserNickname] = useState('');
-    const [userPassword, setUserPassword] = useState('');
-    //const [error, setError] = useState("");
-
    
-
+    const url = "https://oclock-my-little-garden.herokuapp.com/login";
+    const [user_name, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
 
     function handleSubmit(e) {
-        setUserNickname(e.target.userNickname);
-        setUserPassword(e.target.userPassword);
-        if(userNickname === test.pseudo && userPassword === test.mdp){
+        e.preventDefault();
+        setErrors(Validation(user_name, password))
+        axios.post(url, 
+            {user_name, password}
+          )     
+          .then((response) => {
+            console.log('reponse :', response);
+          })
+          .catch((error) => {
+            console.error('error :', error);
+          });
+
+        setUserName(e.target.user_name);
+        setPassword(e.target.password);
+        if(user_name === test.pseudo && password === test.mdp){
             console.log("Vous pouvez vous loguer")
         }else{
             console.log('Veuillez recommencer')
         }
-    console.log(userNickname, userPassword)
+    console.log(user_name, password)
 
 
-        if (userNickname && userPassword){
-        setUserNickname('');//on reset les inputs
-        setUserPassword('');
+        if (user_name && password){
+        setPassword('');//on reset les inputs
+        setUserName('');
     }
     }
     return(
 
     <div className="loginForm">
         <div>
-        
+            <Navigation />
+            <Header />
         </div>
         <h1 className="connectionTitle">Connexion</h1>
         <Form onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
 >
             <Form.Field>
-            <label>Nom d'utilisateur</label>
+            <label htmlFor='user_name'>Nom d'utilisateur</label>
             <input 
-            value={userNickname}
-            onChange={(e) => setUserNickname(e.target.value)}
+            name='user_name'
+            value={user_name}
+            onChange={(e) => setUserName(e.target.value)}
             placeholder="Nom d'utilisateur" />
             </Form.Field>
+            {errors.user_name &&<p className='error'>{errors.user_name}</p>}
             <Form.Field>
-            <label>Mot de passe</label>
+            <label htmlFor='password'>Mot de passe</label>
             <input
-            value={userPassword}              
-            onChange={(e) => setUserPassword(e.target.value)}
+            name='password'
+            value={password}              
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Mot de passe" 
             type='password' />
             </Form.Field>
+            {errors.password &&<p className='error'>{errors.password}</p>}
+
             <Button type='submit'>Se connecter</Button>
         </Form>
   </div>
     )
 };
 
-
+Form.propTypes = {
+    className: PropTypes.string,
+  };
+  
 export default LoginPage;
