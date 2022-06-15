@@ -15,7 +15,7 @@ import HomePage from '../HomePage/HomePage';
 
 function App() {
   axios.get('/home', {
-    baseURL: "https://oclock-my-little-garden.herokuapp.com/",
+    baseURL: "https://oclock-my-little-garden.herokuapp.com",
   })
     .then((response) => {
       console.log('reponse :', response);

@@ -7,15 +7,26 @@ import PropTypes from 'prop-types';
 
 
 function LoginPage(){
+    const test ={
+        pseudo:'test',
+        mdp:'test'
+    }
 
     const [userNickname, setUserNickname] = useState('');
     const [userPassword, setUserPassword] = useState('');
-    //const [error, setError] = useState("")
+    //const [error, setError] = useState("");
 
    
+
+
     function handleSubmit(e) {
         setUserNickname(e.target.userNickname);
         setUserPassword(e.target.userPassword);
+        if(userNickname === test.pseudo && userPassword === test.mdp){
+            console.log("c'est parfait")
+        }else{
+            console.log('Les infos entrées ne sont pas les bonnes')
+        }
 console.log(userNickname, userPassword)
 
 
