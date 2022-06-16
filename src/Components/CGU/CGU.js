@@ -3,9 +3,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 import './CGU.scss';
+import image from "../../assets/images/image1.jpg";
+
 
 
 const CGU = () => (
+  <div 
+  style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+  backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
     <div className="CGUAPage">
 <div className="CGUArea">
     <h2 className="connectionTitle">Conditions générales d'utilisation</h2>
@@ -21,6 +26,7 @@ const CGU = () => (
         Revenir à l'accueil
         </button>
     </Link>
+  </div>
   </div>
 )
 

@@ -2,8 +2,13 @@ import avatar from '../../assets/images/avatar.jpg';
 import './Team.scss';
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react';
+import image from "../../assets/images/image1.jpg";
+
 
 const Team = () => (
+    <div 
+            style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+            backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
     <div className="team">
         
         <div className="card">
@@ -65,7 +70,7 @@ const Team = () => (
                 </Card.Content>
         </Card>
         </div>
-        
+        </div>
   </div>
 )
 

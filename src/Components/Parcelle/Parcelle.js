@@ -1,9 +1,9 @@
 import './Parcelle.scss';
 
 //Parcel size : each square represents a vegetable
-// Vertical axix
+// Vertical axix (number of vertical boxes)
 const verticalSquaresWanted = 8;
-// y = horizontal axix
+// y = horizontal axix ((number of horizontal boxes))
 const horizontalSquaresWanted = 5;
 
 // A faire par la suite : laisser le choix de la taille à l'utilisateur

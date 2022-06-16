@@ -4,6 +4,8 @@ import './registerPage.scss';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Validation from '../Validation/validation';
+// import image from "../../assets/images/image1.jpg";
+import '../../../src/index.css';
 
 
 export default function Register(){
@@ -53,7 +55,8 @@ export default function Register(){
 //         <div className='ui message success'>Success</div>
 
     return(
-      
+      // <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+      //       backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
       <div className='registerForm'>
        
         <h1 className='connectionTitle'>Inscription</h1>
@@ -126,7 +129,15 @@ export default function Register(){
 
             <Button className="form-submit" type="submit">Valider</Button>
             </Form>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, sint animi repellendus eaque voluptate consequuntur ipsa! Iusto sapiente itaque dignissimos quasi, autem eius maxime. Cum, deserunt harum necessitatibus nobis dolores voluptatem tenetur. Nam ad, dolores autem, obcaecati accusamus ratione quisquam sed hic officia ipsa quaerat, excepturi delectus. Iste expedita architecto vitae odio natus. Asperiores commodi dicta dolore, vel sed eaque nostrum in tenetur explicabo perferendis consequuntur laborum porro esse veritatis, sunt expedita, hic qui! Laborum quis, repellendus sint architecto officia adipisci Lorem i lorem1000 psum dolor sit amet consectetur adipisicing elit. Ipsum libero minima laborum non magni aut recusandae nobis expedita voluptatum nostrum accusantium. lorem1000
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, sint animi repellendus eaque voluptate consequuntur ipsa! Iusto sapiente itaque dignissimos quasi, autem eius maxime. Cum, deserunt harum necessitatibus nobis dolores voluptatem tenetur. Nam ad, dolores autem, obcaecati accusamus ratione quisquam sed hic officia ipsa quaerat, excepturi delectus. Iste expedita architecto vitae odio natus. Asperiores commodi dicta dolore, vel sed eaque nostrum in tenetur explicabo perferendis consequuntur laborum porro esse veritatis, sunt expedita, hic qui! Laborum quis, repellendus sint architecto officia adipisci Lorem i lorem1000 psum dolor sit amet consectetur adipisicing elit. Ipsum libero minima laborum non magni aut recusandae nobis expedita voluptatum nostrum accusantium. lorem1000
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, sint animi repellendus eaque voluptate consequuntur ipsa! Iusto sapiente itaque dignissimos quasi, autem eius maxime. Cum, deserunt harum necessitatibus nobis dolores voluptatem tenetur. Nam ad, dolores autem, obcaecati accusamus ratione quisquam sed hic officia ipsa quaerat, excepturi delectus. Iste expedita architecto vitae odio natus. Asperiores commodi dicta dolore, vel sed eaque nostrum in tenetur explicabo perferendis consequuntur laborum porro esse veritatis, sunt expedita, hic qui! Laborum quis, repellendus sint architecto officia adipisci Lorem i lorem1000 psum dolor sit amet consectetur adipisicing elit. Ipsum libero minima laborum non magni aut recusandae nobis expedita voluptatum nostrum accusantium. lorem1000
+
+</p>
         </div>
+        // </div>
     )
 }
 
