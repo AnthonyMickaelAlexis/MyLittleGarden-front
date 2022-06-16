@@ -16,6 +16,8 @@ function LoginPage(){
     const [user_name, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    //const [isSubmitted, setIsSubmitted] = useState(false);
+
 
     function handleSubmit(e) {
         e.preventDefault();
