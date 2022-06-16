@@ -20,12 +20,14 @@ export default function Register(){
   //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors(Validation(user_name, password, firstName, lastName, email))
+    setErrors(Validation(user_name, password, firstName, lastName, email));
+
     axios.post(url, 
-      {user_name, firstName, lastName, email, password}
+      {user_name:user_name, firstName:firstName, lastName:lastName, email:email, password:password}
     )     
     .then((response) => {
       console.log('reponse :', response);
+      console.log(response.data)
     })
     .catch((error) => {
       console.error('error :', error);
@@ -98,10 +100,10 @@ export default function Register(){
               type="text" 
               placeholder="Prenom"/> 
             </Form.Field>
-            {errors.firsName &&<p className='error'>{errors.firsName}</p>}
+            {errors.firstName &&<p className='error'>{errors.firstName}</p>}
 
             <Form.Field>
-            <label htmlFor='email'>Adresse mail </label>
+            <label htmlFor='email'>Adresse mail</label>
             <input
               name='email' 
               className="field-input" 

@@ -20,11 +20,13 @@ function LoginPage(){
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(Validation(user_name, password))
+
         axios.post(url, 
-            {user_name, password}
+            {user_name:user_name, password:password}
           )     
           .then((response) => {
             console.log('reponse :', response);
+            console.log(response.data)
           })
           .catch((error) => {
             console.error('error :', error);
@@ -32,6 +34,7 @@ function LoginPage(){
 
         setUserName(e.target.user_name);
         setPassword(e.target.password);
+
         if(user_name === test.pseudo && password === test.mdp){
             console.log("Vous pouvez vous loguer")
         }else{

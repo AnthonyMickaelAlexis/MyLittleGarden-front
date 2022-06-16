@@ -16,7 +16,7 @@ import Footer from '../Footer/Footer';
 
 function App() {
 
-   axios.get('/', {
+   axios.get('/profil/users', {
     baseURL: "https://oclock-my-little-garden.herokuapp.com",
   })
     .then((response) => {
