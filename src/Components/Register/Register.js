@@ -20,12 +20,14 @@ export default function Register(){
   //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors(Validation(user_name, password, firstName, lastName, email))
+    setErrors(Validation(user_name, password, firstName, lastName, email));
+
     axios.post(url, 
-      {user_name, firstName, lastName, email, password}
+      {user_name:user_name, firstName:firstName, lastName:lastName, email:email, password:password}
     )     
     .then((response) => {
       console.log('reponse :', response);
+      console.log(response.data)
     })
     .catch((error) => {
       console.error('error :', error);
