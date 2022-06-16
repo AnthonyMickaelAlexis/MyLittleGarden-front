@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { Button, Form, Header } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import Validation from '../Validation/validation';
-import Navigation from '../Navigation/Navigation';
 import './LoginPage.scss';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+//import image from "../../assets/images/image1.jpg";
+import '../../../src/index.css';
+
 
 function LoginPage(){
     const test ={
@@ -18,14 +20,13 @@ function LoginPage(){
     const [errors, setErrors] = useState({});
     //const [isSubmitted, setIsSubmitted] = useState(false);
 
-
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(Validation(user_name, password))
+        //setIsSubmitted(true);
 
-        axios.post(url, 
-            {user_name:user_name, password:password}
-          )     
+       
+          axios.post(url, {user_name:user_name, password:password})     
           .then((response) => {
             console.log('reponse :', response);
             console.log(response.data)
@@ -50,13 +51,14 @@ function LoginPage(){
         setUserName('');
     }
     }
-    return(
 
-    <div className="loginForm">
-        <div>
-            <Navigation />
-            <Header />
-        </div>
+    return(
+        // <div 
+        //   style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+        //   backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+      
+       <div className="loginForm">
+
         <h1 className="connectionTitle">Connexion</h1>
         <Form onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
 >
@@ -82,7 +84,9 @@ function LoginPage(){
 
             <Button type='submit'>Se connecter</Button>
         </Form>
+
   </div>
+  // </div>
     )
 };
 

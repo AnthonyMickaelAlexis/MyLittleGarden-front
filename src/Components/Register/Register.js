@@ -4,6 +4,8 @@ import './registerPage.scss';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Validation from '../Validation/validation';
+import image from "../../assets/images/image1.jpg";
+import '../../../src/index.css';
 
 
 export default function Register(){
@@ -55,7 +57,8 @@ export default function Register(){
 //         <div className='ui message success'>Success</div>
 
     return(
-      
+      // <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+      //       backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
       <div className='registerForm'>
        
         <h1 className='connectionTitle'>Inscription</h1>
@@ -128,7 +131,9 @@ export default function Register(){
 
             <Button className="form-submit" type="submit">Valider</Button>
             </Form>
+           
         </div>
+        // </div>
     )
 }
 

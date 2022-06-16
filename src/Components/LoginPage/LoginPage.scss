@@ -1,17 +1,28 @@
+body{
+    box-sizing: border-box;
+    height: 100vh;
+}
+
 .loginForm {
     margin: auto;
     width: 40rem;
-    border: solid 1px rgb(0, 37, 8);
     padding: 30px 50px;
-    margin-top: 50px;
+    background-color: rgb(255, 255, 255);
+    // margin-top: 100px;
+    border-radius: 8px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 500px) {
+    body{
+        display: flex;
+        justify-content: center;
+    }
     .loginForm {
         width: 70%;
+        margin-top: 12.5rem;
     }
+    
 }
-
 .connectionTitle {
     margin-bottom: 30px;
     text-align: center;

@@ -13,9 +13,9 @@ export default function Validation(user_name, password, email, firstName, lastNa
     errors.lastName = "Votre Nom est nécessaire."
   }
   if(!email){
-    errors.email = "Un email est nécessaire."
+    errors.email = "Votre email est nécessaire."
   }else if(!/\S+@\.\S+/.test(email)){
-    errors.email= "Votre email n'est pas valide"
+    errors.email= "Votre email est invalide"
   }if(!password){
     errors.password = "Votre mot de passe est nécessaire."
   }else if(password.length < 3){

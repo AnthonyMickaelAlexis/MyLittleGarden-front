@@ -6,11 +6,11 @@ function Header() {
     return (
         <div className="headerBar">
             <img src={logo} className="logo" alt="Logo My Little Garden" />
-            <div className="buttonSection">
+            {/* <div className="buttonSection"> */}
                 {/* <button className="button">S'inscrire</button>
                 <button className="button">Se connecter</button> */}
                 <Navigation />
-            </div>
+            {/* </div> */}
         </div>
     );
   }
