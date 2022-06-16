@@ -7,13 +7,13 @@ export default function Validation(user_name, password, email, firstName, lastNa
     errors.user_name = "Votre Nom d'utilisateur est nécessaire."
   }
   if(!firstName){
-    errors.firstName = "Votre Nom d'utilisateur est nécessaire."
+    errors.firstName = "Votre Prenom est nécessaire."
   }
   if(!lastName){
-    errors.firstName = "Votre Nom d'utilisateur est nécessaire."
+    errors.lastName = "Votre Nom est nécessaire."
   }
   if(!email){
-    errors.email = "Votre mot de passe est nécessaire."
+    errors.email = "Un email est nécessaire."
   }else if(!/\S+@\.\S+/.test(email)){
     errors.email= "Votre email n'est pas valide"
   }if(!password){

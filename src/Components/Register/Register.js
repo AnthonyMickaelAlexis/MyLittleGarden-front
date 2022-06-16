@@ -100,10 +100,10 @@ export default function Register(){
               type="text" 
               placeholder="Prenom"/> 
             </Form.Field>
-            {errors.firsName &&<p className='error'>{errors.firsName}</p>}
+            {errors.firstName &&<p className='error'>{errors.firstName}</p>}
 
             <Form.Field>
-            <label htmlFor='email'>Adresse mail </label>
+            <label htmlFor='email'>Adresse mail</label>
             <input
               name='email' 
               className="field-input" 
