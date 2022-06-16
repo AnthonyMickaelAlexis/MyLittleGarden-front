@@ -9,6 +9,7 @@ import Error from '../404/404';
 import axios from 'axios';
 //import ContactForm from '../Contact/Contact';
 import CGU from '../CGU/CGU';
+import Parcelle from '../Parcelle/Parcelle';
 
 import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
