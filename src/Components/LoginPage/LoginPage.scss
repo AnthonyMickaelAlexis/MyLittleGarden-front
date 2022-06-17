@@ -13,6 +13,11 @@
     border-radius: 8px;
 }
 
+.connectionTitle {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 @media (max-width: 500px) {
     body{
         display: flex;
@@ -23,8 +28,4 @@
         margin-top: 12.5rem;
     }
     
-}
-.connectionTitle {
-    margin-bottom: 30px;
-    text-align: center;
 }

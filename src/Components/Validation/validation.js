@@ -1,16 +1,16 @@
 
-export default function Validation(user_name, password, email, firstName, lastName) {
+export default function Validation(user_name, password, email, fristname, lastname) {
 
   let errors={};
 
   if(!user_name){
     errors.user_name = "Votre Nom d'utilisateur est nécessaire."
   }
-  if(!firstName){
-    errors.firstName = "Votre Prenom est nécessaire."
+  if(!fristname){
+    errors.fristname = "Votre Prenom est nécessaire."
   }
-  if(!lastName){
-    errors.lastName = "Votre Nom est nécessaire."
+  if(!lastname){
+    errors.lastname = "Votre Nom est nécessaire."
   }
   if(!email){
     errors.email = "Votre email est nécessaire."

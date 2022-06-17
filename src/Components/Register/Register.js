@@ -4,15 +4,17 @@ import './registerPage.scss';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Validation from '../Validation/validation';
-import image from "../../assets/images/image1.jpg";
+//import image from "../../assets/images/image1.jpg";
 import '../../../src/index.css';
 
 
 export default function Register(){
   const url = "https://oclock-my-little-garden.herokuapp.com/register";
+  //const url = "http://localhost:8080/register";
+
   const [user_name, setUserName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstname, setfirstname] = useState('');
+  const [lastname, setlastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // States for checking the errors
@@ -22,10 +24,10 @@ export default function Register(){
   //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors(Validation(user_name, password, firstName, lastName, email));
+    setErrors(Validation(user_name, password, firstname, lastname, email));
 
     axios.post(url, 
-      {user_name:user_name, firstName:firstName, lastName:lastName, email:email, password:password}
+      {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password}
     )     
     .then((response) => {
       console.log('reponse :', response);
@@ -36,20 +38,20 @@ export default function Register(){
     });
 
     setUserName(e.target.user_name);
-    setFirstName(e.target.firsName);
-    setLastName(e.target.lastName);
+    setfirstname(e.target.firsName);
+    setlastname(e.target.lastname);
     setEmail(e.target.email);
     setPassword(e.target.password);
   
     
-    console.log({user_name},{firstName},{lastName}, {email}, {password});
+    console.log({user_name},{firstname},{lastname}, {email}, {password});
 
     // si notre input à une valeur, on envoie le submit au parent
-    if (user_name && firstName && lastName && email &&password ) {
-      // on envoie le userNickname, userFirstName... au composant parent, on fait remonter l'evenement du onSubmit
+    if (user_name && firstname && lastname && email &&password ) {
+      // on envoie le userNickname, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
       setUserName('');//on reset les inputs
-      setFirstName('');
-      setLastName('');
+      setfirstname('');
+      setlastname('');
       setEmail('');
       setPassword('');
     }
@@ -69,7 +71,7 @@ export default function Register(){
             <label htmlFor='name' className="field-label">Nom d'utilisateur</label>
             <input
               name='name' 
-              value={user_name }
+              value={user_name}
               onChange={(e) => setUserName(e.target.value)}
               className="field-input" 
               type="text" 
@@ -83,27 +85,27 @@ export default function Register(){
             <label htmlFor='name' className="field-label">Nom </label>
             <input 
               name='name'
-              value={lastName} 
+              value={lastname} 
               className="field-input" 
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={(e) => setlastname(e.target.value)}
               type="text" 
               placeholder="Nom" 
             />
             </Form.Field>
 
-            {errors.lastName &&<p className='error'>{errors.lastName}</p>}
+            {errors.lastname &&<p className='error'>{errors.lastname}</p>}
 
             <Form.Field> 
             <label htmlFor='name'className="field-label">Prenom </label>
             <input
               name='name' 
-              value={firstName}
+              value={firstname}
               className="field-input"
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => setfirstname(e.target.value)}
               type="text" 
               placeholder="Prenom"/> 
             </Form.Field>
-            {errors.firstName &&<p className='error'>{errors.firstName}</p>}
+            {errors.firstname &&<p className='error'>{errors.firstname}</p>}
 
             <Form.Field>
             <label htmlFor='email'>Adresse mail</label>
