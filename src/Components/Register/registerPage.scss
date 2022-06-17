@@ -1,0 +1,17 @@
+.registerForm {
+  margin: auto;
+  width: 40rem;
+  border: solid 1px rgb(0, 37, 8);
+  padding: 30px 50px;
+}
+
+@media (max-width: 800px) {
+  .registerForm {
+      width: 70%;
+  }
+}
+
+.connectionTitle {
+  margin-bottom: 30px;
+  text-align: center;
+}

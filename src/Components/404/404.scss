@@ -1,17 +1,29 @@
 .errorPage {
+    margin: 40px;
+}
+
+.pageTitle {
+    text-align: center;
 }
 
 .gifError {
     display: flex;
-    margin: auto;
+    margin: 30px auto;
+    width: 60vw;
 }
 
 .backToHomePage {
     display: flex;
-    margin: 15px auto;
+    margin: 40px auto;
     border-radius: 5px;
     border: solid 1px;
     padding: 10px;
     font-size: 1.2rem;
     background-color: rgb(233, 255, 220);
+}
+
+@media (max-width: 500px) {
+    .gifError {
+        width: 100vw;
+    }
 }
