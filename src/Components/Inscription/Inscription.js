@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
 import './style.css';
-
+import image from "../../assets/images/image1.jpg";
 
 
 export default function Inscription(){
@@ -28,13 +26,15 @@ export default function Inscription(){
   }
     return(
       <>
-      <h1>Inscription</h1>
-        <div id='container-form'>
-          <div>
-          </div>
-          <form 
+      <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+            backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+
+        <div className='container'>
+          <div className='container-form'>
+            <h1>Inscription</h1>
+              <form 
             onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
-          >
+             >
             <label className="field-label">Nom d'utilisateur</label>
             <input 
               value={userNickname }
@@ -72,11 +72,12 @@ export default function Inscription(){
               onChange={(e) => setUserPassword(e.target.value)}
               name="password" 
               type="password" 
-              placeholder="Password" />
-
+              placeholder="Password"/>
             <button className="form-submit" type="submit">Valider</button>
             </form>
+          </div>
         </div>
+      </div>
         </>
     )
 }

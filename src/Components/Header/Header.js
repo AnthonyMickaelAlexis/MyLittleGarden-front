@@ -4,14 +4,9 @@ import './Header.scss';
 
 function Header() {
     return (
-        <div className="header">
-            
-            <img src={logo} className="logo" alt="Logo My Little Garden" />
-            <div className="buttonSection">
-                {/* <button className="button">S'inscrire</button>
-                <button className="button">Se connecter</button> */}
-                <Navigation/>
-            </div>
+        <div className="header"> 
+            <img src={logo} className="logo" alt="Logo My Little Garden" /> 
+            <Navigation/> 
         </div>
     );
   }

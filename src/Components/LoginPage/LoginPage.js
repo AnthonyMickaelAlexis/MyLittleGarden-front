@@ -1,13 +1,16 @@
 import React from 'react'
-import { Button, Form, Header } from 'semantic-ui-react';
-import Navigation from '../Navigation/Navigation';
+import { Button, Form } from 'semantic-ui-react';
 import './LoginPage.scss';
+import image from "../../assets/images/image1.jpg";
+
 
 const LoginPage = () => (
+    <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
+            backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+    <div className='container'>
+
     <div className="loginForm">
-        <div>
         
-        </div>
         <h2 className="connectionTitle">Connexion</h2>
         <Form>
             <Form.Field>
@@ -20,7 +23,9 @@ const LoginPage = () => (
             </Form.Field>
             <Button type='submit'>Se connecter</Button>
         </Form>
-  </div>
+    </div>
+    </div>
+    </div>
 )
 
 export default LoginPage;

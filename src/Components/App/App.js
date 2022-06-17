@@ -11,6 +11,7 @@ import Footer from '../Footer/Footer';
 
 function App() {
   return (
+    
     <BrowserRouter>
     <Header/>
     <Routes>
@@ -24,6 +25,7 @@ function App() {
     </Routes>
     <Footer/>
   </BrowserRouter>
+    
   );
 }
 
