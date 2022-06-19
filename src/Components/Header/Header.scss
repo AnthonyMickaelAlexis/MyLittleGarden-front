@@ -9,10 +9,12 @@
     .headerBar {
         justify-content: flex-start;
     }
+
+    
 }
 
 .header {
-    background-color: #e6f4e5;
+    background-color: rgb(156, 190, 151);
 }
 
 .header {
@@ -21,8 +23,6 @@
 
 .logo {
     width: 120px;
-
-
 }
 
 @media (max-width: 500px) {
