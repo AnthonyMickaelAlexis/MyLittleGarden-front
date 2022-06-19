@@ -39,6 +39,7 @@ function App() {
       <Route path="/cgu" element={<CGU/>} />
       {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
       <Route path="*" element={<Error />} />
+      <Route path="/parcelle" element={<Parcelle />} />
     </Routes>
     <Footer/>
     </>

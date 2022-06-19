@@ -4,7 +4,7 @@ import './registerPage.scss';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Validation from '../Validation/validation';
-//import image from "../../assets/images/image1.jpg";
+// import image from "../../assets/images/image1.jpg";
 import '../../../src/index.css';
 
 
