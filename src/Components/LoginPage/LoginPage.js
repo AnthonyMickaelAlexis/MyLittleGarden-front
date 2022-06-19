@@ -9,10 +9,7 @@ import '../../../src/index.css';
 
 
 function LoginPage(){
-    const test ={
-        pseudo:'test',
-        mdp:'test'
-    }
+    
    
     const url = "https://oclock-my-little-garden.herokuapp.com/login";
    // const url = "http://localhost:8080/login";
@@ -86,11 +83,6 @@ function LoginPage(){
 
             <Button type='submit'>Se connecter</Button>
         </Form>
-<<<<<<< HEAD
-=======
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, sint animi repellendus eaque voluptate consequuntur ipsa! Iusto sapiente itaque dignissimos quasi, autem eius maxime. Cum, deserunt harum necessitatibus nobis dolores voluptatem tenetur. Nam ad, dolores autem, obcaecati accusamus ratione quisquam sed hic officia ipsa quaerat, excepturi delectus. Iste expedita architecto vitae odio natus. Asperiores commodi dicta dolore, vel sed eaque nostrum in tenetur explicabo perferendis consequuntur laborum porro esse veritatis, sunt expedita, hic qui! Laborum quis, repellendus sint architecto officia adipisci Lorem i lorem1000 psum dolor sit amet consectetur adipisicing elit. Ipsum libero minima laborum non magni aut recusandae nobis expedita voluptatum nostrum accusantium. lorem1000 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, sint animi repellendus eaque voluptate consequuntur ipsa! Iusto sapiente itaque dignissimos quasi, autem eius maxime. Cum, deserunt harum necessitatibus nobis dolores voluptatem tenetur. Nam ad, dolores autem, obcaecati accusamus ratione quisquam sed hic officia ipsa quaerat, excepturi delectus. Iste expedita architecto vitae odio natus. Asperiores commodi dicta dolore, vel sed eaque nostrum in tenetur explicabo perferendis consequuntur laborum porro esse veritatis, sunt expedita, hic qui! Laborum quis, repellendus sint architecto officia adipisci Lorem i lorem1000 psum dolor sit amet consectetur adipisicing elit. Ipsum libero minima laborum non magni aut recusandae nobis expedita voluptatum nostrum accusantium. lorem1000 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, sint animi repellendus eaque voluptate consequuntur ipsa! Iusto sapiente itaque dignissimos quasi, autem eius maxime. Cum, deserunt harum necessitatibus nobis dolores voluptatem tenetur. Nam ad, dolores autem, obcaecati accusamus ratione quisquam sed hic officia ipsa quaerat, excepturi delectus. Iste expedita architecto vitae odio natus. Asperiores commodi dicta dolore, vel sed eaque nostrum in tenetur explicabo perferendis consequuntur laborum porro esse veritatis, sunt expedita, hic qui! Laborum quis, repellendus sint architecto officia adipisci Lorem i lorem1000 psum dolor sit amet consectetur adipisicing elit. Ipsum libero minima laborum non magni aut recusandae nobis expedita voluptatum nostrum accusantium. lorem1000
-
->>>>>>> origin/06-17-Alexandra
 
   </div>
   // </div>

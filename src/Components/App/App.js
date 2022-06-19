@@ -6,7 +6,7 @@ import Team from '../Team/Team';
 import Register from '../Register/Register';
 import LoginPage from '../LoginPage/LoginPage';
 import Error from '../404/404';
-import axios from 'axios';
+//import axios from 'axios';
 //import ContactForm from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 import Parcelle from '../Parcelle/Parcelle';
@@ -17,16 +17,6 @@ import Footer from '../Footer/Footer';
 
 
 function App() {
-
-   axios.get('/profil/users', {
-    baseURL: "https://oclock-my-little-garden.herokuapp.com",
-  })
-    .then((response) => {
-      console.log('reponse :', response);
-    })
-    .catch((error) => {
-      console.error('error :', error);
-    });
   
   return (
    <>
