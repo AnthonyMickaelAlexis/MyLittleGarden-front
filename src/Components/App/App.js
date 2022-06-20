@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components imports
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Team from '../Team/Team';
 import Register from '../Register/Register';
 import LoginPage from '../LoginPage/LoginPage';
