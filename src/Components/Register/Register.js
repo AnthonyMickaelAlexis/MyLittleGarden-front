@@ -19,7 +19,7 @@ export default function Register(){
   const [password, setPassword] = useState('');
   // States for checking the errors
   
-  const [submitted, setSubmitted] = useState(false);
+  //const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState(false);
 
   //handleSubmit pour tout changement de state
@@ -34,7 +34,7 @@ export default function Register(){
     .then((response) => {
       console.log('reponse :', response);
       console.log(response.data)
-      setSubmitted(true)
+      //setSubmitted(true)
     })
     .catch((error) => {
       console.error('error :', error);
@@ -57,13 +57,11 @@ export default function Register(){
       setlastname('');
       setEmail('');
       setPassword('');
+
     }
   }
-//         <div className='ui message success'>Success</div>
-
     return(
-      // <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
-      //       backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+      
       <div className='registerForm'>
        
         <h1 className='connectionTitle'>Inscription</h1>
@@ -136,17 +134,8 @@ export default function Register(){
 
             <Button className="form-submit" type="submit">Valider</Button>
             </Form>
-<<<<<<< HEAD
            
-=======
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-
-
->>>>>>> origin/06-17-Alexandra
         </div>
-        // </div>
     )
 }
 
