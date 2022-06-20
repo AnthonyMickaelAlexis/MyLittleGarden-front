@@ -1,25 +1,38 @@
 .colonneFav {
-    width: 30vw;
+    width: 20vw;
     height: 100vh;
-    background-color: rgb(165, 142, 123);
+    background-color: rgb(137, 185, 110);
 }
 
-.toggler {
-    position: relative;
-    z-index: 1;
-    width: fit-content;
-    height: fit-content;
-    margin:auto;
-    display: block;
-    border-radius: 5%;
-    font-weight: bold;
-    font-size: 1em;
-  
-    &:hover {
-      background-color: rgb(152, 190, 140);
-    }
-  
-    &--open {
-      transform: rotate(90deg);
-    }
-  }
+.favButton {
+    width: 20vw;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.favTittle {
+    text-align: center;
+    padding: 20px;
+}
+
+.searchVegetable {
+    display: flex;
+    padding: 5px;
+    margin: auto;
+}
+
+.vegetableList {
+    list-style-type: none;
+}
+
+.vegetable {
+    margin: 15px;
+
+}
+
+.vegetable:hover {
+    background-color: rgb(134, 100, 56);
+    cursor: pointer;
+    transition-duration: 400ms;
+    content: attr(data-hover);
+}
