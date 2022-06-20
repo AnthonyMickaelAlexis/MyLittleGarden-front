@@ -2,6 +2,8 @@
     width: 20vw;
     height: 100vh;
     background-color: rgb(137, 185, 110);
+    display: flex;
+    flex-direction: column;
 }
 
 .favButton {
@@ -18,21 +20,35 @@
 .searchVegetable {
     display: flex;
     padding: 5px;
-    margin: auto;
+    width: 90%;
 }
 
 .vegetableList {
     list-style-type: none;
 }
 
-.vegetable {
-    margin: 15px;
-
+.vegetableSection {
+    border: solid 1px rgba(0, 0, 0, 0.479);
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
 }
 
-.vegetable:hover {
-    background-color: rgb(134, 100, 56);
-    cursor: pointer;
-    transition-duration: 400ms;
-    content: attr(data-hover);
+.vegetable {
+    margin: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.vegetableSection:hover {
+    background-color: rgb(202, 247, 166);
+    // cursor: pointer;
+    transition-duration: 800ms;
+}
+
+.vegetableIcon {
+    width: 50px;
 }

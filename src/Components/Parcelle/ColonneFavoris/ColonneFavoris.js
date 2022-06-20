@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import './ColonneFavoris.scss';
 
-function ColonneFavoris() {
+// Imports images
+import courgetteIcon from '../../../assets/images/imagesLegumes/courgette.png';
+import tomateIcon from '../../../assets/images/imagesLegumes/tomate.png';
+import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
 
-    const [show, setShow] = useState(true)
+
+function ColonneFavoris() {
+    
+    const [show, setShow] = useState(true);
 
     return (
         <div className="favoris">
             <button onClick={() => setShow(!show)} className="favButton"> 
+
                 Afficher/Masquer la liste des légumes
             </button>
             {
@@ -19,9 +26,24 @@ function ColonneFavoris() {
                         placeholder="Rechercher un légume"
                     />
                     <ul className="vegetableList">
-                        <li className="vegetable">Tomates</li>
-                        <li className="vegetable">Courgettes</li>
-                        <li className="vegetable">Haricots verts</li>
+                    <div className="vegetableSection">
+                        <li className="vegetable" >Tomates</li>
+                        <img src={courgetteIcon} className="vegetableIcon" alt="Icone courgette" />
+                        <button className="addToFav">Ajouter aux favoris</button>
+                        <button className="deleteFromFav">Supprimer des favoris</button>
+                    </div>
+                    <div className="vegetableSection">
+                        <li className="vegetable" >Courgettes</li>
+                        <img src={tomateIcon} className="vegetableIcon" alt="Icone tomate" />
+                        <button className="addToFav">Ajouter aux favoris</button>
+                        <button className="deleteFromFav">Supprimer des favoris</button>
+                    </div>                        
+                    <div className="vegetableSection">
+                        <li className="vegetable" >Haricots verts</li>
+                        <img src={aubergineIcon} className="vegetableIcon" alt="Icone aubergine" />
+                        <button className="addToFav">Ajouter aux favoris</button>
+                        <button className="deleteFromFav">Supprimer des favoris</button>
+                    </div>
                     </ul>
                 </div>:null
             }
@@ -33,6 +55,8 @@ export default ColonneFavoris;
 
 
 // A faire : 
+//     - Ajouter aux favoris
 //     - Faire fonctionner la recherche
+//     - Hover sur les légumes pour les infos
 //     - Adapter le texte du bouton afficher/masquer
 //     - Rendre dynamique la liste des légumes (BDD)
