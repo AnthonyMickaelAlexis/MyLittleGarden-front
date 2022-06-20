@@ -1,0 +1,25 @@
+.colonneFav {
+    width: 30vw;
+    height: 100vh;
+    background-color: rgb(165, 142, 123);
+}
+
+.toggler {
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    height: fit-content;
+    margin:auto;
+    display: block;
+    border-radius: 5%;
+    font-weight: bold;
+    font-size: 1em;
+  
+    &:hover {
+      background-color: rgb(152, 190, 140);
+    }
+  
+    &--open {
+      transform: rotate(90deg);
+    }
+  }
