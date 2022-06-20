@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {Navigate} from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import Validation from '../Validation/validation';
 import './LoginPage.scss';
@@ -17,7 +18,7 @@ function LoginPage(){
     const [user_name, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
-   // const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLogged, setIsLogged] = useState(false);
 
 
     function handleSubmit(e) {
@@ -29,23 +30,26 @@ function LoginPage(){
             console.log(response.data)
             console.log(response.data.access_token);
             localStorage.setItem("token", response.data.access_token);
+            setIsLogged(true);
           })
           .catch((error) => {
             console.error('error :', error);
           });
-
         setUserName(e.target.user_name);
         setPassword(e.target.password);
+        
 
-        if (user_name &&password ) {
+        if (user_name && password ) {
           // on envoie le user_name, password... au composant parent, on fait remonter l'evenement du onSubmit
           setUserName('');//on reset les inputs
           setPassword('');
         }
     }
-
+    if (isLogged) {
+      return <Navigate to='/parcelle' />
+     }else{
+      
     return(
-       
       
        <div className="loginForm">
 
@@ -75,9 +79,10 @@ function LoginPage(){
             <Button type='submit'>Se connecter</Button>
         </Form>
 
+        
   </div>
     )
-};
+}};
 
 
 

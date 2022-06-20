@@ -1,3 +1,4 @@
+import axios from 'axios';
 import './Parcelle.scss';
 
 //Parcel size : each square represents a vegetable
@@ -8,7 +9,18 @@ const horizontalSquaresWanted = 5;
 
 // A faire par la suite : laisser le choix de la taille à l'utilisateur
 
-function Parcelle() {
+//const url = "https://oclock-my-little-garden.herokuapp.com/profil/users";
+
+//axios.get("https://oclock-my-little-garden.herokuapp.com/profil/users", {
+//  headers: {
+//    Authorization: `bearer ${token}`
+//  },
+//})
+
+
+
+function Parcelle(props) {
+console.log(props.token)
 
     let parcelle = [];
 
