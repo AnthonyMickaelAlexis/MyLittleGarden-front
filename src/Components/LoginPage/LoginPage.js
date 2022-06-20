@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import Validation from '../Validation/validation';
 import './LoginPage.scss';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import axios from 'axios';
 //import image from "../../assets/images/image1.jpg";
 import '../../../src/index.css';
@@ -10,25 +10,25 @@ import '../../../src/index.css';
 
 function LoginPage(){
     
-   
     const url = "https://oclock-my-little-garden.herokuapp.com/login";
    // const url = "http://localhost:8080/login";
 
+// Mes states pour controller et mettre a jour mon state de départ
     const [user_name, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
-    //const [isSubmitted, setIsSubmitted] = useState(false);
+   // const [isSubmitted, setIsSubmitted] = useState(false);
+
 
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(Validation(user_name, password))
-        //setIsSubmitted(true);
-
-       
           axios.post(url, {user_name:user_name, password:password})     
           .then((response) => {
             console.log('reponse :', response);
             console.log(response.data)
+            console.log(response.data.access_token);
+            localStorage.setItem("token", response.data.access_token);
           })
           .catch((error) => {
             console.error('error :', error);
@@ -37,24 +37,15 @@ function LoginPage(){
         setUserName(e.target.user_name);
         setPassword(e.target.password);
 
-        if(user_name === test.pseudo && password === test.mdp){
-            console.log("Vous pouvez vous loguer")
-        }else{
-            console.log('Veuillez recommencer')
+        if (user_name &&password ) {
+          // on envoie le user_name, password... au composant parent, on fait remonter l'evenement du onSubmit
+          setUserName('');//on reset les inputs
+          setPassword('');
         }
-    console.log(user_name, password)
-
-
-        if (user_name && password){
-        setPassword('');//on reset les inputs
-        setUserName('');
-    }
     }
 
     return(
-        // <div 
-        //   style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
-        //   backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+       
       
        <div className="loginForm">
 
@@ -69,7 +60,7 @@ function LoginPage(){
             onChange={(e) => setUserName(e.target.value)}
             placeholder="Nom d'utilisateur" />
             </Form.Field>
-            {errors.user_name &&<p className='error'>{errors.user_name}</p>}
+            {errors.user_name && <p className='error'>{errors.user_name}</p>}
             <Form.Field>
             <label htmlFor='password'>Mot de passe</label>
             <input
@@ -79,18 +70,15 @@ function LoginPage(){
             placeholder="Mot de passe" 
             type='password' />
             </Form.Field>
-            {errors.password &&<p className='error'>{errors.password}</p>}
+            {errors.password && <p className='error'>{errors.password}</p>}
 
             <Button type='submit'>Se connecter</Button>
         </Form>
 
   </div>
-  // </div>
     )
 };
 
-Form.propTypes = {
-    className: PropTypes.string,
-  };
-  
+
+
 export default LoginPage;
