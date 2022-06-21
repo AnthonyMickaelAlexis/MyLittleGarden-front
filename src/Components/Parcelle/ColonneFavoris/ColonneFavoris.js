@@ -10,7 +10,7 @@ import axios from 'axios';
 // import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
 
 
-function ColonneFavoris() {
+function ColonneFavoris({ crops }) {
     
     // Button show/hide vegetable list
     const [show, setShow] = useState(true);
@@ -35,12 +35,17 @@ function ColonneFavoris() {
                         placeholder="Rechercher un légume"
                     />
                     <ul className="vegetableList">
-                    <div className="vegetableSection">
-                        <li className="vegetable" >Tomates</li>
-                        <img src={courgetteIcon} className="vegetableIcon" alt="Icone courgette" />
-                        <button className="addToFav" onClick={() => addToFav()}>Ajouter aux favoris</button>
-                        <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>
+                    {crops.map((crop) => {
+                        return ( 
+                            <li className="vegetableSection">
+                                <p className="vegetable">{crop.name}</p>
+                                <img src={crop.crop_img} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
+                                <button className="addToFav" onClick={() => addToFav()}>Ajouter aux favoris</button>
+                                <button className="deleteFromFav">Supprimer des favoris</button>
+                            </li>
+                        )
+                   
+                    })}
                     </ul>
                 </div>:null
             }

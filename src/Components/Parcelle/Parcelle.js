@@ -17,11 +17,11 @@ import "./Parcelle.scss";
 
 
 function Parcelle(props) {
-console.log(props.token)
+console.log(props.crops);
 
       return (
         <div className="ParcellePage">
-            <ColonneFavoris />
+            <ColonneFavoris crops = {props.crops}/>
             <Grille />
             <ColonneLegumes />
         </div>
