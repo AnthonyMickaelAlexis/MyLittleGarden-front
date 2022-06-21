@@ -3,14 +3,13 @@
 .text-on-image {
     
     // position: fixed; /* postulat de départ */
-    top: 50%; left: 50%; /* à 50%/50% du parent référent */
     background-color: rgba(48, 46, 46, 0.466);
     color: rgb(229, 240, 233);
     padding-left: 20px;
     padding-right: 20px;
-    max-width: 200px;
+    width: 600px;
     margin: auto;
-    height: 70%;
+    height: fit-content;
     text-align: center;
     box-shadow: black;
     border-radius: 5px;
@@ -24,6 +23,7 @@
 
 .container {
     height: 100vh;
+    display: flex;
 }
 
 
