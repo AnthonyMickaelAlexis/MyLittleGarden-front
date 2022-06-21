@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './ColonneFavoris.scss';
+// import PropTypes from 'prop-types';
+
 
 // Imports images
 import courgetteIcon from '../../../assets/images/imagesLegumes/courgette.png';
@@ -7,9 +9,12 @@ import tomateIcon from '../../../assets/images/imagesLegumes/tomate.png';
 import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
 
 
-function ColonneFavoris() {
+function ColonneFavoris({ infos }) {
     
     const [show, setShow] = useState(true);
+    const addToFav = () => {
+        alert('test');
+    };
 
     return (
         <div className="favoris">
@@ -29,7 +34,7 @@ function ColonneFavoris() {
                     <div className="vegetableSection">
                         <li className="vegetable" >Tomates</li>
                         <img src={courgetteIcon} className="vegetableIcon" alt="Icone courgette" />
-                        <button className="addToFav">Ajouter aux favoris</button>
+                        <button className="addToFav" onClick={() => addToFav()}>Ajouter aux favoris</button>
                         <button className="deleteFromFav">Supprimer des favoris</button>
                     </div>
                     <div className="vegetableSection">
@@ -39,11 +44,11 @@ function ColonneFavoris() {
                         <button className="deleteFromFav">Supprimer des favoris</button>
                     </div>                        
                     <div className="vegetableSection">
-                        <li className="vegetable" >Haricots verts</li>
+                        <li className="vegetable" >Aubergine</li>
                         <img src={aubergineIcon} className="vegetableIcon" alt="Icone aubergine" />
                         <button className="addToFav">Ajouter aux favoris</button>
                         <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>
+                    </div> 
                     </ul>
                 </div>:null
             }
