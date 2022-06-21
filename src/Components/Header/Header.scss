@@ -2,50 +2,9 @@
     background-color: #e6f4e5;
     display: flex;
     justify-content: space-evenly;
-    position: sticky;
+    width: 100%;
+    position: fixed;
 }
-
-@media (max-width: 500px) {
-    .headerBar {
-        justify-content: flex-start;
-    }
-
-    
-}
-
-.header {
-    background-color: rgb(156, 190, 151);
-}
-
-.header {
-    background-color: rgb(156, 190, 151);
-}
-
-.logo {
-    width: 120px;
-}
-
-@media (max-width: 500px) {
-    .logo {
-        width: 100px;
-        height: 100px;
-        margin: auto;
-    }
-}
-
-.title {
-    color :rgb(0, 37, 8);
-    padding: 30px;
-    margin: auto;
-    font-size: 2.8rem;
-}
-
-@media (max-width: 500px) {
-    .title {
-        font-size: 1.6rem;
-    }
-}
-
 .buttonSection {
     display: flex;
     flex-direction: column;
@@ -62,9 +21,43 @@
     background-color: rgb(233, 255, 220);
 }
 
-@media (max-width: 500px) {
-    .button {
-        font-size: 1.1rem;
-        padding: 5px;
-    }
+
+.header {
+    background-color: rgb(156, 190, 151);
 }
+
+.logo {
+    width: 120px;
+}
+
+@media (max-width: 500px) {
+    .headerBar {
+        background-color: #e6f4e5;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        position: fixed;
+    }
+    .logo {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+    .title {
+        font-size: 1.6rem;
+    }
+    .headerBar {
+justify-content: flex-start;
+} .button {
+    font-size: 1.1rem;
+    padding: 5px;
+}}
+
+.title {
+    color :rgb(0, 37, 8);
+    padding: 30px;
+    margin: auto;
+    font-size: 2.8rem;
+}
+
+

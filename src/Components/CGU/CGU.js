@@ -8,10 +8,8 @@ import image from "../../assets/images/image1.jpg";
 
 
 const CGU = () => (
-  <div 
-  style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
-  backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
-    <div className="CGUAPage">
+  <div >
+ 
 <div className="CGUArea">
     <h2 className="connectionTitle">Conditions générales d'utilisation</h2>
     <h3>Lorem ipsum</h3>
@@ -26,7 +24,6 @@ const CGU = () => (
         Revenir à l'accueil
         </button>
     </Link>
-  </div>
   </div>
 )
 

@@ -1,18 +1,30 @@
+#root {
+    background-image: url(../../assets/images/404.gif);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
 .team {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 100%;
 }
-
-@media (max-width: 500px) {
-    body{
-        display: flex;
-        justify-content: center;
-    }
-}
-
 .card {
     
     margin: 2rem;
 }
+
+@media (max-width: 500px) {
+    #root{
+        display: flex;
+        flex-shrink: 2;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+

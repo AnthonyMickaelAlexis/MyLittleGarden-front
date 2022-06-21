@@ -1,3 +1,4 @@
+
 .CGUArea {
     background-color: white;
     margin: auto;
@@ -5,14 +6,8 @@
     border-radius: 8px;
     padding: 30px 50px;
     // margin-top: 50px;
+        
 }
-
-@media (max-width: 900px) {
-    .CGUArea {
-        width: 70%;
-    }
-}
-
 .backToHomePageCGU {
     display: flex;
     margin: 30px auto;
@@ -21,4 +16,14 @@
     padding: 10px;
     font-size: 1.2rem;
     background-color: rgb(233, 255, 220);
+}  
+
+@media (max-width: 900px) {
+    
+    .CGUArea {
+        width: 60%;
+       display: flex; 
+       flex-direction: column;
+    }
 }
+

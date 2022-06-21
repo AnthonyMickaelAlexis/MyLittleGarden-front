@@ -14,9 +14,8 @@ import Parcelle from '../Parcelle/Parcelle';
 import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-//import Register2 from '../Register2/Register2';
-//import Login2 from '../Login2/Login2';
-import Profile from '../Profile/Profile';
+
+//import Profile from '../Profile/Profile';
 function App() {
 
 
@@ -27,11 +26,9 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<Register />} />
-      {/*<Route path="/register2" element={<Register2 />} /> */}
-      {/*<Route path="/login2" element={<Login2 />} /> */}
 
       <Route path="/parcelle" element={<Parcelle />} />
-      <Route path="/profile" element={<Profile />} />
+      {/*<Route path="/profile" element={<Profile />} />*/}
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/team" element={<Team />} />
