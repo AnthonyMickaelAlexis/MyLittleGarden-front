@@ -1,3 +1,9 @@
+body{
+  box-sizing: border-box;
+  background-image: url(../../assets/images/404.gif);
+  background-size: cover;
+  background-position: center;
+}
 .registerForm {
   background-color: white;
   margin: auto;
@@ -7,12 +13,18 @@
   margin-top: 50px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 500px) {
+
+  body{
+    display: flex;
+    justify-content: center;
+
+}
   .registerForm {
       width: 70%;
+      margin-top: 4.5rem;
   }
-}
-
+  }
 .connectionTitle {
   margin-bottom: 30px;
   text-align: center;

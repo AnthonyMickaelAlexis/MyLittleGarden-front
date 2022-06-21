@@ -10,53 +10,58 @@ import '../../../src/index.css';
 
 export default function Register(){
   const url = "https://oclock-my-little-garden.herokuapp.com/register";
+  //const url = "http://localhost:8080/register";
+
   const [user_name, setUserName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstname, setfirstname] = useState('');
+  const [lastname, setlastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // States for checking the errors
+  
   //const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState(false);
 
   //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors(Validation(user_name, password, firstName, lastName, email))
+
+    setErrors(Validation(user_name, password, firstname, lastname, email));
+
     axios.post(url, 
-      {user_name, firstName, lastName, email, password}
+      {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password}
     )     
     .then((response) => {
       console.log('reponse :', response);
+      console.log(response.data)
+      //setSubmitted(true)
     })
     .catch((error) => {
       console.error('error :', error);
     });
 
     setUserName(e.target.user_name);
-    setFirstName(e.target.firsName);
-    setLastName(e.target.lastName);
+    setfirstname(e.target.firsName);
+    setlastname(e.target.lastname);
     setEmail(e.target.email);
     setPassword(e.target.password);
   
     
-    console.log({user_name},{firstName},{lastName}, {email}, {password});
+    console.log(user_name,firstname,lastname, email, password);
 
     // si notre input à une valeur, on envoie le submit au parent
-    if (user_name && firstName && lastName && email &&password ) {
-      // on envoie le userNickname, userFirstName... au composant parent, on fait remonter l'evenement du onSubmit
+    if (user_name && firstname && lastname && email &&password ) {
+      // on envoie le userNickname, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
       setUserName('');//on reset les inputs
-      setFirstName('');
-      setLastName('');
+      setfirstname('');
+      setlastname('');
       setEmail('');
       setPassword('');
+
     }
   }
-//         <div className='ui message success'>Success</div>
-
     return(
-      // <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
-      //       backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+      
       <div className='registerForm'>
        
         <h1 className='connectionTitle'>Inscription</h1>
@@ -67,7 +72,7 @@ export default function Register(){
             <label htmlFor='name' className="field-label">Nom d'utilisateur</label>
             <input
               name='name' 
-              value={user_name }
+              value={user_name}
               onChange={(e) => setUserName(e.target.value)}
               className="field-input" 
               type="text" 
@@ -81,30 +86,30 @@ export default function Register(){
             <label htmlFor='name' className="field-label">Nom </label>
             <input 
               name='name'
-              value={lastName} 
+              value={lastname} 
               className="field-input" 
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={(e) => setlastname(e.target.value)}
               type="text" 
               placeholder="Nom" 
             />
             </Form.Field>
 
-            {errors.lastName &&<p className='error'>{errors.lastName}</p>}
+            {errors.lastname &&<p className='error'>{errors.lastname}</p>}
 
             <Form.Field> 
             <label htmlFor='name'className="field-label">Prenom </label>
             <input
               name='name' 
-              value={firstName}
+              value={firstname}
               className="field-input"
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => setfirstname(e.target.value)}
               type="text" 
               placeholder="Prenom"/> 
             </Form.Field>
-            {errors.firsName &&<p className='error'>{errors.firsName}</p>}
+            {errors.firstname &&<p className='error'>{errors.firstname}</p>}
 
             <Form.Field>
-            <label htmlFor='email'>Adresse mail </label>
+            <label htmlFor='email'>Adresse mail</label>
             <input
               name='email' 
               className="field-input" 
@@ -129,13 +134,8 @@ export default function Register(){
 
             <Button className="form-submit" type="submit">Valider</Button>
             </Form>
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-
-
+           
         </div>
-        // </div>
     )
 }
 

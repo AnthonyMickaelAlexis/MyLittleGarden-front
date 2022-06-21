@@ -1,7 +1,6 @@
 import logo from '../../assets/images/logo.png';
 import Navigation from '../Navigation/Navigation';
 import './Header.scss';
-
 function Header() {
     return (
         <div className="headerBar">
@@ -14,5 +13,4 @@ function Header() {
         </div>
     );
   }
-
 export default Header;

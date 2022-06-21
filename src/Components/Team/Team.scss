@@ -6,11 +6,13 @@
 }
 
 @media (max-width: 500px) {
-    .team {
+    body{
+        display: flex;
         justify-content: center;
     }
 }
 
 .card {
-    margin: 15px;
+    
+    margin: 2rem;
 }
