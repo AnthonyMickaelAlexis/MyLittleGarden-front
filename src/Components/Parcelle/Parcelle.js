@@ -2,8 +2,8 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import './Parcelle.scss';
 import Grille from "../Parcelle/Grille/Grille";
-import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
-import ColonneLegumes from './ColonneLegumes/ColonneLegumes';
+import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
+import ColonneFavoris from './ColonneFavoris/ColonneFavoris';
 import "./Parcelle.scss";
 
 //Ma requete pour les favoris du user
@@ -25,13 +25,13 @@ axios.get(baseURL, {
           });
 
 function Parcelle(props) {
-//console.log(props.token)
+console.log(props.crops);
 
       return (
         <div className="ParcellePage">
-            <ColonneFavoris />
+            <ColonneListeLegume crops = {props.crops}/>
             <Grille />
-            <ColonneLegumes />
+            <ColonneFavoris />
         </div>
       );
     };

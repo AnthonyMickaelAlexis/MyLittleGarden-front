@@ -51,8 +51,8 @@ function LoginPage(){
       
     return(
       
+        <div className='container'>
        <div className="loginForm">
-
         <h1 className="connectionTitle">Connexion</h1>
         <Form onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
 >
@@ -78,8 +78,7 @@ function LoginPage(){
 
             <Button type='submit'>Se connecter</Button>
         </Form>
-
-        
+        </div>
   </div>
     )
 }};
