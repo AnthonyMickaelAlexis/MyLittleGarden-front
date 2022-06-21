@@ -7,6 +7,8 @@ import tomateIcon from '../../../assets/images/imagesLegumes/tomate.png';
 import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
 
 
+
+
 function ColonneFavoris() {
     
     const [show, setShow] = useState(true);

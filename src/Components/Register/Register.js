@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
+import {Navigate} from 'react-router-dom';
+
 import './registerPage.scss';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import axios from 'axios';
 import Validation from '../Validation/validation';
 // import image from "../../assets/images/image1.jpg";
@@ -18,23 +20,25 @@ export default function Register(){
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // States for checking the errors
-  
-  //const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState(false);
+
+  const [submitted, setSubmitted] = useState(false);
 
   //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
-
+    //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
     setErrors(Validation(user_name, password, firstname, lastname, email));
 
+    //je fais une requete post en envoyant mon formulaire avec les 5 infos demandées. 
+    // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
     axios.post(url, 
-      {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password}
+    {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password}
     )     
     .then((response) => {
       console.log('reponse :', response);
       console.log(response.data)
-      //setSubmitted(true)
+      setSubmitted(true)
     })
     .catch((error) => {
       console.error('error :', error);
@@ -57,9 +61,12 @@ export default function Register(){
       setlastname('');
       setEmail('');
       setPassword('');
-
     }
   }
+    if (submitted) {
+      return <Navigate to='/login' />
+     }else{
+  
     return(
       
       <div className='registerForm'>
@@ -137,8 +144,5 @@ export default function Register(){
            
         </div>
     )
+  }
 }
-
-Form.propTypes = {
-  className: PropTypes.string,
-};

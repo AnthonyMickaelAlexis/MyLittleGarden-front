@@ -17,8 +17,10 @@ import Footer from '../Footer/Footer';
 //import Register2 from '../Register2/Register2';
 //import Login2 from '../Login2/Login2';
 import Profile from '../Profile/Profile';
-
+import { token } from '../LoginPage/LoginPage';
 function App() {
+
+
 
   return (
    <>
@@ -29,7 +31,7 @@ function App() {
       {/*<Route path="/register2" element={<Register2 />} /> */}
       {/*<Route path="/login2" element={<Login2 />} /> */}
 
-      <Route path="/parcelle" element={<Parcelle />} />
+      <Route path="/parcelle" element={<Parcelle token={token}/>} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<LoginPage />} />

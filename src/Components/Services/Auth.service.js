@@ -17,7 +17,7 @@ class AuthService {
       });
   }
   logout() {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   }
   register(user_name, email, firstname, lastname, password) {
     return axios.post(API_URL + "register", {
@@ -29,7 +29,7 @@ class AuthService {
     });
   }
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(localStorage.getItem('token'));;
   }
 }
 export default new AuthService();

@@ -9,8 +9,12 @@ import axios from 'axios';
 import '../../../src/index.css';
 
 
-function LoginPage(){
-    
+export const token = localStorage;
+//const userId = response.data.user.id
+
+function LoginPage({token }){
+  //userId = data.id;  
+  token = localStorage;
     const url = "https://oclock-my-little-garden.herokuapp.com/login";
    // const url = "http://localhost:8080/login";
 
@@ -19,7 +23,7 @@ function LoginPage(){
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
     const [isLogged, setIsLogged] = useState(false);
-
+ 
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -27,14 +31,13 @@ function LoginPage(){
           axios.post(url, {user_name:user_name, password:password})     
           .then((response) => {
             console.log('reponse :', response);
-            console.log(response.data)
-            console.log(response.data.access_token);
             localStorage.setItem("token", response.data.access_token);
             setIsLogged(true);
           })
           .catch((error) => {
             console.error('error :', error);
           });
+        
         setUserName(e.target.user_name);
         setPassword(e.target.password);
         
@@ -46,7 +49,7 @@ function LoginPage(){
         }
     }
     if (isLogged) {
-      return <Navigate to='/parcelle' />
+      return <Navigate to='/parcelle' token={token}/>
      }else{
       
     return(
