@@ -1,8 +1,8 @@
 //import axios from 'axios';
 import './Parcelle.scss';
 import Grille from "../Parcelle/Grille/Grille";
-import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
-import ColonneLegumes from './ColonneLegumes/ColonneLegumes';
+import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
+import ColonneFavoris from './ColonneFavoris/ColonneFavoris';
 import "./Parcelle.scss";
 
 
@@ -21,9 +21,9 @@ console.log(props.crops);
 
       return (
         <div className="ParcellePage">
-            <ColonneFavoris crops = {props.crops}/>
+            <ColonneListeLegume crops = {props.crops}/>
             <Grille />
-            <ColonneLegumes />
+            <ColonneFavoris />
         </div>
       );
     };
