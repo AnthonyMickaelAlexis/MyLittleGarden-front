@@ -1,17 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ColonneFavoris.scss';
+// import PropTypes from 'prop-types';
+
 
 // Imports images
 import courgetteIcon from '../../../assets/images/imagesLegumes/courgette.png';
-import tomateIcon from '../../../assets/images/imagesLegumes/tomate.png';
-import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
+import axios from 'axios';
+// import tomateIcon from '../../../assets/images/imagesLegumes/tomate.png';
+// import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
 
 
 
 
 function ColonneFavoris() {
     
+    // Button show/hide vegetable list
     const [show, setShow] = useState(true);
+    
+    const addToFav = () => {
+        console.log('ça marche');
+    };
+
 
     return (
         <div className="favoris">
@@ -31,19 +40,7 @@ function ColonneFavoris() {
                     <div className="vegetableSection">
                         <li className="vegetable" >Tomates</li>
                         <img src={courgetteIcon} className="vegetableIcon" alt="Icone courgette" />
-                        <button className="addToFav">Ajouter aux favoris</button>
-                        <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>
-                    <div className="vegetableSection">
-                        <li className="vegetable" >Courgettes</li>
-                        <img src={tomateIcon} className="vegetableIcon" alt="Icone tomate" />
-                        <button className="addToFav">Ajouter aux favoris</button>
-                        <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>                        
-                    <div className="vegetableSection">
-                        <li className="vegetable" >Haricots verts</li>
-                        <img src={aubergineIcon} className="vegetableIcon" alt="Icone aubergine" />
-                        <button className="addToFav">Ajouter aux favoris</button>
+                        <button className="addToFav" onClick={() => addToFav()}>Ajouter aux favoris</button>
                         <button className="deleteFromFav">Supprimer des favoris</button>
                     </div>
                     </ul>
@@ -58,6 +55,7 @@ export default ColonneFavoris;
 
 // A faire : 
 //     - Ajouter aux favoris
+//     - Supprimer des favoris
 //     - Faire fonctionner la recherche
 //     - Hover sur les légumes pour les infos
 //     - Adapter le texte du bouton afficher/masquer

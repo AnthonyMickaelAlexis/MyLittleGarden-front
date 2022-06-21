@@ -2,6 +2,7 @@ import axios from 'axios';
 import './Parcelle.scss';
 import Grille from "../Parcelle/Grille/Grille";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
+import ColonneLegumes from './ColonneLegumes/ColonneLegumes';
 import "./Parcelle.scss";
 import {token} from '../LoginPage/LoginPage';
 
@@ -27,6 +28,7 @@ function Parcelle(props) {
         <div className="ParcellePage">
             <ColonneFavoris />
             <Grille />
+            <ColonneLegumes />
         </div>
       );
     };

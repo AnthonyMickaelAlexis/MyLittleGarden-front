@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   background-size: cover; 
+  color: blueviolet;
   background: url(../src/assets/images/image1.jpg) no-repeat center fixed;
 }
 
