@@ -1,14 +1,17 @@
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 import './Parcelle.scss';
 import Grille from "../Parcelle/Grille/Grille";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
 import ColonneLegumes from './ColonneLegumes/ColonneLegumes';
 import "./Parcelle.scss";
-import {token} from '../LoginPage/LoginPage';
 
-console.log(token)
 //Ma requete pour les favoris du user
-const baseURL = `https://oclock-my-little-garden.herokuapp.com/:userid/favori`;//${token.user.id}
+const token = localStorage.getItem('token');
+const jwtDecoded = jwtDecode(token);
+console.log(jwtDecoded.id)
+
+const baseURL = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/favori`;//${token.user.id}
 axios.get(baseURL, {
             headers: {
             Authorization: `bearer ${token}`

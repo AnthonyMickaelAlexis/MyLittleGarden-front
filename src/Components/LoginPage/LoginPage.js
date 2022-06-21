@@ -9,12 +9,9 @@ import axios from 'axios';
 import '../../../src/index.css';
 
 
-export const token = localStorage;
-//const userId = response.data.user.id
 
-function LoginPage({token }){
-  //userId = data.id;  
-  token = localStorage;
+function LoginPage(){
+  
     const url = "https://oclock-my-little-garden.herokuapp.com/login";
    // const url = "http://localhost:8080/login";
 
@@ -49,7 +46,7 @@ function LoginPage({token }){
         }
     }
     if (isLogged) {
-      return <Navigate to='/parcelle' token={token}/>
+      return <Navigate to='/parcelle' />
      }else{
       
     return(
