@@ -1,19 +1,33 @@
 import {  useState } from 'react';
 import './ColonneListeLegumes.scss';
-//import PropTypes from 'prop-types';
+import jwtDecode from 'jwt-decode';
 
+import axios from 'axios';
 
 
 function ColonneListeLegumes({ crops }) {
     
     // Button show/hide vegetable list
     const [show, setShow] = useState(true);
+    
+    const addToFav = async (cropId) => {
+        // const cropToFind = crops.find((crop) => id === crop.id)
+        // console.log(cropToFind);
+        // let cropsFav = [];
+        // console.log(cropsFav);
+        try {
+            const token = localStorage.getItem('token');
+        const jwtDecoded = jwtDecode(token);
 
-    const addToFav = (id) => {
-        const cropToFind = crops.find((crop) => id === crop.id)
-        console.log(cropToFind);
-        let cropsFav = [];
-        console.log(cropsFav);
+            console.log(token);
+            const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
+            axiosInstance.defaults.headers.authorization = `bearer ${token}`
+            const axiosRequest = await axiosInstance.post(`/${cropId}/${jwtDecoded.id}`)
+            console.log(axiosRequest);
+        } catch (error) {
+            console.log(error);
+        }
+
     };
     
     
