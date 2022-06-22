@@ -3,21 +3,24 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
+    
 }
 
 .team {
+    margin-top: 15rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%;
 }
 .card {
     
     margin: 2rem;
 }
-
+.footer{
+position:fixed;
+}
 @media (max-width: 500px) {
     #root{
         display: flex;

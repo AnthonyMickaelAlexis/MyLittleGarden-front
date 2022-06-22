@@ -1,25 +1,20 @@
-//#root{
-////    box-sizing: border-box;
-////    height: 100vh;
-////    background-size: cover;
-////}
-//
+
 
 .container {
     height: 100vh;
-    display: flex;
-    justify-content: center;
+   
 }
 
 .loginForm {
+    margin-right: 30rem;
     width: 40rem;
     padding: 30px 50px;
     background-color: rgb(255, 255, 255);
-    // margin-top: auto;
+    position: relative; 
     border-radius: 8px;
     height: fit-content;
     margin: auto;
-    position: absolute;
+    margin-bottom: 20rem;
     top: 50%; /* poussé de la moitié de hauteur du référent */
     transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
