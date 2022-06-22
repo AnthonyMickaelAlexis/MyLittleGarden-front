@@ -13,6 +13,12 @@ const Navigation = () => {
           <li>Conditions générales d'utilisation</li>
         </NavLink>
         <NavLink
+          to="/contact"
+          className={(nav) => (nav.isActive ? "nav-active" : "")}
+        >
+          <li>Contact</li>
+        </NavLink> 
+        <NavLink
           to="/team"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >

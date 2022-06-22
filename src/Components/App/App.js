@@ -47,6 +47,8 @@ useEffect (() => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/team" element={<Team />} />
+      <Route path="/contact" element={<Contact />} />
+
       <Route path="/cgu" element={<CGU/>} />
       {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
       <Route path="*" element={<Error />} />
