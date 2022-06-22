@@ -34,6 +34,7 @@ useEffect (() => {
   getCrop();
 }, []) 
 
+
   return (
    <>
     <Header/>
@@ -42,7 +43,7 @@ useEffect (() => {
       <Route path="/register" element={<Register />} />
 
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
-      <Route path="/profile" element={<Profile />} />
+      {/* <Route path="/profile" element={<Profile />} /> */}
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/team" element={<Team />} />

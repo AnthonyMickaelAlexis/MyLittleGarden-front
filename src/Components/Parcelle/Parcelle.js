@@ -25,7 +25,6 @@ axios.get(baseURL, {
           });
 
 function Parcelle(props) {
-console.log(props.crops);
 
       return (
         <div className="ParcellePage">
