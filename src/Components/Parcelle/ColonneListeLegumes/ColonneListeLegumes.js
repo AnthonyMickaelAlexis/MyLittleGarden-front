@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './ColonneListeLegumes.scss';
-import PropTypes from 'prop-types';
 import jwtDecode from 'jwt-decode';
 
 import axios from 'axios';
@@ -74,4 +73,3 @@ export default ColonneListeLegumes;
 //     - Faire fonctionner la recherche
 //     - Hover sur les légumes pour les infos
 //     - Adapter le texte du bouton afficher/masquer
-//     - Rendre dynamique la liste des légumes (BDD)
