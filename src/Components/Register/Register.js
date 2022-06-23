@@ -18,12 +18,14 @@ export default function Register(){
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // States for checking the errors
+  
   //const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState(false);
 
   //handleSubmit pour tout changement de state
   function handleSubmit(e) {
     e.preventDefault();
+
     setErrors(Validation(user_name, password, firstname, lastname, email));
 
     axios.post(url, 
@@ -32,6 +34,7 @@ export default function Register(){
     .then((response) => {
       console.log('reponse :', response);
       console.log(response.data)
+      //setSubmitted(true)
     })
     .catch((error) => {
       console.error('error :', error);
@@ -44,7 +47,7 @@ export default function Register(){
     setPassword(e.target.password);
   
     
-    console.log({user_name},{firstname},{lastname}, {email}, {password});
+    console.log(user_name,firstname,lastname, email, password);
 
     // si notre input à une valeur, on envoie le submit au parent
     if (user_name && firstname && lastname && email &&password ) {
@@ -54,13 +57,11 @@ export default function Register(){
       setlastname('');
       setEmail('');
       setPassword('');
+
     }
   }
-//         <div className='ui message success'>Success</div>
-
     return(
-      // <div style={{ backgroundImage: `url(${image})`, backgroundRepeat:"no-repeat", 
-      //       backgroundSize:"cover", backgroundPosition: "center", height: '100vh', position:'relative'}}>
+      
       <div className='registerForm'>
        
         <h1 className='connectionTitle'>Inscription</h1>
@@ -135,7 +136,6 @@ export default function Register(){
             </Form>
            
         </div>
-        // </div>
     )
 }
 

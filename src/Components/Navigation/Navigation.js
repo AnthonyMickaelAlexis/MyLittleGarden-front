@@ -24,7 +24,7 @@ const Navigation = () => {
         
         {/* A SUPPRIMER A LA FIN, c'est pour pouvoir bosser sur la parcelle */}
         <NavLink
-          to="/login"
+          to="/parcelle"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
           <li>Parcelle</li>

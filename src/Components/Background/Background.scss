@@ -1,5 +1,5 @@
 
-@media (max-width: 500px) {
+
 
 .text-on-image {
 
@@ -15,10 +15,18 @@
     text-align: center;
     box-shadow: black;
     border-radius: 5px;
+    
+}
+
+@media (max-width: 500px) {
+    .text-on-image {
+        width: 70%;
+        margin-top: 12.5rem;
+    }
 }
 
 .container {
     height: 100%;
 }
-}
+
 
