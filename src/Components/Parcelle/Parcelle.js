@@ -1,11 +1,15 @@
 import axios from 'axios';
-import { useState,useEffect } from 'react';
-import jwtDecode from 'jwt-decode';
 import './Parcelle.scss';
+import { useState,useEffect } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
+
+
+import jwtDecode from 'jwt-decode';
 import Grille from "../Parcelle/Grille/Grille";
 import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from './ColonneFavoris/ColonneFavoris';
-import "./Parcelle.scss";
+import { Droppable } from 'react-beautiful-dnd';
+
 
 function Parcelle({crops}) {
 
@@ -39,8 +43,8 @@ console.log({crops});
       return (
         <div className="ParcellePage">
             <ColonneListeLegume crops={crops} />
-            <Grille />
-            <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris}/>
+              <Grille />
+              <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris}/>
         </div>
       );
     };

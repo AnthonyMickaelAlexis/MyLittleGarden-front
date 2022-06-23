@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import './ColonneFavoris.scss';
 import jwtDecode from 'jwt-decode';
+import { Droppable } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
 
 // import PropTypes from 'prop-types';
 
@@ -43,6 +45,7 @@ export default function ColonneFavoris({favoris, setFavoris}) {
         
         <div className="colonneLegume">
             <h3 className="favTittle">Liste des légumes</h3>
+
             <ul className="listeLegumes">
             {favoris && favoris.map((crop, id) => {
                         console.log(crop)

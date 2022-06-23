@@ -2,7 +2,6 @@ import avatar from '../../assets/images/avatar.jpg';
 import './Team.scss';
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react';
-import image from "../../assets/images/image1.jpg";
 
 
 const Team = () => (
