@@ -14,15 +14,17 @@ export default function ColonneFavoris({favoris, setFavoris}) {
 
     const deleteFav = (cropId) => {
         const newFavoriteList = favoris.filter((crop) => crop.id !== cropId);
-        setFavoris(newFavoriteList)
+       
         console.log(newFavoriteList);
         
 
             //Ma requete pour les favoris du user
             const token = localStorage.getItem('token');
             const jwtDecoded = jwtDecode(token);
-            
-            const baseURL = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/favori`;//${token.user.id}
+            setFavoris(newFavoriteList)
+
+            const baseURL = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/${cropId}`;//${token.user.id}
+
             axios.delete(baseURL, {
                         headers: {
                         Authorization: `bearer ${token}`
@@ -34,18 +36,14 @@ export default function ColonneFavoris({favoris, setFavoris}) {
                       .catch((error) => {
                         console.error('error :', error);
                       });
-               
-       
-        //const cropToDelete = favoris.find((crop) => id === crop.id)
-        //console.log(cropToDelete);
-
-    };    return (
+    };   
+    return (
         
         <div className="colonneLegume">
             <h3 className="favTittle">Liste des légumes</h3>
             <ul className="listeLegumes">
-            {favoris && favoris.map((crop, id) => {
-                        console.log(crop)
+            { favoris.map((crop, id) => {
+                        console.log(crop.id)
             return ( 
                 <li key={crop.id} className="vegetableSection">        
                     <p className="vegetable">{crop.name}</p>
