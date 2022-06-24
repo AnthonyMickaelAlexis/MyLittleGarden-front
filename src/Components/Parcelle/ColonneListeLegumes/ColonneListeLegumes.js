@@ -47,7 +47,7 @@ function ColonneListeLegumes({ crops }) {
                     />
                     <ul className="vegetableList">
                 
-                    {crops && crops.map((crop, index) => {
+                    {crops && crops.map((crop) => {
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
@@ -65,8 +65,6 @@ function ColonneListeLegumes({ crops }) {
 
 export default ColonneListeLegumes;
 // A faire : 
-//     - Ajouter aux favoris
-//     - Supprimer des favoris
 //     - Faire fonctionner la recherche
 //     - Hover sur les légumes pour les infos
 //     - Adapter le texte du bouton afficher/masquer

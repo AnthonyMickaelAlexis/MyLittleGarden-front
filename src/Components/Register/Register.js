@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import {Navigate} from 'react-router-dom';
 
-import './registerPage.scss';
+import './RegisterPage.scss';
 //import PropTypes from 'prop-types';
 import axios from 'axios';
 import Validation from '../Validation/validation';

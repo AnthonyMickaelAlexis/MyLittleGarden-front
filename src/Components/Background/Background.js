@@ -8,10 +8,11 @@ const Background = () => {
 
             <div className='containerBackground'>
                 <div className='text-on-image'>
-                    <h3> Notre projet </h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui expedita quis vitae nostrum, 
-                    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.  s est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-                        </p>
+                    <h3 className="homeTitle"> Notre projet </h3>
+                    <p className="homeText"> Destinée à tous les jardiniers amateurs, My Little Garden vous permet d’optimiser l’organisation de votre potager.</p> 
+                    <p className="homeText">Grâce à un système très simple, créez votre parcelle de jardin virtuelle, sélectionnez les légumes que vous désirez planter et glissez-les simplement sur votre parcelle. Vous aurez alors une représentation de votre futur potager afin de repérer les erreurs avant de vous lancer dans sa réalisation.</p>
+        
+                        
                 </div>
             </div>
             
