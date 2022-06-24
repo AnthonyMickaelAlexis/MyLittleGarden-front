@@ -5,5 +5,13 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+}
 
+@media (max-width: 800px) {
+#root{
+    box-sizing: border-box;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+}
 }

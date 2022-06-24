@@ -31,7 +31,7 @@ export default function ColonneFavoris({favoris, setFavoris}) {
         <div className="colonneLegume">
             <h3 className="favTittle">Liste des favoris</h3>
             <ul className="listeLegumes">
-            {favoris && favoris.map((crop) => {
+            {favoris && favoris.map((crop, id) => {
                         console.log(crop)
             return (
                 <li key={crop.id} className="vegetableSection">
