@@ -14,6 +14,7 @@ import Parcelle from '../Parcelle/Parcelle';
 import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+//import Navigation from '../Navigation/Navigation';
 
 //import Profile from '../Profile/Profile';
 function App() {
@@ -31,17 +32,15 @@ useEffect (() => {
 
   getCrop();
 }, []) 
-
-
   return (
    <>
+    {/*<Navigation logged={logged} setLogged={{setLogged}}/>*/}
     <Header/>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<Register />} />
 
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
-      {/* <Route path="/profile" element={<Profile />} /> */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<Contact />} />

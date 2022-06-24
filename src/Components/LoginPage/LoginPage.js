@@ -7,6 +7,7 @@ import './LoginPage.scss';
 import axios from 'axios';
 //import image from "../../assets/images/image1.jpg";
 import '../../../src/index.css';
+import Navigation from '../Navigation/Navigation';
 
 
 function LoginPage(){
@@ -44,7 +45,10 @@ function LoginPage(){
           setPassword('');
         }
     }
-    if (isLogged) {
+    if(isLogged){
+      return < Navigation isLogged={isLogged} setIsLogged={setIsLogged}/>
+    }
+      if(isLogged){
       return <Navigate to='/parcelle' />
      }else{
       
