@@ -1,22 +1,11 @@
 import axios from 'axios';
-import './Parcelle.scss';
-import { useState,useEffect } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
-
-
 import jwtDecode from 'jwt-decode';
+import './Parcelle.scss';
 import Grille from "../Parcelle/Grille/Grille";
 import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from './ColonneFavoris/ColonneFavoris';
-import { Droppable } from 'react-beautiful-dnd';
+import "./Parcelle.scss";
 
-
-function Parcelle({crops}) {
-
-const [favoris, setFavoris]= useState([]);
-
-
-useEffect (() => { 
 //Ma requete pour les favoris du user
 const token = localStorage.getItem('token');
 const jwtDecoded = jwtDecode(token);
@@ -29,22 +18,19 @@ axios.get(baseURL, {
             },
           })   
           .then((response) => {
-            console.log('reponse :', response); 
-            setFavoris(response.data)           
+            console.log('reponse :', response);            
           })
           .catch((error) => {
             console.error('error :', error);
           });
-        }, [])  
 
-console.log(favoris)
-console.log({crops});
+function Parcelle(props) {
 
       return (
         <div className="ParcellePage">
-            <ColonneListeLegume crops={crops} />
-              <Grille />
-              <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris}/>
+            <ColonneListeLegume crops = {props.crops}/>
+            <Grille />
+            <ColonneFavoris />
         </div>
       );
     };

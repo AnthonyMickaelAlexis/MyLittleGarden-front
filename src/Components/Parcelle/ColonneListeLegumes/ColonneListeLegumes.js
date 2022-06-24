@@ -47,13 +47,12 @@ function ColonneListeLegumes({ crops }) {
                     />
                     <ul className="vegetableList">
                 
-                    {crops && crops.map((crop, index) => {
+                    {crops && crops.map((crop) => {
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
                                 <img src={crop.crop_img} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
                                 <button className="addToFav" onClick={() => addToFav(crop.id)}>Ajouter aux favoris</button>
-                                <button className="deleteFromFav">Supprimer des favoris</button>
                             </li>
                         )                   
                     })}
@@ -66,8 +65,6 @@ function ColonneListeLegumes({ crops }) {
 
 export default ColonneListeLegumes;
 // A faire : 
-//     - Ajouter aux favoris
-//     - Supprimer des favoris
 //     - Faire fonctionner la recherche
 //     - Hover sur les légumes pour les infos
 //     - Adapter le texte du bouton afficher/masquer
