@@ -51,4 +51,18 @@
       }
     }
   }
+  @media (max-width: 800px) {
+    #root{
+      display: flex;
+      flex-direction: column;
+        background-image: url(../../assets/images/image1.jpg);
+        background-size: cover;
+        background-position: center;
+        box-sizing: border-box;      
+        
+      
+     }   
+    
+}
+
   

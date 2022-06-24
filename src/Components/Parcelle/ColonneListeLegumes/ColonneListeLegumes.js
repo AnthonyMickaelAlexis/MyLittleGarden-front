@@ -53,7 +53,6 @@ function ColonneListeLegumes({ crops }) {
                                 <p className="vegetable">{crop.name}</p>
                                 <img src={crop.crop_img} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
                                 <button className="addToFav" onClick={() => addToFav(crop.id)}>Ajouter aux favoris</button>
-                                <button className="deleteFromFav">Supprimer des favoris</button>
                             </li>
                         )                   
                     })}

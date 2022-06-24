@@ -11,7 +11,6 @@ import axios from 'axios';
 import Contact from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 import Parcelle from '../Parcelle/Parcelle';
-
 import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';

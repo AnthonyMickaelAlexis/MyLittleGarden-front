@@ -12,20 +12,19 @@ body{
   border-radius: 8px;
   padding: 30px 50px;
   margin-top: 40px;
-  height: 75%;
+  height: fit-content;
 }
 
 @media (max-width: 500px) {
-
-  body{
-    display: flex;
-    justify-content: center;
-
+#root{
+  width: 100vw;
+  height: 100vh;
 }
+  
   .registerForm {
-      width: 70%;
-      margin-top: 4.5rem;
-  }
+    height: fit-content;
+  width: fit-content;
+  margin: auto;}
   }
 .connectionTitle {
   margin-bottom: 30px;

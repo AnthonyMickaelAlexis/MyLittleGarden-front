@@ -9,7 +9,6 @@ import axios from 'axios';
 import '../../../src/index.css';
 
 
-
 function LoginPage(){
   
     const url = "https://oclock-my-little-garden.herokuapp.com/login";
@@ -20,7 +19,7 @@ function LoginPage(){
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
     const [isLogged, setIsLogged] = useState(false);
- 
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -50,7 +49,8 @@ function LoginPage(){
      }else{
       
     return(
-      
+
+
         <div className='container'>
        <div className="loginForm">
         <h1 className="connectionTitle">Connexion</h1>
@@ -78,6 +78,7 @@ function LoginPage(){
 
             <Button type='submit'>Se connecter</Button>
         </Form>
+          
         </div>
   </div>
     )

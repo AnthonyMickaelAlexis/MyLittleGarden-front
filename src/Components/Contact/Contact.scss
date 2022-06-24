@@ -1,21 +1,29 @@
 
-
-.loginForm {
+.contactForm {
     margin: auto;
     width: 40rem;
-    border: solid 1px rgb(0, 37, 8);
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    height: fit-content;
+    margin: auto;    
     padding: 30px 50px;
-    margin-left: 47rem;
+    margin-top: 4rem;
 }
 
 @media (max-width: 800px) {
-    .loginForm {
-        width: 70%;
+    #root {
+        height: 100vh;
+        display: flex;
+    }
+    .contactForm {
+        width: 85%;
+        height: fit-content;
+        margin: auto;
+
     }
 }
 
 .connectionTitle {
-    margin-bottom: 30px;
     text-align: center;
 }
 
