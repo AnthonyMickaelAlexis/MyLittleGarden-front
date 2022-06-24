@@ -33,9 +33,6 @@ axios.get(baseURL, {
           });
         }, [])  
 
-console.log(favoris)
-console.log({crops});
-
       return (
         <div className="ParcellePage">
             <ColonneListeLegume crops={crops} />

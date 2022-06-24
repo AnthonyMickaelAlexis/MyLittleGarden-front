@@ -11,14 +11,12 @@ import axios from 'axios';
 import Contact from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 import Parcelle from '../Parcelle/Parcelle';
-
 import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 //import Profile from '../Profile/Profile';
 function App() {
-
   const [crops, setCrops] = useState();
 
 useEffect (() => { 
@@ -44,7 +42,6 @@ useEffect (() => {
 
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
       {/* <Route path="/profile" element={<Profile />} /> */}
-      <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<Contact />} />

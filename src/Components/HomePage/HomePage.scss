@@ -10,3 +10,13 @@
 .homeText{
 font-size: 1.1rem;
 }
+@media (max-width: 500px) {
+    #root{
+      width: 100vw;
+      height: 100vh;
+    }
+     .containerBackground{
+         margin:auto;
+     } 
+      
+}

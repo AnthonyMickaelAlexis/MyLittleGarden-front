@@ -23,6 +23,9 @@
 }
 
 @media (max-width: 500px) {
+    #root{
+        background-image: none;
+    }
     .gifError {
         width: 100vw;
     }

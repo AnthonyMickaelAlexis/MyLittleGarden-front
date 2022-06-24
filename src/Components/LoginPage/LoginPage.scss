@@ -1,8 +1,7 @@
-.container {
-    height: 100vh;
-   
-}
 
+.container{
+    margin-top: 11em;
+}
 .loginForm {
     margin-right: 30rem;
     width: 40rem;
@@ -11,7 +10,6 @@
     border-radius: 8px;
     height: fit-content;
     margin: auto;
-    margin-bottom: 20rem;
     top: 50%; /* poussé de la moitié de hauteur du référent */
 }
 
@@ -21,13 +19,13 @@
 }
 
 @media (max-width: 500px) {
-    body{
-        display: flex;
-        justify-content: center;
-    }
+   .container{
+       width: 100vw;
+       display: flex;
+       margin: auto;
+   }
     .loginForm {
-        width: 70%;
-        margin-top: 12.5rem;
+        width: 80%;
     }
     
 }
