@@ -15,8 +15,10 @@ import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-//import Profile from '../Profile/Profile';
+import Profile from '../Profile/Profile';
 function App() {
+
+  const [isLogged, setIsLogged] = useState(false);
   const [crops, setCrops] = useState();
 
 useEffect (() => { 
@@ -35,14 +37,13 @@ useEffect (() => {
 
   return (
    <>
-    <Header/>
+    <Header isLogged={isLogged} setIsLogged={setIsLogged}/>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<Register />} />
-
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
-      {/* <Route path="/profile" element={<Profile />} /> */}
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/profile" element={<Profile />} /> 
+      <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged}/>} />
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<Contact />} />
 
