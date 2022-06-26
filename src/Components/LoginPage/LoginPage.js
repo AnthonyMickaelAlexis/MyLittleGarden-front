@@ -22,7 +22,6 @@ function LoginPage({isLogged, setIsLogged}){
     const [user_name, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
-    //const [isLogged, setIsLogged] = useState(false);
 
 
     function handleSubmit(e) {

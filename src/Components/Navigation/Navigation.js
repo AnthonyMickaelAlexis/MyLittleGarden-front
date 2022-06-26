@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import './Navigation.scss';
 
 const Navigation = ({isLogged, setIsLogged}) => {
-  //console.log({isLogged, setIsLogged})
 
   const logout = () => {
     setIsLogged(false);
@@ -27,7 +26,10 @@ const Navigation = ({isLogged, setIsLogged}) => {
         <NavLink to="/login" className={(nav) => (nav.isActive ? "nav-active" : "")} >   
           <li>Se connecter</li>
         </NavLink> }
-
+        {isLogged &&
+        <NavLink to="/profil" className={(nav) => (nav.isActive ? "nav-active" : "")} >   
+          <li>Mon profil</li>
+        </NavLink> }
         {isLogged &&
         <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")} >   
           <li onClick={() => logout()}>Déconnexion</li>

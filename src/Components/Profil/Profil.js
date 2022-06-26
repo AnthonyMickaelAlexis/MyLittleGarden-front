@@ -1,9 +1,36 @@
 import React, { useState } from "react";
 import { Button, Form } from 'semantic-ui-react';
+import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
+import axios from "axios";
 
 
-export default function Profile (){
+
+const Profile = ({isLogged, setIsLogged})=> {
+  const [myProfil, setMyProfil] = useState(false);
+
+  const token = localStorage.getItem('token');
+  const jwtDecoded = jwtDecode(token);
+
+  const baseURL = `https://oclock-my-little-garden.herokuapp.com/home/profil/${jwtDecoded.id}`;//${token.user.id}
+  console.log(isLogged)
+  
+    //Ma requete pour avoir les données du user.
+   
+  axios.get(baseURL, {
+                headers: {
+                Authorization: `bearer ${token}`
+                },
+              })   
+              .then((response) => {
+                console.log('reponse :', response); 
+           return response.data      
+              })
+              .catch((error) => {
+                console.error('error :', error);
+              });
+
+
   const [user_name, setUserName] = useState('');
   const [firstname, setfirstname] = useState('');
   const [lastname, setlastname] = useState('');
@@ -12,34 +39,52 @@ export default function Profile (){
   // States for checking the errors
   const [errors, setErrors] = useState(false);
 
-  //const [newSubmit, setNewSubmit] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
-  setErrors(Validation(user_name, password))
- //    axios.post(url, {user_name:user_name, password:password})     
- //    .then((response) => {
- //      console.log('reponse :', response);
- //      localStorage.setItem("token", response.data.access_token);
- //      setIsLogged(true);
- //    })
- //    .catch((error) => {
- //      console.error('error :', error);
- //    });
- //  setUserName(e.target.user_name);
- //  setPassword(e.target.password);
- //  
+    //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
+    setErrors(Validation(user_name, password, firstname, lastname, email));
 
- //  if (user_name && password ) {
- //    // on envoie le user_name, password... au composant parent, on fait remonter l'evenement du onSubmit
- //    setUserName('');//on reset les inputs
- //    setPassword('');
+    //je fais une requete post en envoyant mon formulaire avec les 5 infos demandées. 
+    // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
+    axios.patch(baseURL, `${jwtDecoded.id}`, {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password},
+      {
+      headers: {
+      Authorization: `bearer ${token}`
+      }, 
+    })    
+    .then((response) => {
+      console.log('reponse :', response);
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.error('error :', error);
+    });
+
+    setUserName(e.target.user_name);
+    setfirstname(e.target.firsName);
+    setlastname(e.target.lastname);
+    setEmail(e.target.email);
+    setPassword(e.target.password);
+  
+    
+    console.log(user_name,firstname,lastname, email, password);
+
+    // si notre input à une valeur, on envoie le submit au parent
+    if (user_name && firstname && lastname && email &&password ) {
+      // on envoie le userNickname, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
+      setUserName('');//on reset les inputs
+      setfirstname('');
+      setlastname('');
+      setEmail('');
+      setPassword('');
     }
-
+  }
+  
   return(
    
     <div className='registerForm'>
        
-    <h1 className='connectionTitle'>Profile</h1>
+    <h1 className='connectionTitle'>Profil</h1>
       <Form 
         onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
       >
@@ -115,3 +160,5 @@ export default function Profile (){
     </div>
     );
 }
+
+export default Profile;
