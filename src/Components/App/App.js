@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import { useEffect} from 'react';
 
-// Axios import
-import axios from 'axios';
-
 // Components imports
 import { Routes, Route } from "react-router-dom";
 import Team from '../Team/Team';
 import Register from '../Register/Register';
 import LoginPage from '../LoginPage/LoginPage';
 import Error from '../404/404';
+import axios from 'axios';
 import Contact from '../Contact/Contact';
 import CGU from '../CGU/CGU';
 import Parcelle from '../Parcelle/Parcelle';
 import HomePage from '../HomePage/HomePage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-//import Navigation from '../Navigation/Navigation';
 
 import Profile from '../Profile/Profile';
 function App() {
@@ -36,6 +33,8 @@ useEffect (() => {
 
   getCrop();
 }, []) 
+
+
   return (
    <>
     <Header isLogged={isLogged} setIsLogged={setIsLogged}/>
