@@ -1,3 +1,5 @@
+
+
 import { useState } from 'react';
 import {Navigate} from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
@@ -7,7 +9,6 @@ import './LoginPage.scss';
 import axios from 'axios';
 //import image from "../../assets/images/image1.jpg";
 import '../../../src/index.css';
-import Navigation from '../Navigation/Navigation';
 
 
 function LoginPage({isLogged, setIsLogged}){ 
@@ -46,10 +47,7 @@ function LoginPage({isLogged, setIsLogged}){
           setPassword('');
         }
     }
-    if(isLogged){
-      return < Navigation isLogged={isLogged} setIsLogged={setIsLogged}/>
-    }
-      if(isLogged){
+    if (isLogged) {
       return <Navigate to='/parcelle' />
      }else{
       

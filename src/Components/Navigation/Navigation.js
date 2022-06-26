@@ -12,6 +12,7 @@ const Navigation = ({isLogged, setIsLogged}) => {
 
   return (
     <div className="navigation">
+
       <ul>
         <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
           <li>Accueil</li>
@@ -40,6 +41,7 @@ const Navigation = ({isLogged, setIsLogged}) => {
         
         
       </ul>
+
     </div>
   );
 };
