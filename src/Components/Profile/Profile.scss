@@ -1,0 +1,32 @@
+body{
+    box-sizing: border-box;
+    background-image: url(../../assets/images/image1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  .registerForm {
+    background-color: white;
+    margin: auto;
+    width: 40rem;
+    border-radius: 8px;
+    padding: 30px 50px;
+    margin-top: 40px;
+    height: fit-content;
+  }
+  
+  @media (max-width: 500px) {
+  #root{
+    width: 100vw;
+    height: 100vh;
+  }
+    
+    .registerForm {
+      height: fit-content;
+    width: fit-content;
+    margin: auto;}
+    }
+  .connectionTitle {
+    margin-bottom: 30px;
+    text-align: center;
+  }

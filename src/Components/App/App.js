@@ -18,8 +18,10 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 //import Navigation from '../Navigation/Navigation';
 
-//import Profile from '../Profile/Profile';
+import Profile from '../Profile/Profile';
 function App() {
+
+  const [isLogged, setIsLogged] = useState(false);
   const [crops, setCrops] = useState();
 
 useEffect (() => { 
@@ -36,23 +38,21 @@ useEffect (() => {
 }, []) 
   return (
    <>
-      <Header/>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<Register />} />
+    <Header isLogged={isLogged} setIsLogged={setIsLogged}/>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
+      <Route path="/profile" element={<Profile />} /> 
+      <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged}/>} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/contact" element={<Contact />} />
 
-        <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
-        {/* <Route path="/profile" element={<Profile />} /> */}
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/contact" element={<Contact />} />
-
-        <Route path="/cgu" element={<CGU/>} />
-        {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
-        <Route path="*" element={<Error />} />
-      </Routes>
-      <Footer/>
+      <Route path="/cgu" element={<CGU/>} />
+      {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
+      <Route path="*" element={<Error />} />
+    </Routes>
+    <Footer/>
     </>
   );
 }

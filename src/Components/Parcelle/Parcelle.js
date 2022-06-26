@@ -8,7 +8,6 @@ import "./Parcelle.scss";
 
 
 
-
 function Parcelle({crops}) {
 
   const [favoris, setFavoris]= useState([]);
