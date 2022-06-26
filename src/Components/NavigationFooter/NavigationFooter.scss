@@ -1,54 +1,53 @@
 .navigation {
-    ul {
-      display: flex;
-      justify-content: space-evenly;
-      margin: 30px;
-      text-align: left;
-      a {
-        text-decoration: none;
-        padding: 10px;
-  
-        li {
-          color: green;
-          transition: 0.2s;
-          cursor: pointer;
-          list-style-type: none;
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px;
+    text-align: left;
+    a {
+      text-decoration: none;
+      padding: 10px;
 
-  
-          &:hover {
-            color: green;
-          }
+      li {
+        color: green;
+        transition: 0.2s;
+        cursor: pointer;
+        list-style-type: none;
+
+
+        &:hover {
+          color: green;
         }
       }
-  
-      .nav-active {
-        position: relative;
-  
-        &::after {
-          content: "";
-          height: 4px;
-          width: 0;
-          background: green;
-          position: absolute;
-          border-radius: 10px;
-          bottom: 0px;
-          left: 50%;
-          transform: translateX(-50%);
-          -webkit-animation: anim 0.3s ease forwards;
-          animation: anim 0.6s ease forwards;
-  
-          @-webkit-keyframes anim {
-            to {
-              width: 100%;
-            }
+    }
+
+    .nav-active {
+      position: relative;
+
+      &::after {
+        content: "";
+        height: 4px;
+        width: 0;
+        background: green;
+        position: absolute;
+        border-radius: 10px;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-animation: anim 0.3s ease forwards;
+        animation: anim 0.6s ease forwards;
+
+        @-webkit-keyframes anim {
+          to {
+            width: 100%;
           }
-          @keyframes anim {
-            to {
-              width: 100%;
-            }
+        }
+        @keyframes anim {
+          to {
+            width: 100%;
           }
         }
       }
     }
   }
-  
+}
