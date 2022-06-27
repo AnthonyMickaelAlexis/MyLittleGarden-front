@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 const Profile = ({isLogged, setIsLogged})=> {
-  const [myProfil, setMyProfil] = useState(false);
+  const [data, setData] = useState({});
 
   const token = localStorage.getItem('token');
   const jwtDecoded = jwtDecode(token);
@@ -16,7 +16,7 @@ const Profile = ({isLogged, setIsLogged})=> {
   console.log(isLogged)
   
     //Ma requete pour avoir les données du user.
-   
+    useEffect (() => { 
   axios.get(baseURL, {
                 headers: {
                 Authorization: `bearer ${token}`
@@ -24,13 +24,17 @@ const Profile = ({isLogged, setIsLogged})=> {
               })   
               .then((response) => {
                 console.log('reponse :', response); 
-           return response.data      
+              setData(response.data)      
               })
               .catch((error) => {
                 console.error('error :', error);
               });
-
-
+            },[])
+            
+       
+            
+console.log(data)
+           
   const [user_name, setUserName] = useState('');
   const [firstname, setfirstname] = useState('');
   const [lastname, setlastname] = useState('');
