@@ -35,11 +35,11 @@ const Profile = ({isLogged, setIsLogged})=> {
             
 console.log(data)
            
-  const [user_name, setUserName] = useState('');
-  const [firstname, setfirstname] = useState('');
-  const [lastname, setlastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user_name, setUserName] = useState(data.user_name);
+  const [firstname, setfirstname] = useState(data.firsname);
+  const [lastname, setlastname] = useState(data.lastname);
+  const [email, setEmail] = useState(data.email);
+  const [password, setPassword] = useState(data.password);
   // States for checking the errors
   const [errors, setErrors] = useState(false);
 
@@ -48,7 +48,7 @@ console.log(data)
     //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
     setErrors(Validation(user_name, password, firstname, lastname, email));
 
-    //je fais une requete post en envoyant mon formulaire avec les 5 infos demandées. 
+    //je fais une requete patch en envoyant mon formulaire avec les 5 infos demandées. 
     // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
     axios.patch(baseURL, `${jwtDecoded.id}`, {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password},
       {
@@ -82,8 +82,13 @@ console.log(data)
       setEmail('');
       setPassword('');
     }
+   
   }
+  function handleDeleteUser(){
   
+  console.log('êtes vous sur de vouloire supprimer votre compte?')
+    }
+
   return(
    
     <div className='registerForm'>
@@ -157,9 +162,8 @@ console.log(data)
         {errors.password &&<p className='error'>{errors.password}</p>}
 
         <Button className="form-submit" type="submit">Valider</Button>
-        <Button className="form-submit" type="submit">Suprimer mon compte</Button>
-
         </Form>
+        <Button className="form-submit" type="onClick" onClick={handleDeleteUser()}>Suprimer mon compte</Button>
        
     </div>
     );
