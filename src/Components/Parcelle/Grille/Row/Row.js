@@ -19,11 +19,11 @@ function Row({ y }) {
       position_y: 1,
     },
     {
-        user_id: 1,
-        crop_id: 5,
-        parcel_id: 1,
-        position_x: 0,
-        position_y: 2,
+      user_id: 1,
+      crop_id: 5,
+      parcel_id: 1,
+      position_x: 0,
+      position_y: 2,
       },
   ];
 
@@ -38,7 +38,7 @@ function Row({ y }) {
         },
       })
       .then((response) => {
-        // console.log("reponse :", response);
+        console.log("reponse :", response);
       })
       .catch((error) => {
         console.error("error :", error);
@@ -54,12 +54,7 @@ function Row({ y }) {
         {/* console.log(x, y); */}
         return (
           <div className="square">
-            {/* {
-                        y === result[0].position_y && x === result[0].position_x && 'A'
-                    }
-                    {
-                        y === result[1].position_y && x === result[1].position_x && 'B'
-                    } */}
+
             {result.map((boite, index) => {
               {
                 /* return y === result[index].position_y 
