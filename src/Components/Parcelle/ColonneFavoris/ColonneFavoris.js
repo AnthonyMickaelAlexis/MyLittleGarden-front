@@ -5,7 +5,7 @@ import axios from "axios";
 import "./ColonneFavoris.scss";
 import jwtDecode from "jwt-decode";
 
-export default function ColonneFavoris({ favoris, setFavoris }) {
+export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, setCropsToParcel, isCropSelected, setIsCropSelected }) {
   
   
   const deleteFav = (cropId) => {
@@ -32,9 +32,11 @@ export default function ColonneFavoris({ favoris, setFavoris }) {
         console.error("error :", error);
       });
     };
+
     
     const selectFavoriteCrop = (cropId) => {
-      console.log(cropId)
+      setCropsToParcel([...cropsToParcel, {cropId}]);
+      setIsCropSelected(true);
     };
     
 
@@ -51,7 +53,8 @@ export default function ColonneFavoris({ favoris, setFavoris }) {
                 src={crop.crop_img}
                 className="vegetableIcon"
                 alt={`Icone ${crop.name}`}
-                onClick={() => selectFavoriteCrop(crop.id)}
+                onClick={() => !isCropSelected && selectFavoriteCrop(crop.id)}
+                // onClick={() => isCropSelected ? null : selectFavoriteCrop(crop.id)}
               />
               <button
                 className="deleteFromFav"

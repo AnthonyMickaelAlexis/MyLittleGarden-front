@@ -1,18 +1,16 @@
 import axios from 'axios';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 import Grille from "../Parcelle/Grille/Grille";
 import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from './ColonneFavoris/ColonneFavoris';
 import "./Parcelle.scss";
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-
-
 
 function Parcelle({crops}) {
 
   const [favoris, setFavoris]= useState([]);
+  const [cropsToParcel, setCropsToParcel] = useState([]);
+  const [isCropSelected, setIsCropSelected] = useState(false);
 
   useEffect (() => {
   //Ma requete pour les favoris du user
@@ -37,11 +35,27 @@ function Parcelle({crops}) {
           console.log(favoris)
   console.log({crops});
 
+  // const token = localStorage.getItem('token');
+  // const jwtDecoded = jwtDecode(token);
+  // const url = `https://oclock-my-little-garden.herokuapp.com/home/profil/${jwtDecoded.id}/parcelsave`
+  // axios.post(url, {cropsToParcel})     
+  // .then((response) => {
+  //   console.log('reponse :', response);
+  //   localStorage.setItem("token", response.data.access_token);
+  // })
+  // .catch((error) => {
+  //   console.error('error :', error);
+  // });
+
+  useEffect(() => {
+    console.log(cropsToParcel);
+  });
+
         return (
           <div className="ParcellePage">
               <ColonneListeLegume crops={crops} />
-              <Grille />
-              <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris}/>
+              <Grille cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected}/>
+              <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris} cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected} />
           </div>
         );
       };
