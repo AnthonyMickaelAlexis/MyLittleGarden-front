@@ -1,7 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.parcelTitle {
+    margin: auto;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    width: fit-content;
+    background-color: rgba(250, 250, 250, 0.534);
+    border-radius: 8px;
+}
+
 .parcelBoard {
     width: 400px;
     // height: 250px;
     margin: auto;
+    margin-top: 10rem;
     place-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +31,7 @@
 }
 
 .square {
-    background: #916b48;
+    background: #b28e6d;
     border: 1px solid #333;
     width: 50px;
     height: 50px;

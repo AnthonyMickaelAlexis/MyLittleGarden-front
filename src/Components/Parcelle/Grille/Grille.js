@@ -11,6 +11,8 @@ const verticalSquaresWanted = Array(5).fill(".");
 
 function Grille({cropsToParcel, setCropsToParcel, isCropSelected, setIsCropSelected}) {
   return (
+    <div className="container">
+    <h1 className="parcelTitle">Ma parcelle</h1>
     <div className="parcelBoard">
       {
         // x = index
@@ -18,6 +20,7 @@ function Grille({cropsToParcel, setCropsToParcel, isCropSelected, setIsCropSelec
           return <Row  cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} y={y} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected} />;
         })
       }
+    </div>
     </div>
   );
 }

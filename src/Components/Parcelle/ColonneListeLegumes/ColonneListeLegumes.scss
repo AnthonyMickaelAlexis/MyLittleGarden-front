@@ -1,7 +1,7 @@
 .colonneFav {
     width: 20vw;
     height: 100vh;
-    background-color: rgb(137, 185, 110);
+    background-color: rgb(182 201 180);
     display: flex;
     flex-direction: column;
 }
@@ -21,11 +21,18 @@
     display: flex;
     padding: 5px;
     width: 90%;
+    margin: auto;
 }
 
 .vegetableList {
+    margin: 0;
+    padding: 15% 0;
     list-style-type: none;
     overflow-y: scroll;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .vegetableSection {
@@ -34,11 +41,16 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
     padding: 5px;
-    // width: 4rem;
+    width: 40%;
 }
+
+@media (max-width: 1200px) {
+    .vegetableSection{
+        width: 80%;
+    }
+}
+
 
 .vegetable {
     margin: 15px;
@@ -47,9 +59,9 @@
 }
 
 .vegetableSection:hover {
-    background-color: rgb(202, 247, 166);
+    background-color: rgb(142, 175, 116);
     // cursor: pointer;
-    transition-duration: 800ms;
+    transition-duration: 400ms;
 }
 
 .vegetableIcon {

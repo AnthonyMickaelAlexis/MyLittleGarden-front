@@ -7,7 +7,6 @@
 }
 
 .team {
-    margin-top: 15rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,16 +14,16 @@
     text-align: center;
 }
 .card {
-    
     margin: 2rem;
 }
+
 .footer{
 position:fixed;
 }
 @media (max-width: 500px) {
     #root{
         display: flex;
-        flex-shrink: 2;
+        // flex-shrink: 2;
         flex-direction: column;
         justify-content: center;
         align-items: center;
