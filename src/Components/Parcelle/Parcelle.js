@@ -51,6 +51,19 @@ function Parcelle({crops}) {
     console.log(cropsToParcel);
   });
 
+  function importAll(r) {
+    const images = r.keys().map((item, index) => {
+        return {
+            path: r(item),
+            name: item.replace('.png', '').replace('./', ''),
+            id: +item.replace(/(.*)/, index + 1)
+        }
+    });
+    return images;
+  }
+  
+  const images = importAll(require.context('../../../assets/images/imagesLegumes', false, /\.(png|jpe?g|svg)$/));
+
         return (
           <div className="ParcellePage">
               <ColonneListeLegume crops={crops} />
