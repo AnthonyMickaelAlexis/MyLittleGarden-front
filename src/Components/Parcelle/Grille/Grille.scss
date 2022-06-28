@@ -1,17 +1,62 @@
-.parcelBoard {
-    background-color: rgb(146, 185, 152);
-    width: 400px;
-    height: 250px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.parcelTitle {
     margin: auto;
-    display: grid;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    width: fit-content;
+    background-color: rgba(250, 250, 250, 0.534);
+    border-radius: 8px;
+}
+
+.explanationSection {
+    margin-top: 5%;
+    background-color: rgba(250, 250, 250, 0.534);
+    border-radius: 8px;
+    padding: 2%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1rem;
+    width: 30rem;
+}
+
+.step {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.parcelBoard {
+    width: 400px;
+    // height: 250px;
+    margin: auto;
+    margin-top: 5rem;
     place-content: center;
     display: flex;
     flex-wrap: wrap;
 }
 
+.row {
+    display: flex;
+}
+
 .square {
-    background: #916b48b7;
+    background: #b28e6d;
     border: 1px solid #333;
     width: 50px;
     height: 50px;
+}
+
+.saveParcel {
+    margin-top: 10%;
 }
