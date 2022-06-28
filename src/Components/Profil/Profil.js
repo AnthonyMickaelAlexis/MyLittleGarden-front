@@ -169,7 +169,7 @@ console.log(data)
           placeholder="Nouveau mot de passe" />
         </Form.Field>
 
-        <Button className="form-submit" type="submit">Valider</Button><Button className="form-submit" type="onClick" onClick={handleDeleteUser()}>Suprimer mon compte</Button>
+        <Button className="form-submit" type="submit">Valider</Button> <Button className="form-submit" type="onClick" onClick={handleDeleteUser()}>Suprimer mon compte</Button>
         </Form>
         
        
