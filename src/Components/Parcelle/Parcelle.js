@@ -34,6 +34,7 @@ function Parcelle({crops}) {
 
           console.log(favoris)
   console.log({crops});
+  
 
   // const token = localStorage.getItem('token');
   // const jwtDecoded = jwtDecode(token);
