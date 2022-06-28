@@ -11,6 +11,7 @@ function ColonneListeLegumes({ crops }) {
     
     // Button show/hide vegetable list
     const [show, setShow] = useState(true);
+    // const [search, setSearch] = useState('react');
     
     const addToFav = async (cropId) => {
         // const cropToFind = crops.find((crop) => id === crop.id)

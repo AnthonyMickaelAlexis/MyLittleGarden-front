@@ -62,7 +62,9 @@ function Parcelle({crops}) {
     return images;
   }
   
-  const images = importAll(require.context('../../../assets/images/imagesLegumes', false, /\.(png|jpe?g|svg)$/));
+  const images = importAll(require.context('../../assets/images/imagesLegumes', false, /\.(png|jpe?g|svg)$/));
+
+  console.log(images)
 
         return (
           <div className="ParcellePage">
