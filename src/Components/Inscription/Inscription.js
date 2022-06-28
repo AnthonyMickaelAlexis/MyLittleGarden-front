@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './style.css';
-import image from "../../assets/images/image1.jpg";
 
 
 export default function Inscription(){
