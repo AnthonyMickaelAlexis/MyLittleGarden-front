@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Label } from 'semantic-ui-react'
 import {Navigate} from 'react-router-dom';
 
 import './RegisterPage.scss';
@@ -55,7 +55,15 @@ export default function Register(){
 
     // si notre input à une valeur, on envoie le submit au parent
     if (user_name && firstname && lastname && email &&password ) {
-      // on envoie le userNickname, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
+      // on envoie le username, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
+      setUserName('');//on reset les inputs
+      setfirstname('');
+      setlastname('');
+      setEmail('');
+      setPassword('');
+    }
+    if (!user_name || !firstname || !lastname || !email || !password ) {
+
       setUserName('');//on reset les inputs
       setfirstname('');
       setlastname('');
@@ -76,7 +84,7 @@ export default function Register(){
             onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
           >
           <Form.Field>
-            <label htmlFor='name' className="field-label">Nom d'utilisateur</label>
+            <label htmlFor='name' className="field-label">{errors.user_name && <Label pointing='below' className='error'>{errors.user_name}</Label>}</label>
             <input
               name='name' 
               value={user_name}
@@ -87,10 +95,8 @@ export default function Register(){
             />
           </Form.Field>
 
-          {errors.user_name &&<p className='error'>{errors.user_name}</p>}
-
           <Form.Field>   
-            <label htmlFor='name' className="field-label">Nom </label>
+            <label htmlFor='name' className="field-label">{errors.lastname && <Label pointing='below' className='error'>{errors.lastname}</Label>} </label>
             <input 
               name='name'
               value={lastname} 
@@ -101,10 +107,8 @@ export default function Register(){
             />
             </Form.Field>
 
-            {errors.lastname &&<p className='error'>{errors.lastname}</p>}
-
             <Form.Field> 
-            <label htmlFor='name'className="field-label">Prenom </label>
+            <label htmlFor='name'className="field-label">{errors.firstname && <Label pointing='below' className='error'>{errors.firstname}</Label>} </label>
             <input
               name='name' 
               value={firstname}
@@ -113,10 +117,12 @@ export default function Register(){
               type="text" 
               placeholder="Prenom"/> 
             </Form.Field>
-            {errors.firstname &&<p className='error'>{errors.firstname}</p>}
 
             <Form.Field>
-            <label htmlFor='email'>Adresse mail</label>
+            <label htmlFor='email'>
+              {errors.email && <Label pointing='below' className='error'>{errors.email}</Label>}
+              {errors.emailNotValid && <Label pointing='below' className='error'>{errors.emailNotValid}</Label>}
+              </label>
             <input
               name='email' 
               className="field-input" 
@@ -125,10 +131,12 @@ export default function Register(){
               type="text" 
               placeholder="Adresse mail"/>
             </Form.Field>
-            {errors.email &&<p className='error'>{errors.email}</p>}
 
             <Form.Field> 
-            <label htmlFor='password'className="field-label">Nouveau mot de passe </label>
+            <label htmlFor='password'className="field-label">
+            {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
+            {errors.passwordLength && <Label pointing='below' className='error'>{errors.passwordLength}</Label>}
+            </label>
             <input 
               className="field-input"
               value={password}
@@ -137,7 +145,6 @@ export default function Register(){
               type="password" 
               placeholder="Nouveau mot de passe" />
             </Form.Field>
-            {errors.password &&<p className='error'>{errors.password}</p>}
 
             <Button className="form-submit" type="submit">Valider</Button>
             </Form>
