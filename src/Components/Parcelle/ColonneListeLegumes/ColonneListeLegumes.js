@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 
 
-function ColonneListeLegumes({ crops }) {
+function ColonneListeLegumes({ crops, images }) {
     
     // Button show/hide vegetable list
     const [show, setShow] = useState(true);
@@ -50,6 +50,7 @@ function ColonneListeLegumes({ crops }) {
                     <ul className="vegetableList">
                 
                     {crops && crops.map((crop, index) => {
+                        console.log(crop.id, crop.name);
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
