@@ -1,7 +1,6 @@
 .text-on-image {
     
-    // position: fixed; /* postulat de départ */
-    background-color: rgba(48, 46, 46, 0.466);
+    background-color: rgba(48, 46, 46, 0.555);
     color: rgb(229, 240, 233);
     padding: 20px;
     width: 600px;
@@ -9,16 +8,20 @@
     height: fit-content;
     text-align: center;
     box-shadow: black;
+    text-shadow: 1px 3px 17px rgba(36, 35, 35, 0.555);
     border-radius: 5px;
-    margin-top: 12em;
 }
-@media (max-width: 500px) {
+@media (max-width: 6500px) {
     .text-on-image {
         width: 70%;
         margin-top: 12.5rem;
     }
 }
 
+.container {
+    height: 100vh;
+    display: flex;
+}
 
 .homeTitle {
     font-size: 2.4rem;
@@ -27,4 +30,3 @@
 .homeText {
     font-size: 1.1rem;
 }
-

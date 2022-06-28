@@ -1,6 +1,8 @@
 import {  useState } from 'react';
 import './ColonneListeLegumes.scss';
 import jwtDecode from 'jwt-decode';
+//import ail from '../../../assets/images/imagesLegumes/Ail.png';
+
 
 import axios from 'axios';
 
@@ -27,7 +29,6 @@ function ColonneListeLegumes({ crops }) {
         } catch (error) {
             console.log(error);
         }
-
     };
     
     
@@ -65,9 +66,6 @@ function ColonneListeLegumes({ crops }) {
 
 export default ColonneListeLegumes;
 // A faire : 
-//     - Ajouter aux favoris
-//     - Supprimer des favoris
 //     - Faire fonctionner la recherche
-//     - Hover sur les légumes pour les infos
-//     - Adapter le texte du bouton afficher/masquer
-//     - Rendre dynamique la liste des légumes (BDD)
+//     - Régler le soucis avec les images
+//     - Sauvergarder

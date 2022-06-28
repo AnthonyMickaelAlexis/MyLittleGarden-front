@@ -1,31 +1,34 @@
 
-.container{
-    margin-top: 11em;
-}
-.loginForm {
-    margin-right: 30rem;
-    width: 40rem;
-    padding: 30px 50px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    height: fit-content;
-    margin: auto;
-    top: 50%; /* poussé de la moitié de hauteur du référent */
-}
-
-.connectionTitle {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-@media (max-width: 500px) {
-   .container{
-       width: 100vw;
-       display: flex;
-       margin: auto;
-   }
-    .loginForm {
-        width: 80%;
+    .container {
+        height: 100vh;
+       
     }
     
-}
+    .loginForm {
+        background-color: rgb(255, 255, 255);
+        width: 40rem;
+        height: fit-content;
+        padding: 30px 50px;
+        border-radius: 8px;
+        margin: auto;
+        margin-top: 10rem;
+        border: solid 1px rgba(0, 37, 8, 0.692);
+        // top: 50%; /* poussé de la moitié de hauteur du référent */
+    }
+    
+    .connectionTitle {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    @media (max-width: 800px) {
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .loginForm {
+            width: 70%;
+            margin-top: 12rem;
+        }
+        
+    }
