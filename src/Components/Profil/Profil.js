@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
+import ProfilInfos from "./profilInfos";
+import './Profil.scss';
 
 
 
@@ -21,18 +24,19 @@ const Profile = ({isLogged, setIsLogged})=> {
                 headers: {
                 Authorization: `bearer ${token}`
                 },
-              })   
+              })                
+ 
               .then((response) => {
-                console.log('reponse :', response); 
-              setData(response.data)      
+              console.log('reponse :', response);
+              console.log('token pour get:', token);  
+              setData(response.data);   
+   
               })
               .catch((error) => {
                 console.error('error :', error);
               });
-            },[])
-            
-       
-            
+            },[baseURL,token]);
+                    
 console.log(data)
            
   const [user_name, setUserName] = useState(data.user_name);
@@ -40,17 +44,23 @@ console.log(data)
   const [lastname, setlastname] = useState(data.lastname);
   const [email, setEmail] = useState(data.email);
   const [password, setPassword] = useState(data.password);
+  const [new_password, setnew_password] = useState('');
+  const [modifieduser, setModifiedUser] = useState(false)
+  const [deleteduser, setDeletedUser] = useState(false)
+
   // States for checking the errors
   const [errors, setErrors] = useState(false);
+
+console.log(modifieduser)
 
   function handleSubmit(e) {
     e.preventDefault();
     //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
-    setErrors(Validation(user_name, password, firstname, lastname, email));
+    setErrors(Validation(user_name, password, firstname, lastname, email, new_password));
 
     //je fais une requete patch en envoyant mon formulaire avec les 5 infos demandées. 
     // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
-    axios.patch(baseURL, `${jwtDecoded.id}`, {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password},
+    axios.patch(baseURL, {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password, new_password:new_password},
       {
       headers: {
       Authorization: `bearer ${token}`
@@ -59,6 +69,7 @@ console.log(data)
     .then((response) => {
       console.log('reponse :', response);
       console.log(response.data)
+      setModifiedUser(true);
     })
     .catch((error) => {
       console.error('error :', error);
@@ -69,33 +80,59 @@ console.log(data)
     setlastname(e.target.lastname);
     setEmail(e.target.email);
     setPassword(e.target.password);
-  
+    setnew_password(e.target.new_password);
+
     
-    console.log(user_name,firstname,lastname, email, password);
+    console.log(user_name,firstname,lastname, email, password, new_password);
 
     // si notre input à une valeur, on envoie le submit au parent
-    if (user_name && firstname && lastname && email &&password ) {
+    if (user_name && firstname && lastname && email && password && new_password) {
       // on envoie le userNickname, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
       setUserName('');//on reset les inputs
       setfirstname('');
       setlastname('');
       setEmail('');
       setPassword('');
-    }
-   
-  }
-  function handleDeleteUser(){
-  
-  console.log('êtes vous sur de vouloire supprimer votre compte?')
-    }
+      setnew_password('');
 
+    }
+  }
+//const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
+//
+  function handleDeleteUser(){
+    console.log('delete')
+//      axios.delete(URLForDelete, {
+//                    headers: {
+//                    Authorization: `bearer ${token}`
+//                    },
+//                  })                
+//     
+//                  .then((response) => {
+//                  console.log('reponse :', response);
+//                  console.log('token pour delete:', token); 
+//                  setIsLogged(true); 
+//                  setData(response.data);  
+//
+//       
+//                  })
+//                  .catch((error) => {
+//                    console.error('error :', error);
+//                  });
+//               
+}
+//
+//
+//   if (deleteduser) {
+//     return <Navigate to='/' />
+//    }else{
   return(
-   
+    <>
+    < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
     <div className='registerForm'>
        
     <h1 className='connectionTitle'>Profil</h1>
       <Form 
-        onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
+        onSubmit={handleSubmit}  // gere à la fois le "entré" sur l'input et le click sur le bouton 
       >
       <Form.Field>
         <label htmlFor='name' className="field-label">
@@ -154,6 +191,19 @@ console.log(data)
           type="text" 
           placeholder="Nouvelle adresse mail"/>
         </Form.Field>
+        <Form.Field>
+            <label htmlFor='password'>
+            {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
+            {errors.passwordLength && <Label pointing='below' className='error'>{errors.passwordLength}</Label>}
+
+            </label>
+            <input
+            name='password'
+            value={password}              
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Ancien mot de passe" 
+            type='password' />
+            </Form.Field>
 
         <Form.Field> 
         <label htmlFor='password'className="field-label">
@@ -162,19 +212,21 @@ console.log(data)
         </label>
         <input 
           className="field-input"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={new_password}
+          onChange={(e) => setnew_password(e.target.value)}
           name="password" 
           type="password" 
           placeholder="Nouveau mot de passe" />
         </Form.Field>
 
-        <Button className="form-submit" type="submit">Valider</Button> <Button className="form-submit" type="onClick" onClick={handleDeleteUser()}>Suprimer mon compte</Button>
-        </Form>
+        <Button className="form-submit" type="submit">Valider </Button>   
         
-       
+       <Button className="form-delete" type='submit' onClick={handleDeleteUser()}>Suprimer mon compte</Button>
+
+        </Form>
     </div>
+    </>
     );
 }
-
-export default Profile;
+//}
+export default React.memo (Profile);

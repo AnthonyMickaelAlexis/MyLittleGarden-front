@@ -3,11 +3,10 @@ import { NavLink } from "react-router-dom";
 import './Navigation.scss';
 
 const Navigation = ({isLogged, setIsLogged}) => {
-
+console.log(`isLogged : ${isLogged}`)
   const logout = () => {
     setIsLogged(false);
     localStorage.removeItem("token");
-    window.localStorage.removeItem('isLogged');
 
   }
 

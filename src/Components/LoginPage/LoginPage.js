@@ -1,5 +1,4 @@
 
-
 import { useState } from 'react';
 import {Navigate} from 'react-router-dom';
 import { Button, Form, Label } from 'semantic-ui-react';
@@ -32,6 +31,8 @@ function LoginPage({isLogged, setIsLogged}){
             console.log('reponse :', response);
             localStorage.setItem("token", response.data.access_token);
             setIsLogged(true);
+          // window.localStorage.setItem('isLogged',true);
+           //console.log(isLogged)
           })
           .catch((error) => {
             console.error('error :', error);
@@ -61,7 +62,7 @@ function LoginPage({isLogged, setIsLogged}){
         <div className='container'>
        <div className="loginForm">
         <h1 className="connectionTitle">Connexion</h1>
-        <Form class="ui fluid form" onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
+        <Form className="ui fluid form" onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
 >
             <Form.Field>
            
@@ -75,7 +76,6 @@ function LoginPage({isLogged, setIsLogged}){
             placeholder="Nom d'utilisateur" />
             </Form.Field>
             
-
             <Form.Field>
             <label htmlFor='password'>
             {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
