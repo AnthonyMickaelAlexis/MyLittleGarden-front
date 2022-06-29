@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import  React, { useState } from 'react';
 import { Button, Form, Label } from 'semantic-ui-react'
 import {Navigate} from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import Validation from '../Validation/validation';
 import '../../../src/index.css';
 
 
-export default function Register(){
+function Register(){
   const url = "https://oclock-my-little-garden.herokuapp.com/register";
   //const url = "http://localhost:8080/register";
 
@@ -172,3 +172,5 @@ export default function Register(){
     )
   }
 }
+
+export default React.memo(Register);

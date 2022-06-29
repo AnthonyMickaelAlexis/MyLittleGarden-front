@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {Navigate} from 'react-router-dom';
 import { Button, Form, Label } from 'semantic-ui-react';
 import Validation from '../Validation/validation';
@@ -99,5 +99,4 @@ function LoginPage({isLogged, setIsLogged}){
 }};
 
 
-
-export default LoginPage;
+export default React.memo(LoginPage);
