@@ -23,11 +23,14 @@ function App() {
   
 
 useEffect (() => { 
- // const loggedIn = window.localStorage.getItem('isLogged', JSON.stringify(isLogged));
+  let loggedOk = window.localStorage.getItem(isLogged);
+  console.log(loggedOk)
   const token = localStorage.getItem('token');
-  console.log(token);
-
+  console.log(`mon token: ${token}`);
   const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
+  if(token){
+    setIsLogged(true)
+  }
   if (token) axiosInstance.defaults.headers.authorization = `bearer ${token}`
   const getCrop = async () => {
     const axiosRequest = await axiosInstance.get('/crops')

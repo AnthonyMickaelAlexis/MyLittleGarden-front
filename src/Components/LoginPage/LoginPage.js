@@ -76,7 +76,6 @@ function LoginPage({isLogged, setIsLogged}){
             placeholder="Nom d'utilisateur" />
             </Form.Field>
             
-
             <Form.Field>
             <label htmlFor='password'>
             {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}

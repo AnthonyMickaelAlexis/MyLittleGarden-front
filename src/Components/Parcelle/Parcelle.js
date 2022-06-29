@@ -62,11 +62,18 @@ function Parcelle({crops}) {
     return images;
   }
   
-  //const images = importAll(require.context('../../../assets/images/imagesLegumes', false, /\.(png|jpe?g|svg)$/));
+  const images = importAll(require.context('../../assets/images/imagesLegumes', false, /\.(png|jpe?g|svg)$/));
+
+  console.log(images)
+
+
+  // Mapper dans les images (const images ci-dessus)
+
+
 
         return (
           <div className="ParcellePage">
-              <ColonneListeLegume crops={crops} />
+              <ColonneListeLegume crops={crops} images={images}/>
               <Grille cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected}/>
               <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris} cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected} />
           </div>

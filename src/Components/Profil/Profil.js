@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+//import { Navigate } from "react-router-dom";
 import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
@@ -29,7 +30,7 @@ const Profile = ({isLogged, setIsLogged})=> {
               .catch((error) => {
                 console.error('error :', error);
               });
-            },[baseURL, token]);
+            },[]);
                     
 console.log(data)
            
@@ -40,6 +41,7 @@ console.log(data)
   const [password, setPassword] = useState(data.password);
   const [new_password, setnew_password] = useState('');
   const [modifieduser, setModifiedUser] = useState(false)
+  const [deleteduser, setDeletedUser] = useState(false)
 
   // States for checking the errors
   const [errors, setErrors] = useState(false);
@@ -49,7 +51,7 @@ console.log(modifieduser)
   function handleSubmit(e) {
     e.preventDefault();
     //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
-    setErrors(Validation(user_name, password, firstname, lastname, email));
+    setErrors(Validation(user_name, password, firstname, lastname, email, new_password));
 
     //je fais une requete patch en envoyant mon formulaire avec les 5 infos demandées. 
     // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
@@ -79,7 +81,7 @@ console.log(modifieduser)
     console.log(user_name,firstname,lastname, email, password, new_password);
 
     // si notre input à une valeur, on envoie le submit au parent
-    if (user_name && firstname && lastname && email &&password && new_password) {
+    if (user_name && firstname && lastname && email && password && new_password) {
       // on envoie le userNickname, userfirstname... au composant parent, on fait remonter l'evenement du onSubmit
       setUserName('');//on reset les inputs
       setfirstname('');
@@ -90,10 +92,32 @@ console.log(modifieduser)
 
     }
   }
- function handleDeleteUser(){
+const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
+
+  function handleDeleteUser(){
+   axios.delete(URLForDelete, {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password, new_password:new_password},
+    {
+  // headers: {
+  // Authorization: `bearer ${token}`
+  // }, 
+  })    
+  .then((response) => {
+    console.log('reponse :', response);
+    console.log(response.data)
+    setDeletedUser(true);
+    localStorage.removeItem("token");
+    console.log('compte bien supprime')
+  })
+  .catch((error) => {
+    console.error('error :', error);
+  });
+}
+
  
-  console.log('supprimer mon compte?')
-    }
+
+  //  if (deleteduser) {
+  //    return <Navigate to='/' />
+  //   }else{
 
   return(
    
@@ -101,7 +125,7 @@ console.log(modifieduser)
        
     <h1 className='connectionTitle'>Profil</h1>
       <Form 
-        onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
+        onSubmit={handleSubmit}  // gere à la fois le "entré" sur l'input et le click sur le bouton 
       >
       <Form.Field>
         <label htmlFor='name' className="field-label">
@@ -188,9 +212,12 @@ console.log(modifieduser)
           placeholder="Nouveau mot de passe" />
         </Form.Field>
 
-        <Button className="form-submit" type="submit">Valider </Button>  {/*<Button className="form-submit" type="onClick" onClick={handleDeleteUser()}>Suprimer mon compte</Button>*/}
-        </Form>
+        <Button className="form-submit" type="submit">Valider </Button>   
         
+        <Button className="form-delete" type='submit' onClick={handleDeleteUser()}>Suprimer mon compte</Button>
+
+        </Form>
+
        
     </div>
     );

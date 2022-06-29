@@ -19,7 +19,7 @@ export default function Register(){
   const [lastname, setlastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirm_password, setconfirm_password] = useState('');
+  const [confirm_password, setConfirm_password] = useState('');
 
   // States for checking the errors
   const [errors, setErrors] = useState(false);
@@ -51,7 +51,7 @@ export default function Register(){
     setlastname(e.target.lastname);
     setEmail(e.target.email);
     setPassword(e.target.password);
-    setconfirm_password(e.target.confirm_password)
+    setConfirm_password(e.target.confirm_password)
   
     
     console.log(user_name,firstname,lastname, email, password, confirm_password);
@@ -64,7 +64,7 @@ export default function Register(){
       setlastname('');
       setEmail('');
       setPassword('');
-      setconfirm_password('');
+      setConfirm_password('');
     }
     if (!user_name && !firstname && !lastname && !email && !password && confirm_password ) {
 
@@ -73,7 +73,7 @@ export default function Register(){
       setlastname('');
       setEmail('');
       setPassword('');
-      setconfirm_password('');
+      setConfirm_password('');
 
     }
   }
@@ -159,7 +159,7 @@ export default function Register(){
             <input 
               className="field-input"
               value={confirm_password}
-              onChange={(e) => setconfirm_password(e.target.value)}
+              onChange={(e) => setConfirm_password(e.target.value)}
               name="password" 
               type="password" 
               placeholder="Confirmer votre mot de passe" />
