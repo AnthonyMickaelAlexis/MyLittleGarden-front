@@ -2,27 +2,8 @@
     background-color: #e6f4e5;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
-}
-.buttonSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 30px;
-}
-
-.button {
-    border-radius: 5px;
-    border: solid 1px;
-    padding: 10px;
-    margin: 5px;
-    font-size: 1.2rem;
-    background-color: rgb(233, 255, 220);
-}
-
-
-.header {
-    background-color: rgb(156, 190, 151);
 }
 
 .logo {
@@ -31,7 +12,6 @@
 
 @media (max-width: 500px) {
     .headerBar {
-        background-color: #e6f4e5;
         display: flex;
         justify-content: space-evenly;
         width: 100%;
