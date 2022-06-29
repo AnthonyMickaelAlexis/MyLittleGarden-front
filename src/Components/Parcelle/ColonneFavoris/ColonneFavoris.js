@@ -5,13 +5,13 @@ import axios from "axios";
 import "./ColonneFavoris.scss";
 import jwtDecode from "jwt-decode";
 
-export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, setCropsToParcel, isCropSelected, setIsCropSelected }) {
+export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, setCropsToParcel, isCropSelected, setIsCropSelected, images }) {
   
   
   const deleteFav = (cropId) => {
     const newFavoriteList = favoris.filter((crop) => crop.id !== cropId);
     
-    console.log(newFavoriteList);
+    // console.log(newFavoriteList);
     //Ma requete pour les favoris du user
     const token = localStorage.getItem("token");
     const jwtDecoded = jwtDecode(token);
@@ -26,7 +26,7 @@ export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, set
       },
     })
     .then((response) => {
-      console.log("reponse :", response);
+      // console.log("reponse :", response);
       })
       .catch((error) => {
         console.error("error :", error);
@@ -34,8 +34,8 @@ export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, set
     };
 
     
-    const selectFavoriteCrop = (cropId) => {
-      setCropsToParcel([...cropsToParcel, {cropId}]);
+    const selectFavoriteCrop = (cropId, cropImg) => {
+      setCropsToParcel([...cropsToParcel, {cropId, cropImg}]);
       setIsCropSelected(true);
     };
     
@@ -45,12 +45,12 @@ export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, set
       <h3 className="favTittle">Liste des favoris</h3>
       <ul className="listeLegumes">
         {favoris.map((crop) => {
-          console.log(crop.id);
+          {/* console.log(crop.id); */}
           return (
             <li key={crop.id} className="vegetableSection">
               <p className="vegetable">{crop.name}</p>
               <img
-                src={crop.crop_img}
+                src={images[crop.id - 1].path}
                 className="vegetableIcon"
                 alt={`Icone ${crop.name}`}
                 onClick={() => !isCropSelected && selectFavoriteCrop(crop.id)}

@@ -14,19 +14,14 @@ function ColonneListeLegumes({ crops, images }) {
     // const [search, setSearch] = useState('react');
     
     const addToFav = async (cropId) => {
-        // const cropToFind = crops.find((crop) => id === crop.id)
-        // console.log(cropToFind);
-        // let cropsFav = [];
-        // console.log(cropsFav);
         try {
             const token = localStorage.getItem('token');
-        const jwtDecoded = jwtDecode(token);
+            const jwtDecoded = jwtDecode(token);
 
-            console.log(token);
             const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
             axiosInstance.defaults.headers.authorization = `bearer ${token}`
             const axiosRequest = await axiosInstance.post(`/${cropId}/${jwtDecoded.id}`)
-            console.log(axiosRequest);
+            console.log('-------> post ajout favoris : ', axiosRequest)
         } catch (error) {
             console.log(error);
         }
@@ -50,7 +45,7 @@ function ColonneListeLegumes({ crops, images }) {
                     <ul className="vegetableList">
                 
                     {crops && crops.map((crop, index) => {
-                        console.log(crop.id, crop.name);
+                        {/* console.log(crop.id, crop.name); */}
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
@@ -69,5 +64,4 @@ function ColonneListeLegumes({ crops, images }) {
 export default ColonneListeLegumes;
 // A faire : 
 //     - Faire fonctionner la recherche
-//     - Régler le soucis avec les images
 //     - Sauvergarder

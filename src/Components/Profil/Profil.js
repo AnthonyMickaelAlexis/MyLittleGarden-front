@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+//import { Navigate } from "react-router-dom";
 import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
@@ -16,7 +16,7 @@ const Profile = ({isLogged, setIsLogged})=> {
   const jwtDecoded = jwtDecode(token);
 
   const baseURL = `https://oclock-my-little-garden.herokuapp.com/home/profil/${jwtDecoded.id}`;//${token.user.id}
-  console.log(isLogged)
+  // console.log(isLogged)
   
     //Ma requete pour avoir les données du user.
     useEffect (() => { 
