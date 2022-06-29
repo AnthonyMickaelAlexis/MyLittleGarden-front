@@ -23,10 +23,9 @@ function App() {
   
 
 useEffect (() => { 
-  const loggedIn = window.localStorage.getItem('isLogged', JSON.stringify(isLogged));
+ // const loggedIn = window.localStorage.getItem('isLogged', JSON.stringify(isLogged));
   const token = localStorage.getItem('token');
   console.log(token);
-  console.log(loggedIn);
 
   const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
   if (token) axiosInstance.defaults.headers.authorization = `bearer ${token}`
