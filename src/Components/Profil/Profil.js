@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
@@ -24,15 +24,18 @@ const Profile = ({isLogged, setIsLogged})=> {
                 headers: {
                 Authorization: `bearer ${token}`
                 },
-              })   
+              })                
+ 
               .then((response) => {
-                console.log('reponse :', response); 
-              setData(response.data)      
+              console.log('reponse :', response);
+              console.log('token pour get:', token);  
+              setData(response.data);   
+   
               })
               .catch((error) => {
                 console.error('error :', error);
               });
-            },[]);
+            },[baseURL,token]);
                     
 console.log(data)
            
@@ -94,33 +97,34 @@ console.log(modifieduser)
 
     }
   }
-const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
-
+//const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
+//
   function handleDeleteUser(){
-   axios.delete(URLForDelete, {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password, new_password:new_password},
-    {
-  // headers: {
-  // Authorization: `bearer ${token}`
-  // }, 
-  })    
-  .then((response) => {
-    console.log('reponse :', response);
-    console.log(response.data)
-    setDeletedUser(true);
-    localStorage.removeItem("token");
-    console.log('compte bien supprime')
-  })
-  .catch((error) => {
-    console.error('error :', error);
-  });
+    console.log('delete')
+//      axios.delete(URLForDelete, {
+//                    headers: {
+//                    Authorization: `bearer ${token}`
+//                    },
+//                  })                
+//     
+//                  .then((response) => {
+//                  console.log('reponse :', response);
+//                  console.log('token pour delete:', token); 
+//                  setIsLogged(true); 
+//                  setData(response.data);  
+//
+//       
+//                  })
+//                  .catch((error) => {
+//                    console.error('error :', error);
+//                  });
+//               
 }
-
- 
-
-  //  if (deleteduser) {
-  //    return <Navigate to='/' />
-  //   }else{
-
+//
+//
+//   if (deleteduser) {
+//     return <Navigate to='/' />
+//    }else{
   return(
     <>
     < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
@@ -217,12 +221,12 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
 
         <Button className="form-submit" type="submit">Valider </Button>   
         
-        <Button className="form-delete" type='submit' onClick={handleDeleteUser()}>Suprimer mon compte</Button>
+       <Button className="form-delete" type='submit' onClick={handleDeleteUser()}>Suprimer mon compte</Button>
 
         </Form>
     </div>
     </>
     );
 }
-
+//}
 export default React.memo (Profile);

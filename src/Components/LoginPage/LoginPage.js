@@ -62,7 +62,7 @@ function LoginPage({isLogged, setIsLogged}){
         <div className='container'>
        <div className="loginForm">
         <h1 className="connectionTitle">Connexion</h1>
-        <Form class="ui fluid form" onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
+        <Form className="ui fluid form" onSubmit={handleSubmit} // gere à la fois le "entré" sur l'input et le click sur le bouton 
 >
             <Form.Field>
            
