@@ -20,10 +20,14 @@ function App() {
 
   const [isLogged, setIsLogged] = useState(false);
   const [crops, setCrops] = useState();
+  
 
 useEffect (() => { 
+  const loggedIn = window.localStorage.getItem('isLogged', JSON.stringify(isLogged));
   const token = localStorage.getItem('token');
   console.log(token);
+  console.log(loggedIn);
+
   const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
   if (token) axiosInstance.defaults.headers.authorization = `bearer ${token}`
   const getCrop = async () => {
@@ -38,10 +42,11 @@ useEffect (() => {
    <>
     <Header isLogged={isLogged} setIsLogged={setIsLogged}/>
     <Routes>
+      
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
-      <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged}/>} />
+      <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged} />} />
       <Route path="/profil" element={<Profil isLogged={isLogged} setIsLogged={setIsLogged}/>} />
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<Contact />} />

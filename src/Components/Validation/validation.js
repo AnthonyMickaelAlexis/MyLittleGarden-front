@@ -1,5 +1,5 @@
 
-export default function Validation(user_name, password, email, firstname, lastname) {
+export default function Validation(user_name, password, passwordconfirmed, email, firstname, lastname) {
 
   let errors={};
 
@@ -20,7 +20,12 @@ export default function Validation(user_name, password, email, firstname, lastna
     errors.password = "Votre mot de passe est nécessaire."
   }else if(password.length < 3){
     errors.passwordLength = "Votre mot de passe doit contenir au moins 3 caractères"
+  }if(!passwordconfirmed === password){
+    errors.passwordconfirmed = "Le nouveau mot de passe et le mot de passe de confirmation ne correspondent pas."
+  }else if(!passwordconfirmed){
+    errors.passwordconfirmedempty = "Votre mot de passe de confirmation est nécessaire"
   }
+
 
 
   return errors;

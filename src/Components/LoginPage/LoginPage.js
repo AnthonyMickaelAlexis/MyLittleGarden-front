@@ -1,5 +1,4 @@
 
-
 import { useState } from 'react';
 import {Navigate} from 'react-router-dom';
 import { Button, Form, Label } from 'semantic-ui-react';
@@ -11,7 +10,7 @@ import axios from 'axios';
 import '../../../src/index.css';
 
 
-function LoginPage({isLogged, setIsLogged}){ 
+function LoginPage({isLogged, setIsLogged, loggedIn}){ 
   
 
 
@@ -32,6 +31,8 @@ function LoginPage({isLogged, setIsLogged}){
             console.log('reponse :', response);
             localStorage.setItem("token", response.data.access_token);
             setIsLogged(true);
+           window.localStorage.setItem('isLogged',true);
+           console.log(isLogged)
           })
           .catch((error) => {
             console.error('error :', error);
