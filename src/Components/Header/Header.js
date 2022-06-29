@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import './Header.scss';
 
-function Header() {
+function Header({isLogged, setIsLogged}) {
     return (
         <div className="headerBar">
             <NavLink to="/" >
@@ -13,7 +13,7 @@ function Header() {
             {/* <div className="buttonSection"> */}
                 {/* <button className="button">S'inscrire</button>
                 <button className="button">Se connecter</button> */}
-                <Navigation />
+                <Navigation isLogged={isLogged} setIsLogged={setIsLogged}/>
             {/* </div> */}
         </div>
     );
