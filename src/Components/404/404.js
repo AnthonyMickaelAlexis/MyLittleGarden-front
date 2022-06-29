@@ -10,11 +10,6 @@ function Error () {
             
             <h2 className="pageTitle">Erreur 404</h2>
             <img src={errorLogo} className="gifError" alt="Gif erreur 404" />
-            <Link to="/home">
-                <button className="backToHomePage">
-                Revenir à l'accueil
-                </button>
-            </Link>
        </div>
     );
   }

@@ -7,10 +7,11 @@ import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 
 
-function ColonneListeLegumes({ crops }) {
+function ColonneListeLegumes({ crops, images }) {
     
     // Button show/hide vegetable list
     const [show, setShow] = useState(true);
+    // const [search, setSearch] = useState('react');
     
     const addToFav = async (cropId) => {
         // const cropToFind = crops.find((crop) => id === crop.id)
@@ -49,10 +50,11 @@ function ColonneListeLegumes({ crops }) {
                     <ul className="vegetableList">
                 
                     {crops && crops.map((crop, index) => {
+                        console.log(crop.id, crop.name);
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
-                                <img src={crop.crop_img} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
+                                <img src={images[crop.id - 1].path} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
                                 <button className="addToFav" onClick={() => addToFav(crop.id)}>Ajouter aux favoris</button>
                             </li>
                         )                   
