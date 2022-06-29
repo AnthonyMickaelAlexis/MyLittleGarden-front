@@ -32,7 +32,7 @@ function LoginPage({isLogged, setIsLogged}){
             localStorage.setItem("token", response.data.access_token);
             setIsLogged(true);
           // window.localStorage.setItem('isLogged',true);
-           //console.log(isLogged)
+           console.log(isLogged)
           })
           .catch((error) => {
             console.error('error :', error);
@@ -79,7 +79,6 @@ function LoginPage({isLogged, setIsLogged}){
             <Form.Field>
             <label htmlFor='password'>
             {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
-            {errors.passwordLength && <Label pointing='below' className='error'>{errors.passwordLength}</Label>}
 
             </label>
             <input

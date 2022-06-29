@@ -28,9 +28,7 @@ useEffect (() => {
   const token = localStorage.getItem('token');
   console.log(`mon token: ${token}`);
   const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
-  if(token){
-    setIsLogged(true)
-  }
+  token ? setIsLogged(true) : setIsLogged(false);
   if (token) axiosInstance.defaults.headers.authorization = `bearer ${token}`
   const getCrop = async () => {
     const axiosRequest = await axiosInstance.get('/crops')
@@ -44,7 +42,6 @@ useEffect (() => {
    <>
     <Header isLogged={isLogged} setIsLogged={setIsLogged}/>
     <Routes>
-      
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />

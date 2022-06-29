@@ -127,7 +127,6 @@ function Register(){
             <Form.Field>
             <label htmlFor='email'>
               {errors.email && <Label pointing='below' className='error'>{errors.email}</Label>}
-              {errors.emailNotValid && <Label pointing='below' className='error'>{errors.emailNotValid}</Label>}
               </label>
             <input
               name='email' 
@@ -141,7 +140,6 @@ function Register(){
             <Form.Field> 
             <label htmlFor='password'className="field-label">
             {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
-            {errors.passwordLength && <Label pointing='below' className='error'>{errors.passwordLength}</Label>}
             </label>
             <input 
               className="field-input"
@@ -154,7 +152,6 @@ function Register(){
             <Form.Field> 
             <label htmlFor='passwordconfirm'className="field-label">
             {errors.confirm_password && <Label pointing='below' className='error'>{errors.confirm_password}</Label>}
-            {errors.confirm_passwordempty && <Label pointing='below' className='error'>{errors.confirm_passwordempty}</Label>}
             </label>
             <input 
               className="field-input"
@@ -173,4 +170,4 @@ function Register(){
   }
 }
 
-export default React.memo(Register);
+export default React.memo(Register)

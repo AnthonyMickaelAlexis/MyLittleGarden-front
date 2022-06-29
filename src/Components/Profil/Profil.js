@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Button, Form, Label } from 'semantic-ui-react';
+import { Button, Form, Label, Confirm } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
@@ -9,7 +9,9 @@ import './Profil.scss';
 
 
 
-const Profile = ({isLogged, setIsLogged})=> {
+const Profil = ({isLogged, setIsLogged})=> {
+
+  
   const [data, setData] = useState({});
 
   const token = localStorage.getItem('token');
@@ -117,10 +119,10 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
                   .catch((error) => {
                     console.error('error :', error);
                   });
-                  if (deleteduser) {
-                    return <Navigate to='/' />
-                   }else{ return null
-               
+                  if (!isLogged) {
+                    return <Navigate to='/home' />
+                   }else{ 
+                     return null;            
 }
   }
    
@@ -179,7 +181,6 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
         <Form.Field>
         <label htmlFor='email'>
         {errors.email && <Label pointing='below' className='error'>{errors.email}</Label>}
-        {errors.emailNotValid && <Label pointing='below' className='error'>{errors.emailNotValid}</Label>}
         </label>
 
         <input
@@ -193,7 +194,6 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
         <Form.Field>
             <label htmlFor='password'>
             {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
-            {errors.passwordLength && <Label pointing='below' className='error'>{errors.passwordLength}</Label>}
 
             </label>
             <input
@@ -207,7 +207,6 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
         <Form.Field> 
         <label htmlFor='password'className="field-label">
         {errors.password && <Label pointing='below' className='error'>{errors.password}</Label>}
-        {errors.passwordLength && <Label pointing='below' className='error'>{errors.passwordLength}</Label>}
         </label>
         <input 
           className="field-input"
@@ -221,11 +220,11 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
         <Button className="form-submit" type="submit">Valider </Button>   
         
        <Button className="form-delete" type='submit' onClick={handleDeleteUser}>Suprimer mon compte</Button>
-
+       
         </Form>
     </div>
     </>
     );
 }
 //}
-export default React.memo(Profile);
+export default React.memo(Profil);
