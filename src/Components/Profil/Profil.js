@@ -4,6 +4,8 @@ import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
+import ProfilInfos from "./profilInfos";
+import './Profil.scss';
 
 
 
@@ -120,7 +122,8 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
   //   }else{
 
   return(
-   
+    <>
+    < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
     <div className='registerForm'>
        
     <h1 className='connectionTitle'>Profil</h1>
@@ -217,10 +220,9 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
         <Button className="form-delete" type='submit' onClick={handleDeleteUser()}>Suprimer mon compte</Button>
 
         </Form>
-
-       
     </div>
+    </>
     );
 }
 
-export default Profile;
+export default React.memo (Profile);

@@ -1,13 +1,8 @@
-body{
-    box-sizing: border-box;
-    background-image: url(../../assets/images/image1.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
+
   .registerForm {
+    display: inline-block;
     background-color: white;
-    margin: auto;
+    margin-left: 26em;
     width: 40rem;
     border-radius: 8px;
     padding: 30px 50px;
@@ -18,7 +13,7 @@ body{
   @media (max-width: 500px) {
   #root{
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
   }
     
     .registerForm {

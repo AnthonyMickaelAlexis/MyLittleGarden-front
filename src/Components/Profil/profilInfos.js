@@ -1,16 +1,18 @@
+import React from "react";
+import './profilInfosStyle.scss';
 
-const ProfilInfos=()=>{
+const ProfilInfos =({user_name, firstname, lastname, email})=>{
 return(
     
     <div className="container-profil">
       <h1 className="profil-title">Mon profil</h1>
-    <p className="user_name"><span className="step">votre nom: </span></p>
-    <p className="user_name"><span className="step">votre nom de famille: </span></p>
-    <p className="user_name"><span className="step">votre Prenom: </span></p>
-    <p className="user_name"><span className="step">votre adresse mail: </span></p>
+    <p className="user_name"><span className="step">Nom d'utilisateur: {user_name}</span></p>
+    <p className="user_name"><span className="step">Nom:{lastname} </span></p>
+    <p className="user_name"><span className="step">Prenom: {firstname}</span></p>
+    <p className="user_name"><span className="step">Adresse email: {email}</span></p>
     </div>
 
 )
 }
 
-export default ProfilInfos
+export default React.memo(ProfilInfos)
