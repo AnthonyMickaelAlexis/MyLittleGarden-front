@@ -38,7 +38,7 @@ const Navigation = ({isLogged, setIsLogged}) => {
         </NavLink> }
 
         {/* A SUPPRIMER A LA FIN, c'est pour pouvoir bosser sur la parcelle */}
-        {!isLogged &&
+        {isLogged &&
         <NavLink to="/parcelle" className={(nav) => (nav.isActive ? "nav-active" : "")} >
           <li>Parcelle</li>
         </NavLink> }
