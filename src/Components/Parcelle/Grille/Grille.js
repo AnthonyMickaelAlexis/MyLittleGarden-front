@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./Grille.scss";
 import Row from "./Row/Row";
+import axios from 'axios';
 
 //Parcel size : each square represents a vegetable
 // Vertical axix (number of vertical boxes)
@@ -16,6 +18,31 @@ function Grille({
   setIsCropSelected,
   images
 }) {
+
+  const [cropToDelete, setCropToDelete] = useState({});
+
+  const handleClickDelete = async () => {
+    const baseURL = `https://oclock-my-little-garden.herokuapp.com/${cropToDelete.user_id}/${cropToDelete.crop_id}/parcel`; //${token.user.id}
+    
+    await axios
+    .delete(baseURL,  {
+      headers: {
+        Authorization: `bearer ${cropToDelete.token}`,
+      }, data: {
+        position_x: cropToDelete.position_x,
+        position_y: cropToDelete.position_y,
+      }
+    })
+    .then((response) => {
+      // console.log("reponse :", response);
+      })
+      .catch((error) => {
+        console.error("error :", error);
+      });
+
+    window.location.reload(false)
+  }
+
   return (
     <div className="container">
       <h1 className="parcelTitle">Ma parcelle</h1>
@@ -40,11 +67,12 @@ function Grille({
                 isCropSelected={isCropSelected}
                 setIsCropSelected={setIsCropSelected}
                 images={images}
+                setCropToDelete={setCropToDelete}
               />
             );
           })
         }
-      <button type="button" className="saveParcel">Sauvegarder ma parcelle</button>
+      <button type="button" className="saveParcel" onClick={handleClickDelete}>Supprimer le légume sélectionné</button>
       </div>
     </div>
   );

@@ -145,7 +145,7 @@ function Parcelle({ crops }) {
 
   imagesToSquare = imagesToSquare.filter((image) => image?.id);
 
-  console.log(imagesToSquare);
+  // console.log(imagesToSquare);
 
   return (
     <div className="ParcellePage">

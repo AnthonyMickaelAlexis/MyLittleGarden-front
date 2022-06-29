@@ -9,6 +9,7 @@ function Row({
   isCropSelected,
   setIsCropSelected,
   images,
+  setCropToDelete
 }) {
   const token = localStorage.getItem("token");
   const jwtDecoded = jwtDecode(token);
@@ -21,12 +22,9 @@ function Row({
   return (
     <div className="row">
       {horizontalSquaresWanted.map((boite, x) => {
-        {
-          /* console.log(x, y); */
-        }
+  
 
-        const squareClick = () => {
-          console.log(cropsToParcel);
+        const squareClick = async () => {
           {
             /* cropsToParcel[cropsToParcel.length - 1] = {
             crop_id:cropsToParcel[cropsToParcel.length - 1].cropId, 
@@ -37,9 +35,7 @@ function Row({
             parcel_id: 2
           } */
           }
-          console.log("test", cropsToParcel[0].id)
           const test = cropsToParcel.map((boite, index) => {
-            console.log(boite)
             if (cropsToParcel.length - 1 === index) {
               return {
                 user_id: jwtDecoded.id,
@@ -57,21 +53,20 @@ function Row({
                 position_y: boite.position_y,
             }
           });
-          console.log("c'est lui", test)
           {
             /* setCropsToParcel([...cropsToParcel]); */
           }
 
           const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
 
-          axios
+          await axios
             .patch(baseURL, test, {
               headers: {
                 Authorization: `bearer ${token}`,
               },
             })
             .then((response) => {
-              console.log("reponse :", response);
+              console.log("-----> patch dans parcel :", response);
               // setFavoris(response.data);
             })
             .catch((error) => {
@@ -79,7 +74,20 @@ function Row({
             });
 
           setIsCropSelected(false);
+          window.location.reload(false)
         };
+
+        const handleClickImage = (x, y, cropId) => {
+          console.log(x, y, cropId)
+          const cropToDelete = {}
+          cropToDelete.position_x = x;
+          cropToDelete.position_y = y;
+          cropToDelete.user_id = jwtDecoded.id;
+          cropToDelete.crop_id = cropId;
+          cropToDelete.token = token;
+          console.log(cropToDelete)
+          setCropToDelete(cropToDelete);
+        }
 
         return (
           <div
@@ -91,12 +99,10 @@ function Row({
                 y === cropsToParcel[index].position_y &&
                 x === cropsToParcel[index].position_x
               ) {
-                {
-                  /* console.log(images[cropsToParcel[index].crop_id - 1]) */
-                }
-                console.log(images[boite.id - 1].path);
                 return (
-                  <img src={images[boite.id - 1].path} alt="Icone légume" />
+                  <img src={images[boite.id - 1].path} alt="Icone légume" onClick={() => {
+                    handleClickImage(x, y, boite.id)
+                  }}/>
                 );
               }
             })}
