@@ -59,6 +59,12 @@
     height: 60px;
 }
 
+.square img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 .saveParcel {
     margin-top: 10%;
 }

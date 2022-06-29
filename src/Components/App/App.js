@@ -23,7 +23,7 @@ function App() {
 
 useEffect (() => { 
   const token = localStorage.getItem('token');
-  console.log(token);
+  // console.log(token);
   const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
   if (token) axiosInstance.defaults.headers.authorization = `bearer ${token}`
   const getCrop = async () => {

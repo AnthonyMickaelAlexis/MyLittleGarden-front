@@ -20,7 +20,7 @@ export default function Inscription(){
     setUserEmail(e.target.UserEmail);
     setUserPassword(e.target.userPassword)
 
-    console.log({userNickname},{userFirstName},{userLastName}, {userEmail}, {userPassword});
+    // console.log({userNickname},{userFirstName},{userLastName}, {userEmail}, {userPassword});
 
   }
     return(

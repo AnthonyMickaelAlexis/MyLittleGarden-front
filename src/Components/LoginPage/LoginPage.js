@@ -29,7 +29,7 @@ function LoginPage({isLogged, setIsLogged}){
         setErrors(Validation(user_name, password))
           axios.post(url, {user_name:user_name, password:password})     
           .then((response) => {
-            console.log('reponse :', response);
+            // console.log('reponse :', response);
             localStorage.setItem("token", response.data.access_token);
             setIsLogged(true);
           })

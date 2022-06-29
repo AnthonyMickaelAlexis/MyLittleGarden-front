@@ -14,6 +14,7 @@ function Grille({
   setCropsToParcel,
   isCropSelected,
   setIsCropSelected,
+  images
 }) {
   return (
     <div className="container">
@@ -38,6 +39,7 @@ function Grille({
                 y={y}
                 isCropSelected={isCropSelected}
                 setIsCropSelected={setIsCropSelected}
+                images={images}
               />
             );
           })

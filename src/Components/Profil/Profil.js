@@ -13,7 +13,7 @@ const Profile = ({isLogged, setIsLogged})=> {
   const jwtDecoded = jwtDecode(token);
 
   const baseURL = `https://oclock-my-little-garden.herokuapp.com/home/profil/${jwtDecoded.id}`;//${token.user.id}
-  console.log(isLogged)
+  // console.log(isLogged)
   
     //Ma requete pour avoir les données du user.
     useEffect (() => { 
@@ -57,8 +57,8 @@ console.log(data)
       }, 
     })    
     .then((response) => {
-      console.log('reponse :', response);
-      console.log(response.data)
+      // console.log('reponse :', response);
+      // console.log(response.data)
     })
     .catch((error) => {
       console.error('error :', error);
@@ -71,7 +71,7 @@ console.log(data)
     setPassword(e.target.password);
   
     
-    console.log(user_name,firstname,lastname, email, password);
+    // console.log(user_name,firstname,lastname, email, password);
 
     // si notre input à une valeur, on envoie le submit au parent
     if (user_name && firstname && lastname && email &&password ) {

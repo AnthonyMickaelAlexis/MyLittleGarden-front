@@ -22,7 +22,7 @@ function ColonneListeLegumes({ crops, images }) {
             const token = localStorage.getItem('token');
         const jwtDecoded = jwtDecode(token);
 
-            console.log(token);
+            // console.log(token);
             const axiosInstance = axios.create({baseURL: 'https://oclock-my-little-garden.herokuapp.com'})
             axiosInstance.defaults.headers.authorization = `bearer ${token}`
             const axiosRequest = await axiosInstance.post(`/${cropId}/${jwtDecoded.id}`)
@@ -50,7 +50,7 @@ function ColonneListeLegumes({ crops, images }) {
                     <ul className="vegetableList">
                 
                     {crops && crops.map((crop, index) => {
-                        console.log(crop.id, crop.name);
+                        {/* console.log(crop.id, crop.name); */}
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
