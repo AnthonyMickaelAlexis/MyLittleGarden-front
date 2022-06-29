@@ -66,9 +66,14 @@ function Parcelle({crops}) {
 
   console.log(images)
 
+
+  // Mapper dans les images (const images ci-dessus)
+
+
+
         return (
           <div className="ParcellePage">
-              <ColonneListeLegume crops={crops} />
+              <ColonneListeLegume crops={crops} images={images}/>
               <Grille cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected}/>
               <ColonneFavoris crops={crops} favoris={favoris} setFavoris={setFavoris} cropsToParcel={cropsToParcel} setCropsToParcel={setCropsToParcel} isCropSelected={isCropSelected} setIsCropSelected={setIsCropSelected} />
           </div>

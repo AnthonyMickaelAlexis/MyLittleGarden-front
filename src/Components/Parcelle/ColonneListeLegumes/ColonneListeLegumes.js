@@ -54,7 +54,7 @@ function ColonneListeLegumes({ crops, images }) {
                         return ( 
                             <li key={crop.id} className="vegetableSection">
                                 <p className="vegetable">{crop.name}</p>
-                                <img src={crop.crop_img} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
+                                <img src={images[crop.id - 1].path} className="vegetableIcon" alt={`Icone ${crop.name}`}/>
                                 <button className="addToFav" onClick={() => addToFav(crop.id)}>Ajouter aux favoris</button>
                             </li>
                         )                   
