@@ -1,6 +1,7 @@
 .homepage {
     overflow-x: hidden;
-
+    // width: 80vw;
+    // justify-content: center;
 }
 
 .hometitle{
@@ -9,6 +10,8 @@
 
 .homeText{
 font-size: 1.1rem;
+color: white;
+text-shadow: 2px 2px 2px #050000, 2px 2px 2px #030000;
 }
 @media (max-width: 500px) {
     #root{
