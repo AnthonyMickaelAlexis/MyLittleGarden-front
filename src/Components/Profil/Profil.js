@@ -129,9 +129,9 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
   return(
     <>
     < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
-    <div className='registerForm'>
+    <div className='profilForm'>
        
-    <h1 className='connectionTitle'>Profil</h1>
+    <h1 className='profilTitle'>Profil</h1>
       <Form 
         onSubmit={handleSubmit}  // gere à la fois le "entré" sur l'input et le click sur le bouton 
       >

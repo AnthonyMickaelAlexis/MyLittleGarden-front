@@ -1,27 +1,27 @@
 
-  .registerForm {
+  .profilForm{
     display: inline-block;
     background-color: white;
     margin-left: 15em;
     width: 40rem;
     border-radius: 8px;
     padding: 30px 50px;
-    margin-top: 40px;
+    margin-top: 8em;
     height: fit-content;
   }
   
   @media (max-width: 500px) {
   #root{
     width: 100vw;
-    height: 150vh;
+    height: 100vh;
   }
     
-    .registerForm {
-      height: fit-content;
+  .profilForm {
+    height: fit-content;
     width: fit-content;
     margin: auto;}
     }
-  .connectionTitle {
+  .profilTitle {
     margin-bottom: 30px;
     text-align: center;
   }
