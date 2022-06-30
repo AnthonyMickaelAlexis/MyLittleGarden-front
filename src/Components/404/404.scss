@@ -1,5 +1,13 @@
 .errorPage {
-    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(185, 196, 185, 0.767);
+    height: 55vh;
+    width: fit-content;
+    margin: auto;
+    margin-top: 60px;
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .pageTitle {
@@ -9,17 +17,7 @@
 .gifError {
     display: flex;
     margin: 30px auto;
-    width: 60vw;
-}
-
-.backToHomePage {
-    display: flex;
-    margin: 40px auto;
-    border-radius: 5px;
-    border: solid 1px;
-    padding: 10px;
-    font-size: 1.2rem;
-    background-color: rgb(233, 255, 220);
+    width: 70vh;
 }
 
 @media (max-width: 500px) {
