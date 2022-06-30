@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { Navigate } from "react-router-dom";
-import { Button, Form, Label, Confirm } from 'semantic-ui-react';
+import { Button, Form, Label, Confirm} from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
 import ProfilInfos from "./profilInfos";
 import './Profil.scss';
-
+import ConfirmExampleConfirm from "./ConfirmExampleConfirm";
 
 
 const Profil = ({isLogged, setIsLogged})=> {
@@ -100,8 +100,8 @@ console.log(modifieduser)
     }
   }
 const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
-//
-  function handleDeleteUser(){
+
+ const HandleDeleteUser = ()=>{
     console.log('delete')
       axios.delete(URLForDelete, {
                     headers: {
@@ -123,15 +123,35 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
                     return <Navigate to='/home' />
                    }else{ 
                      return null;            
-}
+                   }
   }
-   
+
+//  class ConfirmExampleConfirm extends Component {
+//    
+//    state = { open: false }
+//  
+//    open = () => this.setState({ open: true })
+//    close = () => this.setState({ open: false })
+//  
+//    render() {
+//      return (
+//        <div>
+//          <Button onClick={this.open}>supprimer mon compte</Button>
+//          <Confirm
+//            open={this.state.open}
+//            onCancel={this.close}
+//            onConfirm={this.close}
+//          />
+//        </div>
+//      )
+//    }
+//  }
   return(
     <>
     < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
-    <div className='registerForm'>
+    <div className='profilForm'>
        
-    <h1 className='connectionTitle'>Profil</h1>
+    <h1 className='profilTitle'>Profil</h1>
       <Form 
         onSubmit={handleSubmit}  // gere à la fois le "entré" sur l'input et le click sur le bouton 
       >
@@ -219,12 +239,13 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
 
         <Button className="form-submit" type="submit">Valider </Button>   
         
-       <Button className="form-delete" type='submit' onClick={handleDeleteUser}>Suprimer mon compte</Button>
+       <Button className="form-delete" type='submit' onClick={HandleDeleteUser}>Suprimer mon compte</Button>
+
+       {/*<ConfirmExampleConfirm HandleDeleteUser={HandleDeleteUser}/>*/}
        
         </Form>
     </div>
     </>
     );
 }
-//}
-export default React.memo(Profil);
+export default Profil;
