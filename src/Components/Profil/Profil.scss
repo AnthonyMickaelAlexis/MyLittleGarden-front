@@ -12,16 +12,18 @@
   
   @media (max-width: 500px) {
   #root{
-    width: 100vw;
+    width: 105vw;
     height: 100vh;
   }
     
   .profilForm {
     height: fit-content;
     width: fit-content;
-    margin: auto;}
+    padding: 1.5em 1.5em;
+    margin: auto;
+  }
     }
   .profilTitle {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
   }

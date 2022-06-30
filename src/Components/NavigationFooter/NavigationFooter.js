@@ -10,7 +10,7 @@ const Navigation = () => {
           to="/cgu"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          <li>Conditions générales d'utilisation</li>
+          <li>CGU</li>
         </NavLink>
         <NavLink
           to="/contact"

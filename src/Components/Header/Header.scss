@@ -1,8 +1,8 @@
 .headerBar {
     background-color: #e6f4e5;
     display: flex;
-    justify-content:center;
-    width: 100%;
+    justify-content: space-evenly;
+    width: 100vw;
 }
 .buttonSection {
     display: flex;
@@ -28,32 +28,34 @@
 .logo {
     width: 120px;
 }
-
-@media (max-width: 500px) {
-    .headerBar {
-        background-color: #e6f4e5;
-        display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-    .logo {
-        width: 100px;
-        height: 100px;
-        margin: auto;
-    }
-    .title {
-        font-size: 1.6rem;
-    }
-    .headerBar {
-justify-content: flex-start;
-} .button {
-    font-size: 1.1rem;
-    padding: 5px;
-}}
-
 .title {
     color :rgb(0, 37, 8);
     padding: 30px;
     margin: auto;
     font-size: 2.8rem;
 }
+
+@media (max-width: 500px) {
+    #root{
+        display: flex;
+        justify-content: stretch;
+        background-size: cover;
+    }
+.logo{
+    display: none;
+}
+    .headerBar {
+        background-color: #e6f4e5;
+        display: flex;
+        justify-content: space-evenly;
+        width: 105vw;
+    }
+    
+    .title {
+        font-size: 1.6rem;
+    }
+} .button {
+    font-size: 1.1rem;
+    padding: 5px;
+}
+

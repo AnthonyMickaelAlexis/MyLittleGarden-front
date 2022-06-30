@@ -8,3 +8,12 @@
     margin-left: 11rem;
     margin-bottom: 13rem;
 }
+@media (max-width: 500px) {
+    
+   .container-profil{ 
+       margin-bottom: 0;
+       margin: auto;
+       padding: 1.5rem 1.5rem;
+
+   }
+}
