@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Button, Form, Label, Modal } from 'semantic-ui-react';
+import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
@@ -36,9 +36,9 @@ const Profil = ({isLogged, setIsLogged})=> {
               .catch((error) => {
                 console.error('error :', error);
               });
-            },[]);
+            },[baseURL, token]);
                     
-console.log(data)
+//console.log(data)
            
   const [user_name, setUserName] = useState(data.user_name);
   const [firstname, setfirstname] = useState(data.firsname);
@@ -52,7 +52,6 @@ console.log(data)
   // States for checking the errors
   const [errors, setErrors] = useState(false);
 
-console.log(modifieduser)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -98,6 +97,7 @@ console.log(modifieduser)
 
     }
   }
+
 const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
 
  const HandleDeleteUser = ()=>{
@@ -110,19 +110,16 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
                   .then((response) => {
                   console.log('reponse :', response);
                   console.log('token pour delete:', token); 
+                  setData(response.data);
+                  setDeletedUser(true);  
                   setIsLogged(false); 
-                  setDeletedUser(true);
                   localStorage.removeItem("token");
-                  setData(response.data);  
                   })
                   .catch((error) => {
                     console.error('error :', error);
                   });
-                  if(!isLogged){ <Navigate to='/'/> }
-
   }
-  
-
+   
   return(
     <>
     < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>

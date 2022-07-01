@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useEffect} from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Components imports
-import { Routes, Route } from "react-router-dom";
 import Team from '../Team/Team';
 import Register from '../Register/Register';
 import LoginPage from '../LoginPage/LoginPage';
@@ -37,7 +37,9 @@ useEffect (() => {
   } 
 
   getCrop();
-}, []) 
+}, [isLogged]) 
+
+console.log(isLogged)
 
   return (
    <>
@@ -47,17 +49,17 @@ useEffect (() => {
       <Route path="/register" element={<Register />} />
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
       <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged} />} />
+      {!isLogged && <Route path="/profil" element={<Navigate to="/" />} />} 
       <Route path="/profil" element={<Profil isLogged={isLogged} setIsLogged={setIsLogged} />} />
+      <Route path="/profil" element={<Navigate to="/" />} />  
+      <Route path="/register" element={<Navigate replace to="/login" />} />  
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/cgu" element={<CGU/>} />
-
       {/* path="*" fonctionne si jamais l'url ne correspond à rien de déclaré au dessus */}
       <Route path="*" element={<Error />} />
     </Routes>
     <Footer/>
-    
-
     </>
   );
 }

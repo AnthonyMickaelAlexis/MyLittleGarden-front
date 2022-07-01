@@ -22,7 +22,6 @@ function LoginPage({isLogged, setIsLogged}){
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
-
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(Validation(user_name, password))
