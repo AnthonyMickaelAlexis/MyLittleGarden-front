@@ -1,25 +1,30 @@
 .errorPage {
-    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 55vh;
+    width: fit-content;
+    margin: auto;
+    margin-top: 60px;
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .pageTitle {
     text-align: center;
+    border: solid 1px black;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 0.05em 0.8em;
+    background-color: #e6f4e5;
 }
 
 .gifError {
     display: flex;
     margin: 30px auto;
-    width: 60vw;
-}
-
-.backToHomePage {
-    display: flex;
-    margin: 40px auto;
-    border-radius: 5px;
-    border: solid 1px;
-    padding: 10px;
-    font-size: 1.2rem;
-    background-color: rgb(233, 255, 220);
+    width: 70vh;
+    border: solid 2px black;
+    border-radius: 8px;
 }
 
 @media (max-width: 500px) {
