@@ -1,62 +1,71 @@
-import { useState } from 'react';
-import './ColonneFavoris.scss';
+import React from "react";
 
-// Imports images
-import courgetteIcon from '../../../assets/images/imagesLegumes/courgette.png';
-import tomateIcon from '../../../assets/images/imagesLegumes/tomate.png';
-import aubergineIcon from '../../../assets/images/imagesLegumes/aubergine.png';
+import axios from "axios";
 
+import "./ColonneFavoris.scss";
+import jwtDecode from "jwt-decode";
 
-function ColonneFavoris() {
+export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, setCropsToParcel, isCropSelected, setIsCropSelected, images }) {
+  
+  
+  const deleteFav = (cropId) => {
+    const newFavoriteList = favoris.filter((crop) => crop.id !== cropId);
     
-    const [show, setShow] = useState(true);
+    // console.log(newFavoriteList);
+    //Ma requete pour les favoris du user
+    const token = localStorage.getItem("token");
+    const jwtDecoded = jwtDecode(token);
+    setFavoris(newFavoriteList);
+    
+    const baseURL = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/${cropId}`; //${token.user.id}
+    
+    axios
+    .delete(baseURL, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      // console.log("reponse :", response);
+      })
+      .catch((error) => {
+        console.error("error :", error);
+      });
+    };
 
-    return (
-        <div className="favoris">
-            <button onClick={() => setShow(!show)} className="favButton"> 
+    
+    const selectFavoriteCrop = (cropId, cropImg) => {
+      setCropsToParcel([...cropsToParcel, {cropId, cropImg}]);
+      setIsCropSelected(true);
+    };
+    
 
-                Afficher/Masquer la liste des légumes
-            </button>
-            {
-                show?<div className="colonneFav">
-                    <h3 className="favTittle">Liste des légumes</h3>
-                    <input
-                        type="text"
-                        className="searchVegetable"
-                        placeholder="Rechercher un légume"
-                    />
-                    <ul className="vegetableList">
-                    <div className="vegetableSection">
-                        <li className="vegetable" >Tomates</li>
-                        <img src={courgetteIcon} className="vegetableIcon" alt="Icone courgette" />
-                        <button className="addToFav">Ajouter aux favoris</button>
-                        <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>
-                    <div className="vegetableSection">
-                        <li className="vegetable" >Courgettes</li>
-                        <img src={tomateIcon} className="vegetableIcon" alt="Icone tomate" />
-                        <button className="addToFav">Ajouter aux favoris</button>
-                        <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>                        
-                    <div className="vegetableSection">
-                        <li className="vegetable" >Haricots verts</li>
-                        <img src={aubergineIcon} className="vegetableIcon" alt="Icone aubergine" />
-                        <button className="addToFav">Ajouter aux favoris</button>
-                        <button className="deleteFromFav">Supprimer des favoris</button>
-                    </div>
-                    </ul>
-                </div>:null
-            }
-        </div>
-    )
-};
-
-export default ColonneFavoris;
-
-
-// A faire : 
-//     - Ajouter aux favoris
-//     - Faire fonctionner la recherche
-//     - Hover sur les légumes pour les infos
-//     - Adapter le texte du bouton afficher/masquer
-//     - Rendre dynamique la liste des légumes (BDD)
+  return (
+    <div className="colonneLegume">
+      <h3 className="favTittle">Liste des favoris</h3>
+      <ul className="listeLegumes">
+        {favoris.map((crop) => {
+          {/* console.log(crop.id); */}
+          return (
+            <li key={crop.id} className="vegetableSection">
+              <p className="vegetable">{crop.name}</p>
+              <img
+                src={images[crop.id - 1].path}
+                className="vegetableIcon"
+                alt={`Icone ${crop.name}`}
+                onClick={() => !isCropSelected && selectFavoriteCrop(crop.id)}
+                // onClick={() => isCropSelected ? null : selectFavoriteCrop(crop.id)}
+              />
+              <button
+                className="deleteFromFav"
+                onClick={() => deleteFav(crop.id)}
+              >
+                Supprimer des favoris
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}

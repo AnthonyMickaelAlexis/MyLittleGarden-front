@@ -4,7 +4,7 @@ import './Contact.scss';
 
 
 const ContactForm = () => (
-<div className="loginForm">
+<div className="contactForm">
   <Form>
     <h2 className="connectionTitle">Nous contacter</h2>
     <h3>Vous avez besoin d'aide ?</h3>
