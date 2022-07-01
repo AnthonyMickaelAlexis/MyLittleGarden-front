@@ -20,12 +20,12 @@ console.log(`isLogged : ${isLogged}`)
 
         {!isLogged &&
         <NavLink to="/register" className={(nav) => (nav.isActive ? "nav-active" : "")} > 
-          <li>S'inscrire</li>
+          <li>Inscription</li>
         </NavLink>}
 
         {!isLogged &&
         <NavLink to="/login" className={(nav) => (nav.isActive ? "nav-active" : "")} >   
-          <li>Se connecter</li>
+          <li>Connexion</li>
         </NavLink> }
         {isLogged &&
         <NavLink to="/profil" className={(nav) => (nav.isActive ? "nav-active" : "")} >   

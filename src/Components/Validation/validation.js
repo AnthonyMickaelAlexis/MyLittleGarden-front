@@ -15,9 +15,8 @@ export default function Validation(user_name, password, confirm_password, email,
   if(!email){
     errors.email = "Votre email est nécessaire."
   }
-  else if(email!== /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/){ //!/\S+@\.\S+/.test(email)){
-    errors.email= "Votre email est invalide."
-  }
+  //else if(!/\S+@\.\S+/.test(email)){
+  //  errors.email= "Votre email est invalide."}
   if(!password){
     errors.password = "Votre mot de passe est nécessaire."
   }
@@ -30,8 +29,7 @@ export default function Validation(user_name, password, confirm_password, email,
   else if(!confirm_password ){
     errors.confirm_password  = "Votre mot de passe de confirmation est nécessaire."
   }
-
+  
 
   return errors;
 }
-  

@@ -30,10 +30,7 @@ function ColonneListeLegumes({ crops, images }) {
     
     return (
         <div className="favoris">
-            <button onClick={() => setShow(!show)} className="favButton"> 
-
-                Afficher/Masquer la liste des légumes
-            </button>
+            
             {
                 show?<div className="colonneFav">
                     <h3 className="favTittle">Liste des légumes</h3>

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, Component } from "react";
 import { Navigate } from "react-router-dom";
-import { Button, Form, Label, Confirm} from 'semantic-ui-react';
+import { Button, Form, Label, Modal } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
 import ProfilInfos from "./profilInfos";
 import './Profil.scss';
-import ConfirmExampleConfirm from "./ConfirmExampleConfirm";
 
 
 const Profil = ({isLogged, setIsLogged})=> {
@@ -119,33 +118,11 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
                   .catch((error) => {
                     console.error('error :', error);
                   });
-                  if (!isLogged) {
-                    return <Navigate to='/home' />
-                   }else{ 
-                     return null;            
-                   }
-  }
+                  if(!isLogged){ <Navigate to='/'/> }
 
-//  class ConfirmExampleConfirm extends Component {
-//    
-//    state = { open: false }
-//  
-//    open = () => this.setState({ open: true })
-//    close = () => this.setState({ open: false })
-//  
-//    render() {
-//      return (
-//        <div>
-//          <Button onClick={this.open}>supprimer mon compte</Button>
-//          <Confirm
-//            open={this.state.open}
-//            onCancel={this.close}
-//            onConfirm={this.close}
-//          />
-//        </div>
-//      )
-//    }
-//  }
+  }
+  
+
   return(
     <>
     < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
@@ -237,15 +214,13 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
           placeholder="Nouveau mot de passe" />
         </Form.Field>
 
-        <Button className="form-submit" type="submit">Valider </Button>   
+      <Button className="form-submit" type="submit">Valider </Button>   
         
-       <Button className="form-delete" type='submit' onClick={HandleDeleteUser}>Suprimer mon compte</Button>
-
-       {/*<ConfirmExampleConfirm HandleDeleteUser={HandleDeleteUser}/>*/}
-       
-        </Form>
+      <Button className="form-delete" type='submit' onClick={HandleDeleteUser}>Suprimer mon compte</Button>
+      </Form>
     </div>
     </>
     );
 }
-export default Profil;
+
+export default React.memo(Profil);

@@ -133,7 +133,6 @@ function Register(){
               className="field-input" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type="text" 
               placeholder="Adresse mail"/>
             </Form.Field>
 
