@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Button, Form, Label, Confirm } from 'semantic-ui-react';
+import { Button, Form, Label, Modal } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";
@@ -119,13 +119,11 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
                   .catch((error) => {
                     console.error('error :', error);
                   });
-                  if (!isLogged) {
-                    return <Navigate to='/home' />
-                   }else{ 
-                     return null;            
-}
+                  if(!isLogged){ <Navigate to='/'/> }
+
   }
-   
+  
+
   return(
     <>
     < ProfilInfos user_name={data.user_name} firstname={data.firstname} lastname={data.lastname} email={data.email}/>
@@ -217,14 +215,13 @@ const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwt
           placeholder="Nouveau mot de passe" />
         </Form.Field>
 
-        <Button className="form-submit" type="submit">Valider </Button>   
+      <Button className="form-submit" type="submit">Valider </Button>   
         
-       <Button className="form-delete" type='submit' onClick={handleDeleteUser}>Suprimer mon compte</Button>
-       
-        </Form>
+      <Button className="form-delete" type='submit' onClick={handleDeleteUser}>Suprimer mon compte</Button>
+      </Form>
     </div>
     </>
     );
 }
-//}
+
 export default React.memo(Profil);

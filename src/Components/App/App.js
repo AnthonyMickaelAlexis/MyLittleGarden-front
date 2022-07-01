@@ -16,6 +16,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Profil from '../Profil/Profil';
 
+
 function App() {
 
   const [isLogged, setIsLogged] = useState(false);
@@ -46,7 +47,7 @@ useEffect (() => {
       <Route path="/register" element={<Register />} />
       <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
       <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged} />} />
-      <Route path="/profil" element={<Profil isLogged={isLogged} setIsLogged={setIsLogged}/>} />
+      <Route path="/profil" element={<Profil isLogged={isLogged} setIsLogged={setIsLogged} />} />
       <Route path="/team" element={<Team />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/cgu" element={<CGU/>} />

@@ -89,7 +89,7 @@ function LoginPage({isLogged, setIsLogged}){
             type='password' />
             </Form.Field>
 
-            <Button type='submit'>Se connecter</Button>
+            <Button type='submit' >Se connecter</Button>
         </Form>
           
         </div>
