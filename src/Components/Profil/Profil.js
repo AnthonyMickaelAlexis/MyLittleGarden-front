@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Button, Form, Label, Modal } from 'semantic-ui-react';
+import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
 import Validation from '../Validation/validation';
 import axios from "axios";

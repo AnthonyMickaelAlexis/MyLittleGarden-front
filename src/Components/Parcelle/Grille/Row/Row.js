@@ -25,16 +25,7 @@ function Row({
   
 
         const squareClick = async () => {
-          {
-            /* cropsToParcel[cropsToParcel.length - 1] = {
-            crop_id:cropsToParcel[cropsToParcel.length - 1].cropId, 
-            crop_img: cropsToParcel[cropsToParcel.length - 1].cropImg,
-            position_x: x, 
-            position_y: y,
-            user_id: jwtDecoded.id,
-            parcel_id: 2
-          } */
-          }
+
           const test = cropsToParcel.map((boite, index) => {
             if (cropsToParcel.length - 1 === index) {
               return {
@@ -53,9 +44,6 @@ function Row({
                 position_y: boite.position_y,
             }
           });
-          {
-            /* setCropsToParcel([...cropsToParcel]); */
-          }
 
           const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
 

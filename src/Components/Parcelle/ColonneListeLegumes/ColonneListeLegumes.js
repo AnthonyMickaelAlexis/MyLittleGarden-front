@@ -1,7 +1,6 @@
 import {  useState } from 'react';
 import './ColonneListeLegumes.scss';
 import jwtDecode from 'jwt-decode';
-//import ail from '../../../assets/images/imagesLegumes/Ail.png';
 
 
 import axios from 'axios';
@@ -41,7 +40,7 @@ function ColonneListeLegumes({ crops, images }) {
                     />
                     <ul className="vegetableList">
                 
-                    {crops && crops.map((crop, index) => {
+                    {crops && crops.map((crop) => {
                         {/* console.log(crop.id, crop.name); */}
                         return ( 
                             <li key={crop.id} className="vegetableSection">
@@ -59,6 +58,6 @@ function ColonneListeLegumes({ crops, images }) {
 };
 
 export default ColonneListeLegumes;
+
 // A faire : 
 //     - Faire fonctionner la recherche
-//     - Sauvergarder
