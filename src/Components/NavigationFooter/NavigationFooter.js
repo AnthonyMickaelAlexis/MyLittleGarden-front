@@ -1,4 +1,5 @@
 import React from "react";
+// On peut utiliser NavLink car on a mis notre App dans une balise <BrowserRouter /> (dans index.js)
 import { NavLink } from "react-router-dom";
 import './NavigationFooter.scss';
 
@@ -10,7 +11,7 @@ const Navigation = () => {
           to="/cgu"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          <li>Conditions générales d'utilisation</li>
+          <li>CGU</li>
         </NavLink>
         <NavLink
           to="/contact"

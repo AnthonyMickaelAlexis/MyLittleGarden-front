@@ -15,23 +15,7 @@ function Parcelle({ crops }) {
     //Ma requete pour les favoris du user
     const token = localStorage.getItem("token");
     const jwtDecoded = jwtDecode(token);
-    // console.log(jwtDecoded.id)
-    // const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
-    
-    // axios
-    //   .patch(baseURL, 
-    //   {
-    //     headers: {
-    //       Authorization: `bearer ${token}`,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log("reponse :", response);
-    //     // setFavoris(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("error :", error);
-    //   });
+
 
     const baseURL2 = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/favori`; //${token.user.id}
     axios
@@ -61,42 +45,13 @@ function Parcelle({ crops }) {
         .catch((error) => {
           console.error("error :", error);
         });
-
-    //   const baseURL3 = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
-    // axios
-    //   .get(baseURL3, {
-    //     headers: {
-    //       Authorization: `bearer ${token}`,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log("Get parcel :", response);
-    //     setCropsToParcel(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("error :", error);
-    //   });
   }, []);
-
-  // console.log(favoris)
-  // console.log({crops});
-
-  // const token = localStorage.getItem('token');
-  // const jwtDecoded = jwtDecode(token);
-  // const url = `https://oclock-my-little-garden.herokuapp.com/home/profil/${jwtDecoded.id}/parcelsave`
-  // axios.post(url, {cropsToParcel})
-  // .then((response) => {
-  //   console.log('reponse :', response);
-  //   localStorage.setItem("token", response.data.access_token);
-  // })
-  // .catch((error) => {
-  //   console.error('error :', error);
-  // });
 
   useEffect(() => {
     console.log(cropsToParcel);
   });
 
+  // Fonction qui sert à importer les images pour les afficher sur notre site
   function importAll(r) {
     const images = r.keys().map((item, index) => {
       return {

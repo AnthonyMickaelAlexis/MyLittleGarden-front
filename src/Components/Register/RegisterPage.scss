@@ -1,4 +1,4 @@
-body{
+#root{
   box-sizing: border-box;
   background-image: url(../../assets/images/image1.jpg);
   background-size: cover;
@@ -6,28 +6,27 @@ body{
   height: 100vh;
 }
 .registerForm {
+  margin: auto;
+  margin-top: 7em;
   background-color: white;
   border: solid 1px rgba(0, 37, 8, 0.692);
-  margin: auto;
   width: 40rem;
   border-radius: 8px;
   padding: 30px 50px;
-  margin-top: 40px;
   height: fit-content;
 }
 
-@media (max-width: 650px) {
-
-  body{
-    display: flex;
-    justify-content: center;
-
-}
+@media (max-width: 500px) {
   .registerForm {
-      width: 70%;
-      margin-top: 4.5rem;
-  }
-  }
+    width: 70%;
+}
+
+.connectionTitle {
+margin-bottom: 30px;
+text-align: center;
+}
+}
+  
 .connectionTitle {
   margin-bottom: 30px;
   text-align: center;

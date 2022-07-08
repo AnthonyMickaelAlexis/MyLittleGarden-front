@@ -1,13 +1,10 @@
 import  React, { useState } from 'react';
 import { Button, Form, Label } from 'semantic-ui-react'
 import {Navigate} from 'react-router-dom';
-
 import './RegisterPage.scss';
-//import PropTypes from 'prop-types';
+import '../../../src/index.css';
 import axios from 'axios';
 import Validation from '../Validation/validation';
-// import image from "../../assets/images/image1.jpg";
-import '../../../src/index.css';
 
 
 function Register(){
@@ -40,6 +37,8 @@ function Register(){
     .then((response) => {
       console.log('reponse :', response);
       console.log(response.data)
+      // De base, on fait aucune action, donc le submitted est à false (false = on n'a pas soumis le formulaire). Une fois qu'on a cliqué sur le boutton soumettre, on a fait 
+      // une action, donc setSubmitted fait passer submitted à true (en cliquant, on a soumis le formulaire, donc submitted est true)
       setSubmitted(true)
     })
     .catch((error) => {
@@ -133,7 +132,6 @@ function Register(){
               className="field-input" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type="text" 
               placeholder="Adresse mail"/>
             </Form.Field>
 
