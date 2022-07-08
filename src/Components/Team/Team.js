@@ -1,4 +1,3 @@
-import avatar from '../../assets/images/avatar.jpg';
 import alexandra from '../../assets/ImagesTeam/Alexandra.png';
 import bilel from '../../assets/ImagesTeam/Bilell.png';
 import micka from '../../assets/ImagesTeam/Micka.png';

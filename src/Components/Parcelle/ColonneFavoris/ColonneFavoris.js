@@ -9,6 +9,7 @@ export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, set
   
   
   const deleteFav = (cropId) => {
+    // Ici, on compare les id pour ne pas ajouter plusieurs fois le même légumes en favoris
     const newFavoriteList = favoris.filter((crop) => crop.id !== cropId);
     
     // console.log(newFavoriteList);

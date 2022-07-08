@@ -1,9 +1,6 @@
 import errorLogo from '../../assets/images/404.gif';
 import './404.scss';
 
-import { Link } from 'react-router-dom';
-
-
 function Error () {
     return (
         <div className="errorPage">
