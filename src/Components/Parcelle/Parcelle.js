@@ -100,6 +100,11 @@ function Parcelle({ crops }) {
 
   imagesToSquare = imagesToSquare.filter((image) => image?.id);
 
+  // let parcelId = cropsToParcel.find(
+  //   (cropInParcel) => {
+  //     return cropInParcel.parcel_id;
+  //   }
+  // );
   // console.log(imagesToSquare);
 
   return (

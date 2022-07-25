@@ -16,7 +16,8 @@ function Grille({
   setCropsToParcel,
   isCropSelected,
   setIsCropSelected,
-  images
+  images,
+  parcelId
 }) {
 
   const [cropToDelete, setCropToDelete] = useState({});
@@ -68,6 +69,7 @@ function Grille({
                 setIsCropSelected={setIsCropSelected}
                 images={images}
                 setCropToDelete={setCropToDelete}
+                parcelId={parcelId}
               />
             );
           })

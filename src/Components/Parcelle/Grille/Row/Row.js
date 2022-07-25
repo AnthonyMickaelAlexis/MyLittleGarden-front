@@ -9,16 +9,17 @@ function Row({
   isCropSelected,
   setIsCropSelected,
   images,
-  setCropToDelete
+  setCropToDelete,
+  parcelId
 }) {
   const token = localStorage.getItem("token");
   const jwtDecoded = jwtDecode(token);
-
+  
   useEffect(() => {}, []);
-
+  
   // y = horizontal axix ((number of horizontal boxes))
   const horizontalSquaresWanted = Array(8).fill(".");
-
+  
   return (
     <div className="row">
       {horizontalSquaresWanted.map((boite, x) => {
@@ -44,6 +45,8 @@ function Row({
                 position_y: boite.position_y,
             }
           });
+              console.log("parcel_id", cropsToParcel.parcel_id);
+
 
           const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
 
