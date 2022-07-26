@@ -47,9 +47,9 @@ function Parcelle({ crops }) {
         });
   }, []);
 
-  useEffect(() => {
-    console.log(cropsToParcel);
-  });
+  // useEffect(() => {
+  //   console.log(cropsToParcel);
+  // });
 
   // Fonction qui sert à importer les images pour les afficher sur notre site
   function importAll(r) {

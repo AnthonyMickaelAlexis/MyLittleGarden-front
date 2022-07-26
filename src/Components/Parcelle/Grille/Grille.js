@@ -48,7 +48,7 @@ function Grille({
     <div className="container">
       <h1 className="parcelTitle">Ma parcelle</h1>
       <div className="explanationSection">
-      <p className="explanation"><span className="step">Etape 1 :</span>
+      <p className="explanation"><span className="step">Etape 1 : </span>
          cliquez sur l'image de votre légume favori
       </p>
       <p className="explanation"><span className="step">

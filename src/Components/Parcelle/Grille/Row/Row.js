@@ -14,6 +14,8 @@ function Row({
 }) {
   const token = localStorage.getItem("token");
   const jwtDecoded = jwtDecode(token);
+
+  console.log(cropsToParcel, jwtDecoded.id);
   
   useEffect(() => {}, []);
   
