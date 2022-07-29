@@ -27,7 +27,7 @@ function Register(){
   function handleSubmit(e) {
     e.preventDefault();
     //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
-    setErrors(Validation(user_name, password, firstname, lastname, email, confirm_password));
+    setErrors(Validation(user_name, lastname, firstname, email, password, confirm_password));
 
     //je fais une requete post en envoyant mon formulaire avec les 5 infos demandées. 
     // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
@@ -65,7 +65,8 @@ function Register(){
       setPassword('');
       setConfirm_password('');
     }
-    if (!user_name && !firstname && !lastname && !email && !password && confirm_password ) {
+
+    else {
 
       setUserName('');//on reset les inputs
       setfirstname('');
@@ -73,7 +74,6 @@ function Register(){
       setEmail('');
       setPassword('');
       setConfirm_password('');
-
     }
   }
     if (submitted) {
@@ -113,7 +113,7 @@ function Register(){
             </Form.Field>
 
             <Form.Field> 
-            <label htmlFor='name'className="field-label">{errors.firstname && <Label pointing='below' className='error'>{errors.firstname}</Label>} </label>
+            <label htmlFor='name' className="field-label">{errors.firstname && <Label pointing='below' className='error'>{errors.firstname}</Label>} </label>
             <input
               name='name' 
               value={firstname}
@@ -124,11 +124,12 @@ function Register(){
             </Form.Field>
 
             <Form.Field>
-            <label htmlFor='email'>
+            <label htmlFor='email' className="field-label">
               {errors.email && <Label pointing='below' className='error'>{errors.email}</Label>}
               </label>
             <input
               name='email' 
+              type='email'
               className="field-input" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -147,8 +148,9 @@ function Register(){
               type="password" 
               placeholder="Nouveau mot de passe" />
             </Form.Field>
+
             <Form.Field> 
-            <label htmlFor='passwordconfirm'className="field-label">
+            <label htmlFor='confirm_password' className="field-label">
             {errors.confirm_password && <Label pointing='below' className='error'>{errors.confirm_password}</Label>}
             </label>
             <input 

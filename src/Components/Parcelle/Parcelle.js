@@ -6,7 +6,7 @@ import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
 import "./Parcelle.scss";
 
-function Parcelle({ crops }) {
+function Parcelle({ crops}) {
   const [favoris, setFavoris] = useState([]);
   const [cropsToParcel, setCropsToParcel] = useState([]);
   const [isCropSelected, setIsCropSelected] = useState(false);
@@ -16,26 +16,26 @@ function Parcelle({ crops }) {
     const token = localStorage.getItem("token");
     const jwtDecoded = jwtDecode(token);
 
-
+    
     const baseURL2 = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/favori`; //${token.user.id}
     axios
-      .get(baseURL2, {
-        headers: {
-          Authorization: `bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log("reponse :", response);
-        setFavoris(response.data);
-      })
+    .get(baseURL2, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      console.log("reponse :", response);
+      setFavoris(response.data);
+    })
       .catch((error) => {
         console.error("error :", error);
       });
-
+      
       const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
     axios.get(baseURL, {
-          headers: {
-            Authorization: `bearer ${token}`,
+      headers: {
+        Authorization: `bearer ${token}`,
           },
         })
         .then((response) => {
@@ -45,7 +45,8 @@ function Parcelle({ crops }) {
         .catch((error) => {
           console.error("error :", error);
         });
-  }, []);
+      }, []);
+
 
   useEffect(() => {
     console.log(cropsToParcel);
@@ -106,6 +107,7 @@ function Parcelle({ crops }) {
   //   }
   // );
   // console.log(imagesToSquare);
+
 
   return (
     <div className="ParcellePage">

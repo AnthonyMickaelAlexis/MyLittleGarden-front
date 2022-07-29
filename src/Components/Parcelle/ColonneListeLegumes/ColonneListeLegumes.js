@@ -24,6 +24,9 @@ function ColonneListeLegumes({ crops, images }) {
         } catch (error) {
             console.log(error);
         }
+
+        window.location.reload(false)
+
     };
     
     
@@ -33,11 +36,13 @@ function ColonneListeLegumes({ crops, images }) {
             {
                 show?<div className="colonneFav">
                     <h3 className="favTittle">Liste des légumes</h3>
-                    <input
+                    {/* <input
                         type="text"
                         className="searchVegetable"
                         placeholder="Rechercher un légume"
-                    />
+                    /> */}
+                    {/* <button className="addToFav" onClick={() => addToFav(crop.id)}>Ajouter aux favoris</button> */}
+
                     <ul className="vegetableList">
                 
                     {crops && crops.map((crop) => {

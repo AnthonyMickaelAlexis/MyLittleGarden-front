@@ -47,6 +47,10 @@ useEffect (() => {
     setCrops(axiosRequest.data); 
   } 
 
+// Condition : si les légumes sont affichés : ne rien faire. Sinon : lancer un refresh
+
+
+
   getCrop();
   // Tableau vide : pour éviter la boucle infinie
 }, []) 
@@ -63,7 +67,7 @@ return (
       <Route path="/register" element={<Register />} />
       {/* crops est définit à la ligne 26, on veut l'envoyer dans le composant 
       Parcelle */}
-      <Route path="/parcelle" element={<Parcelle crops = {crops}/>} />
+      <Route path="/parcelle" element={<Parcelle crops = {crops} />} />
       <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged} />} />
       {!isLogged && <Route path="/profil" element={<Navigate to="/" />} />} 
       <Route path="/profil" element={<Profil isLogged={isLogged} setIsLogged={setIsLogged} />} />
