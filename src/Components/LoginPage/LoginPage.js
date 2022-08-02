@@ -42,7 +42,7 @@ function LoginPage({ isLogged, setIsLogged }) {
       setUserName(""); //on reset les inputs
       setPassword("");
     }
-    if (!user_name || !password) {
+    else {
       // on envoie le user_name, password... au composant parent, on fait remonter l'evenement du onSubmit
       setUserName(""); //on reset les inputs
       setPassword("");
