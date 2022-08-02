@@ -6,10 +6,11 @@ import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
 import "./Parcelle.scss";
 
-function Parcelle({ crops}) {
+function Parcelle() {
   const [favoris, setFavoris] = useState([]);
   const [cropsToParcel, setCropsToParcel] = useState([]);
   const [isCropSelected, setIsCropSelected] = useState(false);
+  const [crops, setCrops] = useState([]);
 
   useEffect(() => {
     //Ma requete pour les favoris du user
@@ -45,6 +46,23 @@ function Parcelle({ crops}) {
         .catch((error) => {
           console.error("error :", error);
         });
+        const baseURL3 = `https://oclock-my-little-garden.herokuapp.com/crops`; //${token.user.id}
+        axios.get(baseURL3, {
+              headers: {
+                Authorization: `bearer ${token}`,
+              },
+            })
+            .then((response) => {
+              console.log("Get crops :", response);
+              setCrops(response.data)
+            })
+            .catch((error) => {
+              console.error("error :", error);
+            });
+
+
+
+
       }, []);
 
 

@@ -33,6 +33,7 @@ const Navigation = ({ isLogged, setIsLogged }) => {
             <li>Connexion</li>
           </NavLink>
         )}
+        
         {isLogged && (
           <NavLink
             to="/profil"
@@ -41,6 +42,7 @@ const Navigation = ({ isLogged, setIsLogged }) => {
             <li>Mon profil</li>
           </NavLink>
         )}
+
         {isLogged && (
           <NavLink
             to="/"

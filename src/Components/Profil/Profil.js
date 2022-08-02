@@ -101,25 +101,25 @@ console.log(modifieduser)
 const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
 
  const HandleDeleteUser = ()=>{
-    console.log('delete')
-      axios.delete(URLForDelete, {
-                    headers: {
-                    Authorization: `bearer ${token}`
-                    },
-                  })                
-                  .then((response) => {
-                  console.log('reponse :', response);
-                  console.log('token pour delete:', token); 
-                  setIsLogged(false); 
-                  setDeletedUser(true);
-                  localStorage.removeItem("token");
-                  setData(response.data);  
-                  })
-                  .catch((error) => {
-                    console.error('error :', error);
-                  });
-                  if(!isLogged){ <Navigate to='/'/> }
-
+  if (window.confirm("Voulez-vous vraiment supprimer ce compte")){
+    axios.delete(URLForDelete, {
+                  headers: {
+                  Authorization: `bearer ${token}`
+                  },
+                })                
+                .then((response) => {
+                console.log('reponse :', response);
+                console.log('token pour delete:', token); 
+                setIsLogged(false); 
+                setDeletedUser(true);
+                localStorage.removeItem("token");
+                setData(response.data);  
+                })
+                .catch((error) => {
+                  console.error('error :', error);
+                });
+                if(!isLogged){ <Navigate to='/'/> }
+              }
   }
   
 

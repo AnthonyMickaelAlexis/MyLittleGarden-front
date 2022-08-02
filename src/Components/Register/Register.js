@@ -30,9 +30,10 @@ function Register(){
     setErrors(Validation(user_name, lastname, firstname, email, password, confirm_password));
 
     //je fais une requete post en envoyant mon formulaire avec les 5 infos demandées. 
-    // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
+    // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour.
+    if(!errors) {
     axios.post(url, 
-    {user_name:user_name, firstname:firstname, lastname:lastname, email:email, password:password, confirm_password:confirm_password}
+    {user_name:user_name, lastname:lastname, firstname:firstname, email:email, password:password, confirm_password:confirm_password}
     )     
     .then((response) => {
       console.log('reponse :', response);
@@ -43,7 +44,7 @@ function Register(){
     })
     .catch((error) => {
       console.error('error :', error);
-    });
+    });}
 
     setUserName(e.target.user_name);
     setfirstname(e.target.firsName);
@@ -157,7 +158,7 @@ function Register(){
               className="field-input"
               value={confirm_password}
               onChange={(e) => setConfirm_password(e.target.value)}
-              name="password" 
+              name="confirm_password" 
               type="password" 
               placeholder="Confirmer votre mot de passe" />
             </Form.Field>
