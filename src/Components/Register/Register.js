@@ -4,7 +4,7 @@ import {Navigate} from 'react-router-dom';
 import './RegisterPage.scss';
 import '../../../src/index.css';
 import axios from 'axios';
-import Validation from '../Validation/validation';
+import ValidationRegister from '../Validation/ValidationRegister';
 
 
 function Register(){
@@ -27,11 +27,10 @@ function Register(){
   function handleSubmit(e) {
     e.preventDefault();
     //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
-    setErrors(Validation(user_name, lastname, firstname, email, password, confirm_password));
+    setErrors(ValidationRegister(user_name, lastname, firstname, email, password, confirm_password));
 
     //je fais une requete post en envoyant mon formulaire avec les 5 infos demandées. 
     // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour.
-    if(!errors) {
     axios.post(url, 
     {user_name:user_name, lastname:lastname, firstname:firstname, email:email, password:password, confirm_password:confirm_password}
     )     
@@ -44,7 +43,7 @@ function Register(){
     })
     .catch((error) => {
       console.error('error :', error);
-    });}
+    });
 
     setUserName(e.target.user_name);
     setfirstname(e.target.firsName);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Button, Form, Label } from "semantic-ui-react";
-import Validation from "../Validation/validation";
+import ValidationLogin from "../Validation/ValidationLogin";
 import "./LoginPage.scss";
 import axios from "axios";
 import "../../../src/index.css";
@@ -17,11 +17,11 @@ function LoginPage({ isLogged, setIsLogged }) {
   // Après setPassword, password ne contient plus une chaine de caractère vide, mais a été rempli
   // avec ce que l'utilisateur a écrit
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setErrors(Validation(user_name, password));
+    setErrors(ValidationLogin(user_name, password));
     axios
       .post(url, { user_name: user_name, password: password })
       .then((response) => {
@@ -39,8 +39,8 @@ function LoginPage({ isLogged, setIsLogged }) {
 
     if (user_name && password) {
       // on envoie le user_name, password... au composant parent, on fait remonter l'evenement du onSubmit
-      setUserName(""); //on reset les inputs
-      setPassword("");
+      setUserName(''); //on reset les inputs
+      setPassword('');
     }
     else {
       // on envoie le user_name, password... au composant parent, on fait remonter l'evenement du onSubmit
