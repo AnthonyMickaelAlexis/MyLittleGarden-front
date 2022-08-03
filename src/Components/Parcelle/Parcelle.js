@@ -6,7 +6,7 @@ import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
 import "./Parcelle.scss";
 
-function Parcelle() {
+function Parcelle( {setIsLogged} ) {
   const [favoris, setFavoris] = useState([]);
   const [cropsToParcel, setCropsToParcel] = useState([]);
   const [isCropSelected, setIsCropSelected] = useState(false);
@@ -16,7 +16,7 @@ function Parcelle() {
     //Ma requete pour les favoris du user
     const token = localStorage.getItem("token");
     const jwtDecoded = jwtDecode(token);
-
+    setIsLogged(true);
     
     const baseURL2 = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/favori`; //${token.user.id}
     axios

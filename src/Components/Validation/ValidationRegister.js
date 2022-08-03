@@ -1,4 +1,4 @@
-export default function Validation(
+export default function ValidationRegister(
   user_name,
   lastname,
   firstname,

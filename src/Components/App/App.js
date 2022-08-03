@@ -23,7 +23,7 @@ import Profil from '../Profil/Profil';
 function App() {
 
   // isLogged = fonction pour se connecter, setIsLogged = fonction pour mettre à jour la fonction isLogged
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
   
   
 
@@ -49,7 +49,7 @@ return (
       <Route path="/register" element={<Register />} />
       {/* crops est définit à la ligne 26, on veut l'envoyer dans le composant 
       Parcelle */}
-      <Route path="/parcelle" element={<Parcelle />} />
+      <Route path="/parcelle" element={<Parcelle isLogged={isLogged} setIsLogged={setIsLogged}/>} />
       <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged} />} />
       {!isLogged && <Route path="/profil" element={<Navigate to="/" />} />} 
       <Route path="/profil" element={<Profil isLogged={isLogged} setIsLogged={setIsLogged} />} />
