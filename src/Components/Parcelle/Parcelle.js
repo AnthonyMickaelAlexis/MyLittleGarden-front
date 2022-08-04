@@ -6,36 +6,37 @@ import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
 import "./Parcelle.scss";
 
-function Parcelle({ crops }) {
+function Parcelle( {setIsLogged} ) {
   const [favoris, setFavoris] = useState([]);
   const [cropsToParcel, setCropsToParcel] = useState([]);
   const [isCropSelected, setIsCropSelected] = useState(false);
+  const [crops, setCrops] = useState([]);
 
   useEffect(() => {
     //Ma requete pour les favoris du user
     const token = localStorage.getItem("token");
     const jwtDecoded = jwtDecode(token);
-
-
+    setIsLogged(true);
+    
     const baseURL2 = `https://oclock-my-little-garden.herokuapp.com/${jwtDecoded.id}/favori`; //${token.user.id}
     axios
-      .get(baseURL2, {
-        headers: {
-          Authorization: `bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log("reponse :", response);
-        setFavoris(response.data);
-      })
+    .get(baseURL2, {
+      headers: {
+        Authorization: `bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      console.log("reponse :", response);
+      setFavoris(response.data);
+    })
       .catch((error) => {
         console.error("error :", error);
       });
-
+      
       const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
     axios.get(baseURL, {
-          headers: {
-            Authorization: `bearer ${token}`,
+      headers: {
+        Authorization: `bearer ${token}`,
           },
         })
         .then((response) => {
@@ -45,7 +46,25 @@ function Parcelle({ crops }) {
         .catch((error) => {
           console.error("error :", error);
         });
-  }, []);
+        const baseURL3 = `https://oclock-my-little-garden.herokuapp.com/crops`; //${token.user.id}
+        axios.get(baseURL3, {
+              headers: {
+                Authorization: `bearer ${token}`,
+              },
+            })
+            .then((response) => {
+              console.log("Get crops :", response);
+              setCrops(response.data)
+            })
+            .catch((error) => {
+              console.error("error :", error);
+            });
+
+
+
+
+      }, []);
+
 
   useEffect(() => {
     console.log(cropsToParcel);
@@ -100,7 +119,13 @@ function Parcelle({ crops }) {
 
   imagesToSquare = imagesToSquare.filter((image) => image?.id);
 
+  // let parcelId = cropsToParcel.find(
+  //   (cropInParcel) => {
+  //     return cropInParcel.parcel_id;
+  //   }
+  // );
   // console.log(imagesToSquare);
+
 
   return (
     <div className="ParcellePage">

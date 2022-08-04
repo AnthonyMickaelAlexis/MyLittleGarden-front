@@ -48,6 +48,12 @@
     flex-wrap: wrap;
 }
 
+@media (max-width: 800px) {
+    .parcelBoard {
+      transform: rotate(90deg);
+  }
+}
+
 .row {
     display: flex;
 }
@@ -59,6 +65,11 @@
     height: 60px;
 }
 
+.square:hover {
+    background-color: #805731;
+    transition-duration: 300ms;
+}
+
 .square img {
     object-fit: cover;
     height: 100%;
@@ -67,5 +78,5 @@
 
 .saveParcel {
     margin-top: 10%;
-    
+    padding: 10px;
 }

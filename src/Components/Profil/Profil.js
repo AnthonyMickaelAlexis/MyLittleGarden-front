@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { Button, Form, Label } from 'semantic-ui-react';
 import jwtDecode from 'jwt-decode';
-import Validation from '../Validation/validation';
+import ValidationRegister from "../Validation/ValidationRegister";
 import axios from "axios";
 import ProfilInfos from "./profilInfos";
 import './Profil.scss';
@@ -57,7 +57,7 @@ console.log(modifieduser)
   function handleSubmit(e) {
     e.preventDefault();
     //si il y a une erreur un message s'affichera en bas de l'input pour avertir le user.
-    setErrors(Validation(user_name, password, firstname, lastname, email, new_password));
+    setErrors(ValidationRegister(user_name, lastname, firstname, email, password, new_password));
 
     //je fais une requete patch en envoyant mon formulaire avec les 5 infos demandées. 
     // si tout est ok le formulaire est envoyé et le state de la soumission du formulaire est mis a jour. 
@@ -101,25 +101,25 @@ console.log(modifieduser)
 const URLForDelete = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}`;
 
  const HandleDeleteUser = ()=>{
-    console.log('delete')
-      axios.delete(URLForDelete, {
-                    headers: {
-                    Authorization: `bearer ${token}`
-                    },
-                  })                
-                  .then((response) => {
-                  console.log('reponse :', response);
-                  console.log('token pour delete:', token); 
-                  setIsLogged(false); 
-                  setDeletedUser(true);
-                  localStorage.removeItem("token");
-                  setData(response.data);  
-                  })
-                  .catch((error) => {
-                    console.error('error :', error);
-                  });
-                  if(!isLogged){ <Navigate to='/'/> }
-
+  if (window.confirm("Voulez-vous vraiment supprimer ce compte")){
+    axios.delete(URLForDelete, {
+                  headers: {
+                  Authorization: `bearer ${token}`
+                  },
+                })                
+                .then((response) => {
+                console.log('reponse :', response);
+                console.log('token pour delete:', token); 
+                setIsLogged(false); 
+                setDeletedUser(true);
+                localStorage.removeItem("token");
+                setData(response.data);  
+                })
+                .catch((error) => {
+                  console.error('error :', error);
+                });
+                if(!isLogged){ <Navigate to='/'/> }
+              }
   }
   
 
