@@ -44,7 +44,7 @@ export default function ColonneFavoris({ favoris, setFavoris, cropsToParcel, set
   return (
     <div className="colonneLegume">
       <h3 className="favTittle">Liste des favoris</h3>
-      <ul className="listeLegumes">
+      <ul className="vegetableList">
         {favoris.map((crop) => {
           {/* console.log(crop.id); */}
           return (

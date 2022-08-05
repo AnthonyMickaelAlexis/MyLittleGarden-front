@@ -6,10 +6,10 @@
     flex-direction: column;
 }
 
-.favButton {
-    width: 20vw;
-    padding: 10px;
-    border-radius: 5px;
+@media (max-width: 800px) {
+    .colonneFav{
+        width: 15vh;
+    }
 }
 
 .favTittle {
@@ -17,13 +17,19 @@
     padding: 20px;
 }
 
-.searchVegetable {
-    display: flex;
-    padding: 5px;
-    width: 90%;
-    margin: auto;
-    margin-bottom: 10px;
+.addToFav {
+    // width: 20rem;
+    margin: 2%;
+    // border-radius: 5px;
 }
+
+// .searchVegetable {
+//     display: flex;
+//     padding: 5px;
+//     width: 90%;
+//     margin: auto;
+//     margin-bottom: 10px;
+// }
 
 .vegetableList {
     margin: 0;
