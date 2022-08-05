@@ -48,8 +48,8 @@ function Grille({
     <div className="container">
       <h1 className="parcelTitle">Ma parcelle</h1>
       <div className="explanationSection">
-      <p className="explanation"><span className="step">Etape 1 :</span>
-         cliquez sur l'image de votre légume favori
+      <p className="explanation"><span className="step">Etape 1 : </span>
+         cliquez sur l'image de votre plant favori
       </p>
       <p className="explanation"><span className="step">
         Etape 2 :</span> cliquez sur le morceau de parcelle de votre choix
@@ -74,7 +74,7 @@ function Grille({
             );
           })
         }
-      <button type="button" className="deleteVegetable" onClick={handleClickDelete}>Supprimer le légume sélectionné</button>
+      <button type="button" className="deleteVegetable" onClick={handleClickDelete}>Supprimer le plant sélectionné</button>
       </div>
     </div>
   );
