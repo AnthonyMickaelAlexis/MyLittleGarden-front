@@ -1,12 +1,14 @@
 
   .profilForm{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    //margin-left: 15em;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 40rem;
     border-radius: 8px;
     padding: 30px 50px;
-    margin-top: 8em;
     height: fit-content;
   }
   

@@ -74,7 +74,7 @@ function Grille({
             );
           })
         }
-      <button type="button" className="saveParcel" onClick={handleClickDelete}>Supprimer le légume sélectionné</button>
+      <button type="button" className="deleteVegetable" onClick={handleClickDelete}>Supprimer le légume sélectionné</button>
       </div>
     </div>
   );
