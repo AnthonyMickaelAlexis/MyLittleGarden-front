@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import Grille from "../Parcelle/Grille/Grille";
 import ColonneListeLegume from "./ColonneListeLegumes/ColonneListeLegumes";
 import ColonneFavoris from "./ColonneFavoris/ColonneFavoris";
 import "./Parcelle.scss";
 
-function Parcelle( {setIsLogged} ) {
+function Parcelle( {isLogged, setIsLogged} ) {
   const [favoris, setFavoris] = useState([]);
   const [cropsToParcel, setCropsToParcel] = useState([]);
   const [isCropSelected, setIsCropSelected] = useState(false);
@@ -32,6 +33,7 @@ function Parcelle( {setIsLogged} ) {
       .catch((error) => {
         console.error("error :", error);
       });
+
       
       const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
     axios.get(baseURL, {
