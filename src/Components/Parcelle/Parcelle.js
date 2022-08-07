@@ -74,16 +74,13 @@ function Parcelle( {isLogged, setIsLogged} ) {
 
   // Fonction qui sert à importer les images pour les afficher sur notre site
   function importAll(r) {
-    console.log("r =", r);
     const images = r.keys().map((item, index) => {
-      console.log("item:", item, "index:", index);
       return {
         path: r(item),
-        name: item.replace(".png", "").replace("./", ""),
-        id: +item.replace(/(.*)/, index + 1),
+        name: item.replace(/\.(png|jpe?g|svg)$/, "").replace("./", ""),
+        id: index + 1,
       };
     });
-    console.log("images =", images);
     return images;
   }
 
@@ -91,7 +88,8 @@ function Parcelle( {isLogged, setIsLogged} ) {
     require.context(
       "../../assets/images/imagesLegumes",
       false,
-      /\.(png|jpe?g|svg)$/
+      /\.(png|jpe?g|svg)$/,
+      
     )
   );
 
@@ -112,7 +110,7 @@ function Parcelle( {isLogged, setIsLogged} ) {
   // console.log(imagesFiltered);
 
   let imagesToSquare = images.map((image) => {
-    console.log(image);
+    //console.log(image);
     const favImage = cropsToParcel.find(
       (cropInParcel) => cropInParcel.id === image.id
     );
@@ -135,13 +133,19 @@ function Parcelle( {isLogged, setIsLogged} ) {
 
   return (
     <div className="ParcellePage">
-      <ColonneListeLegume crops={crops} images={images} />
+      <ColonneListeLegume 
+        crops={crops} 
+        images={images}
+        favoris={favoris}
+        setFavoris={setFavoris}
+      />
       <Grille
         cropsToParcel={cropsToParcel}
         setCropsToParcel={setCropsToParcel}
         isCropSelected={isCropSelected}
         setIsCropSelected={setIsCropSelected}
         images={images}
+        crops={crops}
       />
       <ColonneFavoris
         crops={crops}

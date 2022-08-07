@@ -10,7 +10,8 @@ function Row({
   setIsCropSelected,
   images,
   setCropToDelete,
-  parcelId
+  parcelId,
+  crops
 }) {
   const token = localStorage.getItem("token");
   const jwtDecoded = jwtDecode(token);
@@ -27,7 +28,7 @@ function Row({
 
         const squareClick = async () => {
 
-          const test = cropsToParcel.map((boite, index) => {
+          const newCrops = cropsToParcel.map((boite, index) => {
             if (cropsToParcel.length - 1 === index) {
               return {
                 user_id: jwtDecoded.id,
@@ -45,13 +46,28 @@ function Row({
                 position_y: boite.position_y,
             }
           });
-              console.log("parcel_id", cropsToParcel.parcel_id);
+          console.log("parcel_id", cropsToParcel.parcel_id);
+          
+          const newCropsToParcel = [...cropsToParcel];
+          const newCropId = newCropsToParcel.pop().cropId;
+          const newCropInfo = crops[newCropId - 1]
+          newCropsToParcel.push({
+            crop_img: newCropInfo.crop_img,
+            description: newCropInfo.description,
+            id: newCropId,
+            name: newCropInfo.name,
+            parcel_id: jwtDecoded.id,
+            position_x: x,
+            position_y: y,
+          });
+
+          setCropsToParcel(newCropsToParcel);
 
 
           const baseURL = `https://oclock-my-little-garden.herokuapp.com/profil/${jwtDecoded.id}/parcel`; //${token.user.id}
 
           await axios
-            .patch(baseURL, test, {
+            .patch(baseURL, newCrops, {
               headers: {
                 Authorization: `bearer ${token}`,
               },
@@ -65,7 +81,7 @@ function Row({
             });
 
           setIsCropSelected(false);
-          window.location.reload(false)
+          // window.location.reload(false)
         };
 
         const handleClickImage = (x, y, cropId) => {

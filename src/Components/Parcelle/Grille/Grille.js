@@ -17,14 +17,20 @@ function Grille({
   isCropSelected,
   setIsCropSelected,
   images,
-  parcelId
+  parcelId,
+  crops
 }) {
 
   const [cropToDelete, setCropToDelete] = useState({});
 
   const handleClickDelete = async () => {
     const baseURL = `https://oclock-my-little-garden.herokuapp.com/${cropToDelete.user_id}/${cropToDelete.crop_id}/parcel`; //${token.user.id}
-    
+
+    const newCropsToParcel = cropsToParcel.filter(crop =>
+      !(crop.position_x === cropToDelete.position_x && crop.position_y === cropToDelete.position_y)
+    );
+    setCropsToParcel(newCropsToParcel);
+
     await axios
     .delete(baseURL,  {
       headers: {
@@ -41,7 +47,7 @@ function Grille({
         console.error("error :", error);
       });
 
-    window.location.reload(false)
+    // window.location.reload(false)
   }
 
   return (
@@ -70,6 +76,7 @@ function Grille({
                 images={images}
                 setCropToDelete={setCropToDelete}
                 parcelId={parcelId}
+                crops={crops}
               />
             );
           })

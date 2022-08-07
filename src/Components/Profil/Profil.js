@@ -17,7 +17,6 @@ const Profil = ({isLogged, setIsLogged})=> {
   const jwtDecoded = jwtDecode(token);
 
   const baseURL = `https://oclock-my-little-garden.herokuapp.com/home/profil/${jwtDecoded.id}`;//${token.user.id}
-  // console.log(isLogged)
   
     //Ma requete pour avoir les données du user.
     useEffect (() => { 
@@ -28,8 +27,6 @@ const Profil = ({isLogged, setIsLogged})=> {
               })                
  
               .then((response) => {
-              console.log('reponse :', response);
-              console.log('token pour get:', token);  
               setData(response.data);   
    
               })
@@ -68,8 +65,6 @@ console.log(modifieduser)
       }, 
     })    
     .then((response) => {
-      console.log('reponse :', response);
-      console.log(response.data)
       setModifiedUser(true);
     })
     .catch((error) => {
