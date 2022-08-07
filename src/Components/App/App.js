@@ -49,7 +49,6 @@ return (
       <Route path="/register" element={<Register />} />
       {/* crops est définit à la ligne 26, on veut l'envoyer dans le composant 
       Parcelle */}
-      {!isLogged && <Route path="/parcelle" element={<Navigate to="/" />} />} 
       <Route path="/parcelle" element={<Parcelle isLogged={isLogged} setIsLogged={setIsLogged}/>} />
       <Route path="/login" element={<LoginPage isLogged={isLogged} setIsLogged={setIsLogged} />} />
       {!isLogged && <Route path="/profil" element={<Navigate to="/" />} />} 

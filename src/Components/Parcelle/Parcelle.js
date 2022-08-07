@@ -74,13 +74,16 @@ function Parcelle( {isLogged, setIsLogged} ) {
 
   // Fonction qui sert à importer les images pour les afficher sur notre site
   function importAll(r) {
+    console.log("r =", r);
     const images = r.keys().map((item, index) => {
+      console.log("item:", item, "index:", index);
       return {
         path: r(item),
         name: item.replace(".png", "").replace("./", ""),
         id: +item.replace(/(.*)/, index + 1),
       };
     });
+    console.log("images =", images);
     return images;
   }
 
@@ -104,11 +107,12 @@ function Parcelle( {isLogged, setIsLogged} ) {
     }
   });
 
-  imagesFiltered = imagesFiltered.filter((image) => image?.id);
+  imagesFiltered.filter((image) => image?.id);
 
   // console.log(imagesFiltered);
 
   let imagesToSquare = images.map((image) => {
+    console.log(image);
     const favImage = cropsToParcel.find(
       (cropInParcel) => cropInParcel.id === image.id
     );
@@ -119,7 +123,7 @@ function Parcelle( {isLogged, setIsLogged} ) {
     }
   });
 
-  imagesToSquare = imagesToSquare.filter((image) => image?.id);
+  imagesToSquare.filter((image) => image?.id);
 
   // let parcelId = cropsToParcel.find(
   //   (cropInParcel) => {
