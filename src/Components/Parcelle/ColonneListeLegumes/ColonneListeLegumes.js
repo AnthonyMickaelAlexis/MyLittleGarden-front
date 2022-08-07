@@ -23,7 +23,11 @@ function ColonneListeLegumes({ favoris, setFavoris, crops, images }) {
             console.log('-------> post ajout favoris : ', axiosRequest)
             if (!favoris.find(c => c.id === crop.id)) {
                 const newFavoris = favoris.concat(crop); 
-                setFavoris(newFavoris);
+                setFavoris(newFavoris.sort((a, b) => {
+                    if (a.name < b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    return 0;
+                }));
             }
         } catch (error) {
             console.log(error);
