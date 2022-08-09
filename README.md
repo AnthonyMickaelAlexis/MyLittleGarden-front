@@ -1,3 +1,12 @@
+My Little Garden is a student project, it's an app to make your own garden by planting some vegetable on it.
+
+Tech:
+React
+Semantic UI
+jwt-decode
+SCSS
+Axios
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
